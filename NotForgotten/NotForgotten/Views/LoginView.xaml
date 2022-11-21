@@ -5,9 +5,9 @@
              x:Class="NotForgotten.Views.LoginView">
     <ContentPage.Content>
         <Grid RowDefinitions="0.3*, 0.35*, 0.35*">
-            <Image Source="login_background"
+            <!--<Image Source="login_background"
                    Grid.Row="0"
-                   HorizontalOptions="End"/>
+                   HorizontalOptions="End"/>-->
             <Image Source="login_background_1"
                    VerticalOptions="FillAndExpand"
                    Grid.Row="1"/>
@@ -43,9 +43,9 @@
                                                  CustomBackgroundColor="#FFFFFF"/>
 
                         <controls:CustomEntryControl Title="Password"
-                                                 IsPassword="False"
                                                  Grid.Row="1"
                                                  HasTitle="True"
+                                                     IsPassword="True"
                                                  CornerRadius="20"
                                                  CustomBackgroundColor="#FFFFFF"
                                                  IsPassRightIconVisible="True"

@@ -95,12 +95,14 @@
                     <controls:CustomEntryControl CustomBackgroundColor="#F4F4F4"
                                                  FontFamily="regular"
                                                  IsPassRightIconVisible="True"
+                                                 IsPassword="True"
                                                  PassRightIcon="eye_closed"
                                                  Placeholder="Password"/>
 
                     <controls:CustomEntryControl CustomBackgroundColor="#F4F4F4"
                                                  FontFamily="regular"
                                                  PassRightIcon="eye_closed"
+                                                 IsPassword="True"
                                                  IsPassRightIconVisible="True"
                                                  Placeholder="Repeat Password"/>
 
