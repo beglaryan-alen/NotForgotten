@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:views="http://rotorgames.com"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:controls="clr-namespace:NotForgotten.Controls"
+                 HasKeyboardOffset="False"
+                 x:Class="NotForgotten.Views.Popups.EmailSentPopupView">
+    <pages:PopupPage.Animation>
+
+        <animations:ScaleAnimation PositionIn="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8"
+                                   DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"/>
+    </pages:PopupPage.Animation>
+    
+    <Grid ColumnDefinitions="0.05*, 0.9*, 0.05*"
+          VerticalOptions="Center"
+          HorizontalOptions="Center">
+        
+        <Frame BackgroundColor="#FFFFFF"
+               Padding="30, 40, 30, 10"
+               CornerRadius="7"
+               Grid.Column="1">
+            
+            <StackLayout>
+
+                <StackLayout Padding="0, 0, 0, 20">
+                    
+                    <Label Text="Email Sent"
+                           TextTransform="Uppercase"
+                           TextColor="#000000"
+                           HorizontalOptions="Center"
+                           FontSize="15"
+                           FontFamily="semibold"/>
+
+                    <Label FontSize="15"
+                           TextColor="#676767"
+                           HorizontalTextAlignment="Center"
+                           FontFamily="regular">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="You username and &#10;"/>
+                                <Span Text="instructions to reset your &#10;"/>
+                                <Span Text="password has been sent to &#10;"/>
+                                <Span Text="adrienne@not-forgotten.com"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <BoxView BackgroundColor="#D9D9D9"
+                         Margin="-30, 0"
+                         HeightRequest="1"/>
+
+                <Label HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontFamily="regular"
+                       FontSize="18"
+                       Text="Done"
+                       TextColor="#1976D2">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding DoneCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+
+        </Frame>
+
+    </Grid>
+    
+</views:PopupPage>

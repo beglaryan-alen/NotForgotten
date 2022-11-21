@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:NotForgotten.Controls"
+             x:Class="NotForgotten.Controls.CustomEntryControl"
+             Spacing="10"
+             x:Name="customEntry">
+
+    <Label Text="{Binding Title, Source={x:Reference customEntry}}"
+           IsVisible="{Binding HasTitle, Source={x:Reference customEntry}}"
+           FontSize="16"
+           TextColor="#514E4E"/>
+
+    <Frame BackgroundColor="{Binding CustomBackgroundColor, Source={x:Reference customEntry}}"
+           HasShadow="False"
+           Padding="20, 12"
+           CornerRadius="{Binding CornerRadius, Source={x:Reference customEntry}}">
+
+        <Grid ColumnDefinitions="*, auto">
+
+            <controls:BorderlessEntry Placeholder="{Binding Placeholder, Source={x:Reference customEntry}}"
+                                      IsPassword="{Binding IsPassword, Source={x:Reference customEntry}}"
+                                      PlaceholderColor="#C9C9C9"
+                                      FontSize="12"
+                                      FontFamily="{Binding FontFamily, Source={x:Reference customEntry}}"
+                                      Text="{Binding Text, Source={x:Reference customEntry}, Mode=TwoWay}"/>
+
+            <Image Source="{Binding PassRightIcon, Source={x:Reference customEntry}}"
+                   Grid.Column="1"
+                   VerticalOptions="Center"
+                   IsVisible="{Binding IsPassRightIconVisible, Source={x:Reference customEntry}}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+        </Grid>
+
+    </Frame>
+
+</StackLayout>

@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:views="http://rotorgames.com"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:controls="clr-namespace:NotForgotten.Controls"
+                 HasKeyboardOffset="False"
+                 x:Class="NotForgotten.Views.Popups.RegisterPopupView">
+    <pages:PopupPage.Animation>
+
+        <animations:ScaleAnimation PositionIn="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8"
+                                   DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"/>
+    </pages:PopupPage.Animation>
+
+    <Grid ColumnDefinitions="0.05*, 0.8*, 0.05*"
+          RowDefinitions="0.1*, 0.85*, 0.05*">
+
+        <Frame BackgroundColor="White"
+               Grid.Column="1"
+               Grid.Row="1"
+               CornerRadius="2">
+
+            <Grid RowDefinitions="0.1*, 0.15*, 0.65*, 0.1*">
+
+                <Label Text="REGISTER"
+                       VerticalOptions="Start"
+                       FontFamily="semibold"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       TextColor="#323232"
+                       FontSize="21"/>
+
+                <StackLayout Grid.Row="1"
+                             Spacing="10"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
+
+                    <Label Text="Continue with"
+                           HorizontalTextAlignment="Center"
+                           FontFamily="semibold"
+                           FontSize="12"
+                           TextColor="#373737"/>
+
+                    <StackLayout HorizontalOptions="Center"
+                                 Spacing="10"
+                                 Orientation="Horizontal">
+
+                        <Frame Padding="2"
+                               BackgroundColor="#F4F4F4">
+
+                            <Image Source="facebook_icon"/>
+
+                        </Frame>
+
+                        <Frame Padding="2"
+                               BackgroundColor="#F4F4F4">
+
+                            <Image Source="apple_icon"/>
+
+                        </Frame>
+
+                        <Frame Padding="2"
+                               BackgroundColor="#F4F4F4">
+
+                            <Image Source="google_icon"/>
+
+                        </Frame>
+                        
+                    </StackLayout>
+                    
+                </StackLayout>
+
+                <StackLayout Grid.Row="2"
+                             Margin="0, 20"
+                             Spacing="12">
+
+                    <controls:CustomEntryControl CustomBackgroundColor="#F4F4F4"
+                                                 FontFamily="regular"
+                                                 Placeholder="Email Address"/>
+
+                    <controls:CustomEntryControl CustomBackgroundColor="#F4F4F4"
+                                                 FontFamily="regular"
+                                                 Placeholder="First Name"/>
+
+                    <controls:CustomEntryControl CustomBackgroundColor="#F4F4F4"
+                                                 FontFamily="regular"
+                                                 Placeholder="Last Name"/>
+
+                    <controls:CustomEntryControl CustomBackgroundColor="#F4F4F4"
+                                                 FontFamily="regular"
+                                                 IsPassRightIconVisible="True"
+                                                 PassRightIcon="eye_closed"
+                                                 Placeholder="Password"/>
+
+                    <controls:CustomEntryControl CustomBackgroundColor="#F4F4F4"
+                                                 FontFamily="regular"
+                                                 PassRightIcon="eye_closed"
+                                                 IsPassRightIconVisible="True"
+                                                 Placeholder="Repeat Password"/>
+
+                    <Button Text="Register"
+                            Margin="0, 10"
+                            FontFamily="big"
+                            TextColor="#18222F"
+                            FontSize="18"
+                            Command="{Binding RegisterCommand}"
+                            TextTransform="None"
+                            CornerRadius="30"
+                            BackgroundColor="#FFC846"/>
+
+                    <Label HorizontalOptions="Center"
+                           FontSize="12"
+                           Margin="10, 0"
+                           FontFamily="regular"
+                           HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="BY CREATING AN ACCOUNT YOU AGREE TO THE "
+                                      TextColor="#5B5B5B"/>
+                                <Span Text="TERMS &amp; CONDITIONS "
+                                      TextColor="#000000"/>
+                                <Span Text="AND"
+                                      TextColor="#5B5B5B"/>
+                                <Span Text="PRIVACY POLICY."
+                                      TextColor="#18222F"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <Grid ColumnDefinitions="Auto, *"
+                      VerticalOptions="End"
+                      Grid.Row="3">
+
+                    <StackLayout>
+                        <Label Text="Already have an account?"
+                               FontFamily="regular"
+                               TextColor="#7C7C7C"
+                               FontSize="12"/>
+
+                        <Label Text="Log in"
+                               FontFamily="bold"
+                               TextColor="#18222F"
+                               FontSize="12">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoBackPopupCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="End"
+                                 Grid.Column="1">
+
+                        <Label Text="Need Help?"
+                               FontFamily="semibold"
+                               TextColor="#18222F"
+                               VerticalOptions="Center"
+                               FontSize="12"/>
+
+                        <Frame CornerRadius="40"
+                               VerticalOptions="Center"
+                               BackgroundColor="#ECECEC"
+                               Padding="5">
+                            <Image Source="call"/>
+                        </Frame>
+
+                    </StackLayout>
+                    
+                </Grid>
+            </Grid>
+            
+        </Frame>
+
+
+    </Grid>
+</views:PopupPage>

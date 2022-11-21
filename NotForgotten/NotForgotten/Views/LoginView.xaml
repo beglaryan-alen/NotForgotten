@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:NotForgotten.Controls"
+             x:Class="NotForgotten.Views.LoginView">
+    <ContentPage.Content>
+        <Grid RowDefinitions="0.3*, 0.35*, 0.35*">
+            <Image Source="login_background"
+                   Grid.Row="0"
+                   HorizontalOptions="End"/>
+            <Image Source="login_background_1"
+                   VerticalOptions="FillAndExpand"
+                   Grid.Row="1"/>
+
+            <Grid Padding="15"
+                  Grid.Row="0"
+                  Grid.RowSpan="3"
+              RowDefinitions="Auto, auto">
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto"
+                  Margin="0, 60, 0, 100"
+                  VerticalOptions="Center">
+                    <Grid ColumnDefinitions="0.7*, 0.3*"
+                  Padding="0, 20">
+                        <StackLayout>
+                            <Label Text="Login"
+                               FontFamily="big"
+                               TextColor="#312F2F"
+                               FontSize="27"/>
+                            <Label Text="Login using your registered email and password."
+                               FontFamily="Normal"
+                               TextColor="#726D6D"
+                               FontSize="16"/>
+                        </StackLayout>
+                    </Grid>
+
+                    <Grid RowDefinitions="*, *"
+                      RowSpacing="15"
+                      Grid.Row="1">
+
+                        <controls:CustomEntryControl Title="Email"
+                                                 HasTitle="True"
+                                                 CornerRadius="20"
+                                                 CustomBackgroundColor="#FFFFFF"/>
+
+                        <controls:CustomEntryControl Title="Password"
+                                                 IsPassword="False"
+                                                 Grid.Row="1"
+                                                 HasTitle="True"
+                                                 CornerRadius="20"
+                                                 CustomBackgroundColor="#FFFFFF"
+                                                 IsPassRightIconVisible="True"
+                                                 PassRightIcon="eye_closed_yellow"/>
+
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*, *"
+                      Margin="0, 10, 0, 15"
+                      Grid.Row="2">
+
+                        <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Start">
+
+                            <controls:CheckboxControl IsClicked="True"/>
+
+                            <Label Text="Remember me"
+                               TextColor="#928D8D"
+                               HorizontalTextAlignment="Center"
+                               FontSize="12"/>
+                        </StackLayout>
+
+                        <Label Text="Forgotten Password"
+                           FontFamily="big"
+                           Grid.Column="1"
+                           HorizontalOptions="End"
+                           TextColor="#FFC846">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ForgottenPasswordCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                    </Grid>
+
+                    <Button Grid.Row="3"
+                        BackgroundColor="#FFC846"
+                        Text="Login"
+                        FontFamily="big"
+                        CornerRadius="20"
+                        FontSize="18"
+                        TextTransform="None"/>
+
+                </Grid>
+
+                <Label Text="New user?"
+                   Grid.Row="1"
+                   HorizontalOptions="Center"
+                   FontFamily="big"
+                   VerticalOptions="Center"
+                   FontSize="16"
+                   TextColor="#FFC846">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </Grid>
+            
+
+        </Grid>
+        
+        
+    </ContentPage.Content>
+</ContentPage>

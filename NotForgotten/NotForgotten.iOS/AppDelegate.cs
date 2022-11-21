@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
+using Rg.Plugins.Popup;
 using UIKit;
 
 namespace NotForgotten.iOS
@@ -23,6 +20,7 @@ namespace NotForgotten.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            Popup.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
