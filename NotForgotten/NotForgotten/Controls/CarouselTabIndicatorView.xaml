@@ -1,0 +1,75 @@
+﻿<Frame xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="NotForgotten.Controls.CarouselTabIndicatorView"
+       HorizontalOptions="Center"
+       VerticalOptions="Fill"
+       HasShadow="False"
+       CornerRadius="0"
+       BackgroundColor="#EFEFEF"
+       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+       Padding="5, 0">
+    <StackLayout x:Name="container"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Fill"
+                 Spacing="10"
+                 Orientation="Horizontal">
+        <BindableLayout.ItemTemplate>
+
+            <DataTemplate>
+                <Frame Padding="5, 10, 5, 10"
+                       WidthRequest="75"
+                       CornerRadius="7"
+                       HasShadow="False"
+                       BackgroundColor="Transparent">
+                    <StackLayout HorizontalOptions="Center">
+                        <Image Source="{Binding IconSource}"
+                               HorizontalOptions="Center"
+                           xct:IconTintColorEffect.TintColor="#C9C9C9"
+                                         >
+                            <Image.Triggers>
+                                <DataTrigger TargetType="Image"
+                                         Binding="{Binding IsSelected}"
+                                         Value="True">
+                                    <Setter Property="xct:IconTintColorEffect.TintColor"
+                                        Value="#18222F"/>
+                                </DataTrigger>
+                            </Image.Triggers>
+                        </Image>
+
+                        <Label Text="{Binding Title}"
+                       FontSize="{Binding FontSize}"
+                               
+                       FontFamily="{Binding FontFamily}"
+                       TextColor="{Binding TextColor}"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       Padding="15,0"/>
+
+                        <BoxView BackgroundColor="{DynamicResource appcolor_i5}"
+                         IsVisible="{Binding IsSelected}"
+                         HeightRequest="3"/>
+
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="{Binding .}"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <Frame.Triggers>
+                        <DataTrigger TargetType="Frame"
+                                     Binding="{Binding IsSelected}"
+                                     Value="True">
+                            <Setter Property="BackgroundColor"
+                                    Value="#FFC846"/>
+                        </DataTrigger>
+                    </Frame.Triggers>
+                </Frame>
+
+            </DataTemplate>
+
+        </BindableLayout.ItemTemplate>
+
+    </StackLayout>
+
+</Frame>

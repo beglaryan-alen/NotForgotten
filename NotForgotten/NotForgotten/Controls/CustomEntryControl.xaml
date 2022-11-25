@@ -2,11 +2,13 @@
 <StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:NotForgotten.Controls"
+             xmlns:resources="clr-namespace:NotForgotten.Resources"
              x:Class="NotForgotten.Controls.CustomEntryControl"
              Spacing="10"
              x:Name="customEntry">
 
     <Label Text="{Binding Title, Source={x:Reference customEntry}}"
+           FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
            IsVisible="{Binding HasTitle, Source={x:Reference customEntry}}"
            FontSize="16"
            TextColor="#514E4E"/>

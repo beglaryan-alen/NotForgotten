@@ -4,6 +4,7 @@
       x:Class="NotForgotten.Controls.CustomNavBar"
       ColumnDefinitions="0.15*, 0.8*, 0.15*"
       ColumnSpacing="0"
+      xmlns:resources="clr-namespace:NotForgotten.Resources"
       VerticalOptions="Fill"
       HorizontalOptions="Fill"
       x:Name="customNavBar">
@@ -29,7 +30,7 @@
     <Label Grid.Column="1"
            VerticalOptions="CenterAndExpand"
            HorizontalOptions="CenterAndExpand"
-           FontFamily="big"
+           FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
            FontSize="18"
            TextColor="#18222F"
            Text="{Binding Title, Source={x:Reference customNavBar}}"

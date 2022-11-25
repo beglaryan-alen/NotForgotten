@@ -2,14 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:controls="clr-namespace:NotForgotten.Controls"
+             xmlns:resources="clr-namespace:NotForgotten.Resources"
              x:Class="NotForgotten.Views.LoginView">
     <ContentPage.Content>
-        <Grid RowDefinitions="0.3*, 0.35*, 0.35*">
+        <Grid RowDefinitions="*, Auto">
             <!--<Image Source="login_background"
                    Grid.Row="0"
                    HorizontalOptions="End"/>-->
             <Image Source="login_background_1"
-                   VerticalOptions="FillAndExpand"
                    Grid.Row="1"/>
 
             <Grid Padding="15"
@@ -23,11 +23,11 @@
                   Padding="0, 20">
                         <StackLayout>
                             <Label Text="Login"
-                               FontFamily="big"
+                               FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                                TextColor="#312F2F"
                                FontSize="27"/>
                             <Label Text="Login using your registered email and password."
-                               FontFamily="Normal"
+                               FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
                                TextColor="#726D6D"
                                FontSize="16"/>
                         </StackLayout>
@@ -63,13 +63,14 @@
                             <controls:CheckboxControl IsClicked="True"/>
 
                             <Label Text="Remember me"
+                                   FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
                                TextColor="#928D8D"
                                HorizontalTextAlignment="Center"
                                FontSize="12"/>
                         </StackLayout>
 
                         <Label Text="Forgotten Password"
-                           FontFamily="big"
+                           FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                            Grid.Column="1"
                            HorizontalOptions="End"
                            TextColor="#FFC846">
@@ -83,7 +84,7 @@
                     <Button Grid.Row="3"
                         BackgroundColor="#FFC846"
                         Text="Login"
-                        FontFamily="big"
+                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                         CornerRadius="20"
                         FontSize="18"
                         TextTransform="None"/>
@@ -93,7 +94,7 @@
                 <Label Text="New user?"
                    Grid.Row="1"
                    HorizontalOptions="Center"
-                   FontFamily="big"
+                   FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                    VerticalOptions="Center"
                    FontSize="16"
                    TextColor="#FFC846">

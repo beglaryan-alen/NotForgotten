@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:NotForgotten.Controls"
+             xmlns:selectors="clr-namespace:NotForgotten.TemplateSellectors"
+             xmlns:tabs="clr-namespace:NotForgotten.Views.Tabs"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             x:Name="rootView"
+             x:Class="NotForgotten.Views.RootView">
+    <Grid RowDefinitions="*, Auto">
+        <CarouselView ItemsSource="{Binding TabItems}"
+                          CurrentItem="{Binding CurrentTabItem}"
+                          VerticalScrollBarVisibility="Never"
+                          HorizontalScrollBarVisibility="Never"
+                          IsSwipeEnabled="False"
+                          Loop="False">
+
+            <CarouselView.ItemTemplate>
+
+                <selectors:TabTemplateSelector>
+
+                    <selectors:TabTemplateSelector.CardsTabTemplate>
+
+                        <DataTemplate>
+
+                            <tabs:CardsTabView BindingContext="{Binding CardsTabViewModel}"/>
+
+                        </DataTemplate>
+
+                    </selectors:TabTemplateSelector.CardsTabTemplate>
+
+                    <selectors:TabTemplateSelector.HomeTabTemplate>
+
+                        <DataTemplate>
+
+                            <tabs:HomeTabView BindingContext="{Binding HomeTabViewModel}"/>
+
+                        </DataTemplate>
+
+                    </selectors:TabTemplateSelector.HomeTabTemplate>
+
+                    <selectors:TabTemplateSelector.ShopTabTemplate>
+
+                        <DataTemplate>
+
+                            <tabs:ShopTabView BindingContext="{Binding ShopTabViewModel}"/>
+
+                        </DataTemplate>
+
+                    </selectors:TabTemplateSelector.ShopTabTemplate>
+                    
+                    <selectors:TabTemplateSelector.SettingsTabTemplate>
+
+                        <DataTemplate>
+
+                            <tabs:SettingsTabView BindingContext="{Binding SettingsTabViewModel}"/>
+
+                        </DataTemplate>
+
+                    </selectors:TabTemplateSelector.SettingsTabTemplate>
+
+                </selectors:TabTemplateSelector>
+
+            </CarouselView.ItemTemplate>
+
+        </CarouselView>
+
+        <controls:CarouselTabIndicatorView SelecteTabTextColor="#18222F"
+                                            SelectedIndex="{Binding CurrentTabIndex}"
+                                            UnSelecteTabTextColor="#A6A6A6"
+                                            TabFontSize="12"
+                                            Grid.Row="1"
+                                            TabLabels="{Binding TabLabelsCollection}"
+                                            HorizontalOptions="FillAndExpand"/>
+
+
+    </Grid>
+</ContentPage>

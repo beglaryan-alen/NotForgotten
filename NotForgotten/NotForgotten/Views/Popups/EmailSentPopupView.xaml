@@ -4,7 +4,7 @@
                  xmlns:views="http://rotorgames.com"
                  xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
                  xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-                 xmlns:controls="clr-namespace:NotForgotten.Controls"
+                 xmlns:resources="clr-namespace:NotForgotten.Resources"
                  HasKeyboardOffset="False"
                  x:Class="NotForgotten.Views.Popups.EmailSentPopupView">
     <pages:PopupPage.Animation>
@@ -36,12 +36,12 @@
                            TextColor="#000000"
                            HorizontalOptions="Center"
                            FontSize="15"
-                           FontFamily="semibold"/>
+                           FontFamily="{x:Static resources:FontContstants.SourceSansProSemiBold}"/>
 
                     <Label FontSize="15"
                            TextColor="#676767"
                            HorizontalTextAlignment="Center"
-                           FontFamily="regular">
+                           FontFamily="{x:Static resources:FontContstants.SourceSansProRegular}">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="You username and &#10;"/>
@@ -59,7 +59,7 @@
 
                 <Label HorizontalOptions="Center"
                        VerticalOptions="Center"
-                       FontFamily="regular"
+                       FontFamily="{x:Static resources:FontContstants.SourceSansProRegular}"
                        FontSize="18"
                        Text="Done"
                        TextColor="#1976D2">

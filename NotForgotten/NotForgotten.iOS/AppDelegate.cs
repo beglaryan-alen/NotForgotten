@@ -21,6 +21,8 @@ namespace NotForgotten.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             Popup.Init();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

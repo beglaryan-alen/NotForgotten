@@ -4,11 +4,11 @@ using Rg.Plugins.Popup.Services;
 using System;
 using Xamarin.Forms;
 
-[assembly: ExportFont("NeueHaasDisplayMediu.ttf", Alias = "big")]
-[assembly: ExportFont("NeueHaasDisplayRoman.ttf", Alias = "normal")]
-[assembly: ExportFont("NeueHaasDisplayBold.ttf", Alias = "bold")]
-[assembly: ExportFont("SourceSansPro-Regular.ttf", Alias = "regular")]
-[assembly: ExportFont("SourceSansPro-SemiBold.ttf", Alias = "semibold")]
+[assembly: ExportFont("NeueHaasDisplayMediu.ttf")]
+[assembly: ExportFont("NeueHaasDisplayRoman.ttf")]
+[assembly: ExportFont("NeueHaasDisplayBold.ttf")]
+[assembly: ExportFont("SourceSansPro-Regular.ttf")]
+[assembly: ExportFont("SourceSansPro-SemiBold.ttf")]
 [assembly: ExportFont("SourceSansPro-Bold.ttf")]
 namespace NotForgotten
 {
@@ -19,7 +19,7 @@ namespace NotForgotten
             InitializeComponent();
             SetupServices();
 
-            MainPage = new LoginView();
+            MainPage = new RootView();
         }
 
         private void SetupServices()
