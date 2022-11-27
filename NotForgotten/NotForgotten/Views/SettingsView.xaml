@@ -17,7 +17,7 @@
             <Grid Grid.Row="1"
                   VerticalOptions="Center"
                   RowDefinitions="Auto, Auto, Auto"
-                  Padding="0, 10">
+                  Padding="20, 10">
                 <StackLayout Spacing="10"
                              Grid.Row="1">
                     <BoxView BackgroundColor="#D9D9D9"

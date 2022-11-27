@@ -48,7 +48,7 @@
 
                     <StackLayout BindableLayout.ItemsSource="{Binding Collection}"
                                  Padding="0, 10"
-                                 Spacing="20">
+                                 Spacing="15">
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <cells:CardsViewCell/>
@@ -66,6 +66,7 @@
                             FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                             WidthRequest="100"
                             BackgroundColor="#FFC846"
+                            Command="{Binding NextCommand}"
                             Text="Next Step"
                             TextTransform="None"
                             CornerRadius="30"

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Frame xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       BackgroundColor="Transparent"
+       Padding="0"
+       xmlns:resources="clr-namespace:NotForgotten.Resources"
+       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+       x:Name="categorizeBindableItems"
+       x:Class="NotForgotten.Controls.CategorizeBindableItems">
+
+    <xct:Expander x:Name="expander" 
+                  >
+        <xct:Expander.Header>
+            <Grid ColumnDefinitions="Auto, *">
+                <Label Text="{Binding Title, Source={x:Reference categorizeBindableItems}}"
+                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       TextColor="#18222F"
+                       FontSize="16"
+                       VerticalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="Start"/>
+                <Image Source="arrow_down"
+                       Grid.Column="1"
+                       x:Name="arrowImage"
+                       VerticalOptions="Center"
+                       HorizontalOptions="End"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"
+                                          />
+                </Grid.GestureRecognizers>
+            </Grid>
+        </xct:Expander.Header>
+        <xct:Expander.Content>
+            <Frame BackgroundColor="#FFFFFF"
+                       HeightRequest="230"
+                       CornerRadius="20">
+                    <CollectionView ItemsSource="{Binding Labels, Source={x:Reference categorizeBindableItems}}"
+                                    x:Name="collectionView">
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Label Text="{Binding}"
+                                       FontSize="12"
+                                       FontFamily="{x:Static resources:FontContstants.SourceSansProRegular}"
+                                       TextColor="#5B5B5B"/>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Frame>
+        </xct:Expander.Content>
+    </xct:Expander>
+    
+</Frame>

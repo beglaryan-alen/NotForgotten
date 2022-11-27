@@ -1,7 +1,8 @@
-﻿using NotForgotten.Model;
-using System;
+﻿using MvvmHelpers.Commands;
+using NotForgotten.Model.Cards;
+using NotForgotten.Views;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace NotForgotten.ViewModels.Tabs
@@ -19,6 +20,8 @@ namespace NotForgotten.ViewModels.Tabs
             get => _collection;
             set => SetProperty(ref _collection, value);
         }
+
+        public ICommand NextCommand => new AsyncCommand(async() => await _navigation.PushModalAsync(new CategorizeView()));
 
         protected override void Initialize()
         {
@@ -38,49 +41,19 @@ namespace NotForgotten.ViewModels.Tabs
                 {
                     Title = "Inside left",
                     Desc = "Scene uploaded",
-                    DownloadedSize = 10,
+                    DownloadedSize = 1.6,
                     IsDownloaded= false,
-                    FileSize = 200,
+                    FileSize = 2,
                 },
                 new CardsBindableModel()
                 {
                     Title = "Inside right",
                     Desc = "Scene not uploaded",
-                    DownloadedSize = 0,
+                    DownloadedSize = 12.4,
                     IsDownloaded= false,
                     FileSize = 20,
                 },
             };
-
-            Task.Run(async() =>
-            {
-                while (true)
-                {
-                    Collection[1].DownloadedSize += 0.1;
-                    if (Collection[1].DownloadedSize.CompareTo(Collection[1].FileSize) >= 0)
-                    {
-                        Collection[1].IsDownloaded = true;
-                        return;
-                    }
-                    await Task.Delay(500);
-                }
-                
-            });
-
-            Task.Run(async () =>
-            {
-                while (true)
-                {
-                    Collection[2].DownloadedSize += 0.1;
-                    if (Collection[2].DownloadedSize.CompareTo(Collection[2].FileSize) >= 0)
-                    {
-                        Collection[2].IsDownloaded = true;
-                        return;
-                    }
-                    await Task.Delay(400);
-                }
-                
-            });
         }
     }
 }

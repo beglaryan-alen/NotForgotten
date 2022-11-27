@@ -17,9 +17,9 @@ namespace NotForgotten.ViewModels
         public BaseViewModel(
             INavigation navigation)
         {
-            Initialize();
             _popupNavigation = DependencyService.Get<IPopupNavigation>();
             _navigation = navigation;
+            Initialize();
         }
 
         public ICommand GoBackCommand => new AsyncCommand(async() => await _navigation.PopModalAsync());

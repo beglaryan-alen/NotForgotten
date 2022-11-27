@@ -38,11 +38,15 @@
                       Grid.Row="1">
 
                         <controls:CustomEntryControl Title="Email"
+                                                     TitleFontSize="16"
+                                                     FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
                                                  HasTitle="True"
                                                  CornerRadius="20"
                                                  CustomBackgroundColor="#FFFFFF"/>
 
                         <controls:CustomEntryControl Title="Password"
+                                                     TitleFontSize="16"
+                                                     FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
                                                  Grid.Row="1"
                                                  HasTitle="True"
                                                      IsPassword="True"

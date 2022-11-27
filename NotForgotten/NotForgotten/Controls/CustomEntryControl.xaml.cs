@@ -21,6 +21,36 @@ namespace NotForgotten.Controls
             set => SetValue(TitleProperty, value);
         }
 
+        public static readonly BindableProperty TitleFontFamilyProperty = BindableProperty.Create(
+            propertyName: nameof(TitleFontFamily),
+            returnType: typeof(string),
+            declaringType: typeof(CustomEntryControl));
+        public string TitleFontFamily
+        {
+            get => (string)GetValue(TitleFontFamilyProperty);
+            set => SetValue(TitleFontFamilyProperty, value);
+        }
+
+        public static readonly BindableProperty TitleColorProperty = BindableProperty.Create(
+            propertyName: nameof(TitleColor),
+            returnType: typeof(Color),
+            declaringType: typeof(CustomEntryControl));
+        public Color TitleColor
+        {
+            get => (Color)GetValue(TitleColorProperty);
+            set => SetValue(TitleColorProperty, value);
+        }
+
+        public static readonly BindableProperty TitleFontSizeProperty = BindableProperty.Create(
+            propertyName: nameof(TitleFontSize),
+            returnType: typeof(int),
+            declaringType: typeof(CustomEntryControl));
+        public int TitleFontSize
+        {
+            get => (int)GetValue(TitleFontSizeProperty);
+            set => SetValue(TitleFontSizeProperty, value);
+        }
+
         public static readonly BindableProperty HasTitleProperty = BindableProperty.Create(
             nameof(HasTitle),
             typeof(bool),
@@ -115,6 +145,28 @@ namespace NotForgotten.Controls
         {
             get => (int)GetValue(CornerRadiusProperty);
             set => SetValue(CornerRadiusProperty, value);
+        }
+
+        public static readonly BindableProperty HasLeftIconProperty = BindableProperty.Create(
+            nameof(HasLeftIcon),
+            typeof(bool),
+            typeof(CustomEntryControl),
+            default(bool));
+        public bool HasLeftIcon
+        {
+            get => (bool)GetValue(HasLeftIconProperty);
+            set => SetValue(HasLeftIconProperty, value);
+        }
+
+        public static readonly BindableProperty LeftIconSourceProperty = BindableProperty.Create(
+            nameof(LeftIconSource),
+            typeof(string),
+            typeof(CustomEntryControl),
+            default(string));
+        public string LeftIconSource
+        {
+            get => (string)GetValue(LeftIconSourceProperty);
+            set => SetValue(LeftIconSourceProperty, value);
         }
         #endregion
 

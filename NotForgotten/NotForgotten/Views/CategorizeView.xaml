@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:NotForgotten.Controls"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:resources="clr-namespace:NotForgotten.Resources"
+             x:Class="NotForgotten.Views.CategorizeView">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *">
+            <controls:CustomNavBar Grid.Row="0"
+                                   LeftIcon="back_arrow"
+                                   IsLeftIconVisible="True"
+                                   LeftIconTapCommand="{Binding GoBackCommand}"
+                                   Title="Categorize"
+                                   IsTitleVisible="True"/>
+            <ScrollView Grid.Row="1"
+                        Padding="20">
+                <StackLayout Spacing="20">
+                    
+                    <controls:CustomEntryControl Title="Card Giver Full Name(s)"
+                                                 CustomBackgroundColor="#FFFFFF"
+                                                 TitleFontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                                                 TitleFontSize="19"
+                                                 Placeholder="Full name(s)"
+                                                 TitleColor="#18222F"
+                                                 CornerRadius="30"
+                                                 HasTitle="True"/>
+                    <BoxView BackgroundColor="#9F9F9F"
+                             HeightRequest="1"/>
+
+                    <StackLayout>
+                        <Label Text="Any Context to the Card"
+                               TextColor="#18222F"
+                               FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                               FontSize="19"/>
+
+                        <Frame BackgroundColor="#FFFFFF"
+                               HeightRequest="50"
+                               CornerRadius="20">
+                            <controls:BorderlessEntry IsSpellCheckEnabled="False"
+                                                      VerticalOptions="Start"   />
+                        </Frame>
+                    </StackLayout>
+
+                    <BoxView BackgroundColor="#9F9F9F"
+                             HeightRequest="1"/>
+                    
+                    <StackLayout>
+
+                        <Label Text="Date received"
+                               TextColor="#18222F"
+                               FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                               FontSize="19"/>
+
+                        <Grid ColumnDefinitions="Auto, *, *, 2*"
+                              ColumnSpacing="20">
+
+                            <Image Source="calendar"
+                                   Grid.Column="0"/>
+
+                            <Frame BackgroundColor="#FFFFFF"
+                                   Grid.Column="1"
+                                   Padding="10"
+                                   CornerRadius="20">
+                                <controls:BorderlessEntry HorizontalTextAlignment="Center"
+                                                          FontSize="16"
+                                                          Placeholder="DD"/>
+                            </Frame>
+
+                            <Frame BackgroundColor="#FFFFFF"
+                                   Grid.Column="2"
+                                   Padding="20, 10"
+                                   CornerRadius="20">
+                                <controls:BorderlessEntry HorizontalTextAlignment="Center"
+                                                          FontSize="16"
+                                                          Placeholder="MM"/>
+                            </Frame>
+
+                            <Frame BackgroundColor="#FFFFFF"
+                                   Grid.Column="3"
+                                   Padding="10"
+                                   CornerRadius="20">
+                                <controls:BorderlessEntry HorizontalTextAlignment="Center"
+                                                          FontSize="16"
+                                                          Placeholder="YYYY"/>
+                            </Frame>
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout Spacing="10">
+                        <BoxView BackgroundColor="#9F9F9F"
+                             HeightRequest="1"/>
+
+                        <controls:CategorizeBindableItems Title="Givers relationship to you"
+                                                      Labels="{Binding GiversRelationship}"/>
+
+                        <BoxView BackgroundColor="#9F9F9F"
+                             HeightRequest="1"/>
+
+                        <controls:CategorizeBindableItems Title="Occasion"
+                                                      Labels="{Binding Occasion}"/>
+
+                        <BoxView BackgroundColor="#9F9F9F"
+                             HeightRequest="1"/>
+
+                        <controls:CategorizeBindableItems Title="Your Life Stage"
+                                                      Labels="{Binding LifeStage}"/>
+
+                        <BoxView BackgroundColor="#9F9F9F"
+                             HeightRequest="1"/>
+
+                        <controls:CategorizeBindableItems Title="Card Format"
+                                                      Labels="{Binding CardFormat}"/>
+
+                        <BoxView BackgroundColor="#9F9F9F"
+                             HeightRequest="1"/>
+
+                        <xct:Expander x:Name="expander"
+                                  Padding="0, 0, 0, 10">
+                            <xct:Expander.Header>
+                                <Grid ColumnDefinitions="Auto, *">
+                                    <Label Text="Where do you want to pin it on the map?"
+                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       TextColor="#18222F"
+                       FontSize="16"
+                       VerticalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="Start"/>
+                                    <Image Source="arrow_down"
+                       Grid.Column="1"
+                       x:Name="arrowImage"
+                       VerticalOptions="Center"
+                       HorizontalOptions="End"/>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </xct:Expander.Header>
+                            <xct:Expander.Content>
+                                <StackLayout Padding="0, 20"
+                                         Spacing="15">
+                                    <controls:CustomEntryControl HasTitle="True"
+                                                             Title="Address line 1"
+                                                             TitleFontSize="16"
+                                                             FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                                             CustomBackgroundColor="#FFFFFF"
+                                                             CornerRadius="20"/>
+
+                                    <controls:CustomEntryControl HasTitle="True"
+                                                             Title="Address line 2"
+                                                             TitleFontSize="16"
+                                                             FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                                             CustomBackgroundColor="#FFFFFF"
+                                                             CornerRadius="20"/>
+
+                                    <controls:CustomEntryControl HasTitle="True"
+                                                             Title="City"
+                                                             TitleFontSize="16"
+                                                             FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                                             CustomBackgroundColor="#FFFFFF"
+                                                             CornerRadius="20"/>
+
+                                    <controls:CustomEntryControl HasTitle="True"
+                                                             Title="State/Province"
+                                                             TitleFontSize="16"
+                                                             FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                                             CustomBackgroundColor="#FFFFFF"
+                                                             CornerRadius="20"/>
+
+                                    <controls:CustomEntryControl HasTitle="True"
+                                                             Title="Country"
+                                                             TitleFontSize="16"
+                                                             HasLeftIcon="True"
+                                                             LeftIconSource="us_flag"
+                                                             Placeholder="-Select one-"
+                                                             FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                                             CustomBackgroundColor="#FFFFFF"
+                                                             CornerRadius="20"/>
+
+                                    <controls:CustomEntryControl HasTitle="True"
+                                                             Title="Zip/Code"
+                                                             TitleFontSize="16"
+                                                             FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                                             CustomBackgroundColor="#FFFFFF"
+                                                             CornerRadius="20"/>
+                                </StackLayout>
+                            </xct:Expander.Content>
+                        </xct:Expander>
+                    </StackLayout>
+                   
+
+                    <Button Text="Submit for Archiving"
+                            FontSize="18"
+                            CornerRadius="20"
+                            TextTransform="None"
+                            FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                            BackgroundColor="#FFC846"/>
+
+                </StackLayout>
+                    
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

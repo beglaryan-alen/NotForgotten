@@ -5,6 +5,7 @@
        xmlns:converters="clr-namespace:NotForgotten.Converters"
        xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
        Padding="15, 10,15,5"
+       BackgroundColor="#FFFFFF"
        HasShadow="False"
        CornerRadius="6"
        xmlns:prograssbar="clr-namespace:Xamarin.Forms.Controls;assembly=CircularProgressBar"
@@ -18,6 +19,7 @@
     <Grid ColumnDefinitions="Auto, *"
           VerticalOptions="Center">
         <StackLayout Grid.Column="0"
+                     Spacing="0"
                      HorizontalOptions="Start">
             <Label Text="{Binding Title}"
                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
@@ -29,24 +31,24 @@
                    FontSize="12"/>
         </StackLayout>
 
-        <Grid Grid.Column="1"
-              RowDefinitions="Auto, Auto"
-              
+        <StackLayout Grid.Column="1"
+                     Spacing="3"
               VerticalOptions="Center">
-            <Grid HorizontalOptions="End">
-                <Frame HeightRequest="30"
+            <Grid>
+                <Frame HeightRequest="18"
                        Padding="0"
                        VerticalOptions="Center"
-                       CornerRadius="40"
+                       CornerRadius="20"
                        HasShadow="False"
+                       HorizontalOptions="End"
                        BackgroundColor="#FCDDEC"
-                       WidthRequest="30">
+                       WidthRequest="18">
                     <Image Source="bi_check"
                            IsVisible="False"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
-                           HeightRequest="20"
-                           WidthRequest="20">
+                           HeightRequest="15"
+                           WidthRequest="15">
                         <Image.Triggers>
                             <DataTrigger TargetType="Image"
                                          Binding="{Binding IsDownloaded}"
@@ -65,8 +67,10 @@
                         </DataTrigger>
                     </Frame.Triggers>
                 </Frame>
-                <prograssbar:CircularProgressBar WidthRequest="30" HeightRequest="30"
+                <prograssbar:CircularProgressBar WidthRequest="20" HeightRequest="20"
+                                                 Stroke="3"
                                                  Color="#007DFF"
+                                                 HorizontalOptions="End"
                                                  VerticalOptions="Center">
                     <prograssbar:CircularProgressBar.Triggers>
                         <DataTrigger TargetType="prograssbar:CircularProgressBar"
@@ -86,8 +90,7 @@
                 
             </Grid>
 
-            <StackLayout Grid.Row="1"
-                         Orientation="Horizontal"
+            <StackLayout Orientation="Horizontal"
                          Spacing="0"
                          HorizontalOptions="End"
                          >
@@ -101,7 +104,7 @@
                 </Label>
 
                 <Label FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
-                       Text="{Binding FileSize, StringFormat='{0:0.0}mb'}"
+                       Text="{Binding FileSize, StringFormat='{0:0}mb'}"
                        HorizontalOptions="Center"
                        HorizontalTextAlignment="Center"
                    TextColor="#000000"
@@ -109,6 +112,6 @@
                 </Label>
             </StackLayout>
             
-        </Grid>
+        </StackLayout>
     </Grid>
 </Frame>
