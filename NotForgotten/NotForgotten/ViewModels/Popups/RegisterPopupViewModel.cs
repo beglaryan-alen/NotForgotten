@@ -17,7 +17,8 @@ namespace NotForgotten.ViewModels.Popups
 
         private async Task OnRegisterCommand()
         {
-            
+            GoBackPopupCommand.Execute(null);
+            App.Current.MainPage = new RootView();
         }
     }
 }

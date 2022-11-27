@@ -87,6 +87,7 @@
                         FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                         CornerRadius="20"
                         FontSize="18"
+                            Command="{Binding LoginCommand}"
                         TextTransform="None"/>
 
                 </Grid>

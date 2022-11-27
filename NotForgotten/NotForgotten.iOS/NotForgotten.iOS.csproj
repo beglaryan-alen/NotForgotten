@@ -142,6 +142,9 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms.CircularProgressBar">
+      <Version>1.0.4</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms.Visual.Material">
       <Version>5.0.0.2196</Version>
     </PackageReference>
@@ -332,5 +335,14 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\settings_icon%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bi_check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bi_check%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bi_check%403x.png" />
   </ItemGroup>
 </Project>

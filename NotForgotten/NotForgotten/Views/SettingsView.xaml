@@ -6,11 +6,12 @@
              x:Class="NotForgotten.Views.SettingsView">
     <ContentPage.Content>
         
-        <Grid RowDefinitions="Auto, *"
-              Padding="20, 20, 20, 0">
+        <Grid RowDefinitions="Auto, *">
             
             <controls:CustomNavBar Title="Settings"
                                    LeftIcon="back_arrow"
+                                   IsTitleVisible="True"
+                                   IsLeftIconVisible="True"
                                    LeftIconTapCommand="{Binding GoBackCommand}"/>
             
             <Grid Grid.Row="1"
@@ -178,6 +179,7 @@
                                 CornerRadius="20"
                                 FontSize="18"
                                 Padding="20, 0"
+                                Command="{Binding SubmitCommand}"
                                 TextTransform="None"
                                 FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"/>
                     </Grid>

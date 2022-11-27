@@ -2,17 +2,28 @@
 <Grid xmlns="http://xamarin.com/schemas/2014/forms"
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
       x:Class="NotForgotten.Controls.CustomNavBar"
-      ColumnDefinitions="0.15*, 0.8*, 0.15*"
+      ColumnDefinitions="Auto, *"
       ColumnSpacing="0"
       xmlns:resources="clr-namespace:NotForgotten.Resources"
       VerticalOptions="Fill"
       HorizontalOptions="Fill"
+      Padding="20, 25, 0, 0"
       x:Name="customNavBar">
+    <StackLayout Orientation="Horizontal"
+                 Grid.Column="0">
+        <Image VerticalOptions="CenterAndExpand"
+               IsVisible="{Binding IsLeftIconVisible, Source={x:Reference customNavBar}}"
+               Source="{Binding LeftIcon, Source={x:Reference customNavBar}}"/>
 
-    <Image Grid.Column="0"
-           VerticalOptions="CenterAndExpand"
-           HorizontalOptions="StartAndExpand"
-           Source="{Binding LeftIcon, Source={x:Reference customNavBar}}"/>
+        <Label VerticalOptions="CenterAndExpand"
+           FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+           FontSize="16"
+           TextColor="#18222F"
+           IsVisible="{Binding IsLeftLabelVisible, Source={x:Reference customNavBar}}"
+           Text="{Binding LeftLabel, Source={x:Reference customNavBar}}"
+           />
+    </StackLayout>
+    
 
     <BoxView Grid.Column="0"
              VerticalOptions="Fill"
@@ -27,32 +38,15 @@
 
     </BoxView>
 
-    <Label Grid.Column="1"
+    <Label Grid.Column="0"
+           Grid.ColumnSpan="2"
            VerticalOptions="CenterAndExpand"
            HorizontalOptions="CenterAndExpand"
            FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
            FontSize="18"
            TextColor="#18222F"
+           IsVisible="{Binding IsTitleVisible, Source={x:Reference customNavBar}}"
            Text="{Binding Title, Source={x:Reference customNavBar}}"
            />
-
-    <Image Grid.Column="2"
-           VerticalOptions="CenterAndExpand"
-           HorizontalOptions="CenterAndExpand"
-           Source="{Binding RightIcon, Source={x:Reference customNavBar}}"
-           IsVisible="{Binding IsRightIconVisible, Source={x:Reference customNavBar}}"/>
-
-    <BoxView Grid.Column="2"
-             VerticalOptions="Fill"
-             HorizontalOptions="Fill"
-             BackgroundColor="Transparent">
-
-        <BoxView.GestureRecognizers>
-
-            <TapGestureRecognizer Command="{Binding RightIconTapCommand, Source={x:Reference customNavBar}}"/>
-
-        </BoxView.GestureRecognizers>
-
-    </BoxView>
 
 </Grid>

@@ -1,4 +1,5 @@
 ﻿using NotForgotten.ViewModels;
+using System;
 using Xamarin.Forms;
 
 namespace NotForgotten.Views

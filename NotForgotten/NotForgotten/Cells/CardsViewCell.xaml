@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Frame xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:resources="clr-namespace:NotForgotten.Resources" 
+       xmlns:converters="clr-namespace:NotForgotten.Converters"
+       xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+       Padding="15, 10,15,5"
+       HasShadow="False"
+       CornerRadius="6"
+       xmlns:prograssbar="clr-namespace:Xamarin.Forms.Controls;assembly=CircularProgressBar"
+       x:Class="NotForgotten.Cells.CardsViewCell">
+
+    <Frame.Resources>
+        <converters:PercentConverter x:Key="PercentConverter" />
+        <xct:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+    </Frame.Resources>
+
+    <Grid ColumnDefinitions="Auto, *"
+          VerticalOptions="Center">
+        <StackLayout Grid.Column="0"
+                     HorizontalOptions="Start">
+            <Label Text="{Binding Title}"
+                   FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                   TextColor="#18222F"
+                   FontSize="16"/>
+            <Label Text="{Binding Desc}"
+                   FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                   TextColor="#928D8D"
+                   FontSize="12"/>
+        </StackLayout>
+
+        <Grid Grid.Column="1"
+              RowDefinitions="Auto, Auto"
+              
+              VerticalOptions="Center">
+            <Grid HorizontalOptions="End">
+                <Frame HeightRequest="30"
+                       Padding="0"
+                       VerticalOptions="Center"
+                       CornerRadius="40"
+                       HasShadow="False"
+                       BackgroundColor="#FCDDEC"
+                       WidthRequest="30">
+                    <Image Source="bi_check"
+                           IsVisible="False"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           HeightRequest="20"
+                           WidthRequest="20">
+                        <Image.Triggers>
+                            <DataTrigger TargetType="Image"
+                                         Binding="{Binding IsDownloaded}"
+                                         Value="True">
+                                <Setter Property="IsVisible"
+                                        Value="True"/>
+                            </DataTrigger>
+                        </Image.Triggers>
+                    </Image>
+                    <Frame.Triggers>
+                        <DataTrigger TargetType="Frame"
+                                     Binding="{Binding IsDownloaded}"
+                                     Value="True">
+                            <Setter Property="BackgroundColor"
+                                    Value="#EFEFEF"/>
+                        </DataTrigger>
+                    </Frame.Triggers>
+                </Frame>
+                <prograssbar:CircularProgressBar WidthRequest="30" HeightRequest="30"
+                                                 Color="#007DFF"
+                                                 VerticalOptions="Center">
+                    <prograssbar:CircularProgressBar.Triggers>
+                        <DataTrigger TargetType="prograssbar:CircularProgressBar"
+                                 Binding="{Binding IsDownloaded}"
+                                 Value="True">
+                            <Setter Property="Color"
+                                Value="#007D00"/>
+                        </DataTrigger>
+                    </prograssbar:CircularProgressBar.Triggers>
+                    <prograssbar:CircularProgressBar.Progress>
+                        <MultiBinding Converter="{StaticResource PercentConverter}">
+                            <Binding Path="DownloadedSize" />
+                            <Binding Path="FileSize" />
+                        </MultiBinding>
+                    </prograssbar:CircularProgressBar.Progress>
+                </prograssbar:CircularProgressBar>
+                
+            </Grid>
+
+            <StackLayout Grid.Row="1"
+                         Orientation="Horizontal"
+                         Spacing="0"
+                         HorizontalOptions="End"
+                         >
+                <Label FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       IsVisible="{Binding IsDownloaded, Converter={StaticResource InvertedBoolConverter}}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Text="{Binding DownloadedSize, StringFormat='{0:0.0}/'}"
+                   TextColor="#000000"
+                   FontSize="12">
+                </Label>
+
+                <Label FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       Text="{Binding FileSize, StringFormat='{0:0.0}mb'}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                   TextColor="#000000"
+                   FontSize="12">
+                </Label>
+            </StackLayout>
+            
+        </Grid>
+    </Grid>
+</Frame>

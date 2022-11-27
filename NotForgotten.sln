@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotForgotten.Android", "Not
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotForgotten.iOS", "NotForgotten\NotForgotten.iOS\NotForgotten.iOS.csproj", "{D3953C21-8343-4AA7-BD6D-1C9475EB66E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotForgotten", "NotForgotten\NotForgotten\NotForgotten.csproj", "{59522680-F2F7-47B7-9560-FBCFFAE39545}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotForgotten", "NotForgotten\NotForgotten\NotForgotten.csproj", "{59522680-F2F7-47B7-9560-FBCFFAE39545}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

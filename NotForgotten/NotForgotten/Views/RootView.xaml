@@ -4,6 +4,7 @@
              xmlns:controls="clr-namespace:NotForgotten.Controls"
              xmlns:selectors="clr-namespace:NotForgotten.TemplateSellectors"
              xmlns:tabs="clr-namespace:NotForgotten.Views.Tabs"
+             xmlns:resoucres="clr-namespace:NotForgotten.Resources"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              android:TabbedPage.ToolbarPlacement="Bottom"
              x:Name="rootView"
@@ -70,6 +71,7 @@
                                             SelectedIndex="{Binding CurrentTabIndex}"
                                             UnSelecteTabTextColor="#A6A6A6"
                                             TabFontSize="12"
+                                           TabFontFamily="{x:Static resoucres:FontContstants.NeueHaasDisplayRoman}"
                                             Grid.Row="1"
                                             TabLabels="{Binding TabLabelsCollection}"
                                             HorizontalOptions="FillAndExpand"/>
