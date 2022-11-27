@@ -13,7 +13,7 @@ namespace NotForgotten.ViewModels.Popups
         {
         }
 
-        public ICommand DoneCommand => new AsyncCommand(OnDoneCommand);
+         public ICommand DoneCommand => new AsyncCommand(OnDoneCommand);
 
         private async Task OnDoneCommand()
         {
