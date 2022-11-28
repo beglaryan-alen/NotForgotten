@@ -19,7 +19,7 @@ namespace NotForgotten
             InitializeComponent();
             SetupServices();
 
-            MainPage = new LoginView();
+            MainPage = new RootView();
         }
 
         private void SetupServices()

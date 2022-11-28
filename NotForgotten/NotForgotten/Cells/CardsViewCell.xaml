@@ -42,7 +42,7 @@
                        HasShadow="False"
                        HorizontalOptions="End"
                        BackgroundColor="#FCDDEC"
-                       WidthRequest="18">
+                       WidthRequest="20">
                     <Image Source="bi_check"
                            IsVisible="False"
                            HorizontalOptions="Center"

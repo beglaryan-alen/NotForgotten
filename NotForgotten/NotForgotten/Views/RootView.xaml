@@ -9,7 +9,7 @@
              android:TabbedPage.ToolbarPlacement="Bottom"
              x:Name="rootView"
              x:Class="NotForgotten.Views.RootView">
-    <Grid RowDefinitions="*, Auto">
+    <Grid RowDefinitions="0.9*, 0.1*">
         <CarouselView ItemsSource="{Binding TabItems}"
                           CurrentItem="{Binding CurrentTabItem}"
                           VerticalScrollBarVisibility="Never"
