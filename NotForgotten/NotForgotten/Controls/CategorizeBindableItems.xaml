@@ -3,6 +3,7 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        BackgroundColor="Transparent"
        Padding="0"
+       HasShadow="False"
        xmlns:resources="clr-namespace:NotForgotten.Resources"
        xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
        x:Name="categorizeBindableItems"
