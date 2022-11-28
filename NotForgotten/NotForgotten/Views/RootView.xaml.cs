@@ -11,6 +11,5 @@ namespace NotForgotten.Views
             InitializeComponent();
             BindingContext = new RootViewModel(Navigation);
         }
-
     }
 }
