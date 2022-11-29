@@ -22,7 +22,7 @@ namespace NotForgotten
             MainPage = new LoginView();
         }
 
-        private void SetupServices()
+         private void SetupServices()
         {
             DependencyService.RegisterSingleton(PopupNavigation.Instance);
         }
