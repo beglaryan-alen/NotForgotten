@@ -138,7 +138,7 @@
                     </Grid>
                     <Grid Padding="10, 0"
                           Grid.Row="1"
-                          RowDefinitions="Auto, *"
+                          RowDefinitions="*, Auto"
                           RowSpacing="30">
 
                         <StackLayout Spacing="15"
