@@ -1,10 +1,102 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:resources="clr-namespace:NotForgotten.Resources"
+             xmlns:controls="clr-namespace:NotForgotten.Controls" 
+             xmlns:prograssbar="clr-namespace:Xamarin.Forms.Controls;assembly=CircularProgressBar" xmlns:cells="clr-namespace:NotForgotten.Cells"
              x:Class="NotForgotten.Views.Tabs.HomeTabView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Home" />
-      </StackLayout>
-  </ContentView.Content>
+    <ContentView.Content>
+        <Grid RowDefinitions="Auto, *">
+
+            <controls:CustomNavBar Title="Your Collection"
+                                   IsTitleVisible="True"/>
+
+            <Grid RowDefinitions="0.15*, 0.65*, 0.2*"
+                  Padding="20, 10"
+                  Grid.Row="1">
+
+                <Frame BackgroundColor="#18222F"
+                       HasShadow="False"
+                       CornerRadius="10"
+                       >
+                    <Grid ColumnDefinitions="Auto, 0.7*">
+                        <prograssbar:CircularProgressBar Stroke="7"
+                                                         Progress="40"
+                                                         Color="#007D00"
+                                                         WidthRequest="50"
+                                                         HorizontalOptions="Start"/>
+                        <StackLayout VerticalOptions="StartAndExpand"
+                                     Padding="20, 0"
+                                     Spacing="10"
+                                     HorizontalOptions="StartAndExpand"
+                                     Grid.Column="1">
+                            <Label Text="Total Archive Capacity"
+                                   FontSize="16"
+                                   FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                   TextColor="#EFEFEF"/>
+
+                            <Label Text="800MB/2GB used "
+                                   TextColor="#007DFF"
+                                   FontSize="12"
+                                   FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
+                <StackLayout BindableLayout.ItemsSource="{Binding Collection}"
+                             Spacing="0"
+                             Grid.Row="1">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                                <SwipeView BackgroundColor="Transparent"
+                                       Padding="0">
+                                    <cells:HomeViewCell/>
+                                    <SwipeView.RightItems>
+                                        <SwipeItemView>
+                                            <Grid RowDefinitions="70"
+                                              VerticalOptions="Center">
+                                                <Frame BackgroundColor="#FFEFC8"
+                                                   Padding="20">
+                                                    <StackLayout VerticalOptions="Center">
+                                                        <Image Source="swipe_rename"/>
+                                                        <Label Text="Rename"
+                                                           TextColor="#18222F"
+                                                           FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                                           FontSize="12"/>
+                                                    </StackLayout>
+
+                                                </Frame>
+                                            </Grid>
+
+                                        </SwipeItemView>
+                                    </SwipeView.RightItems>
+                                </SwipeView>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+
+                <Grid Grid.Row="2"
+                      RowDefinitions="*, *">
+
+                    <Button BackgroundColor="#FFC846"
+                            CornerRadius="30"
+                            TextTransform="None"
+                            FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                            FontSize="16"
+                            Text="+ Add Another"/>
+
+                    <Button BackgroundColor="#FFC846"
+                            Grid.Row="1"
+                            CornerRadius="30"
+                            TextTransform="None"
+                            Command="{Binding IndexToLibrary}"
+                            FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                            FontSize="16"
+                            Text="Index to Library"/>
+                </Grid>
+
+            </Grid>
+            
+        </Grid>
+    </ContentView.Content>
 </ContentView>

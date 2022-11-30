@@ -11,6 +11,7 @@ namespace NotForgotten.Controls
     public partial class CarouselTabIndicatorView : Frame
     {
         private List<TabElementBindableModel> _tabCollection;
+        private int _selectedIndex;
 
         public CarouselTabIndicatorView()
         {
@@ -89,7 +90,8 @@ namespace NotForgotten.Controls
         public static readonly BindableProperty TabLabelsProperty = BindableProperty.Create(
             propertyName: nameof(TabLabels),
             returnType: typeof(IEnumerable<string>),
-            declaringType: typeof(CarouselTabIndicatorView));
+            declaringType: typeof(CarouselTabIndicatorView),
+            defaultBindingMode: BindingMode.TwoWay);
 
         public IEnumerable<string> TabLabels
         {
@@ -146,7 +148,7 @@ namespace NotForgotten.Controls
 
                 _tabCollection = collection;
 
-                //SelectTab(0);
+                SelectTab(SelectedIndex);
 
                 BindableLayout.SetItemsSource(container, _tabCollection);
                 InvalidateLayout();

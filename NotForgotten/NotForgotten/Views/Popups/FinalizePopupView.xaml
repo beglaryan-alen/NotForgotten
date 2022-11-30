@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:views="http://rotorgames.com"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+                 xmlns:resources="clr-namespace:NotForgotten.Resources"
+                 HasKeyboardOffset="False"
+                 x:Class="NotForgotten.Views.Popups.FinalizePopupView">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation PositionIn="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8"
+                                   DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"/>
+    </pages:PopupPage.Animation>
+    <Grid ColumnDefinitions="0.1*, 0.8*, 0.1*"
+          VerticalOptions="Center">
+
+        <Frame CornerRadius="10"
+               Grid.Column="1"
+               HorizontalOptions="Center"
+               Padding="10, 20"
+               VerticalOptions="Center"
+               BackgroundColor="#F4F4F4">
+            <StackLayout Spacing="20">
+                <Label Text="Cards will appear in the library within 60 mins and can only index every sixty minutes. You will receive an email once it is indexed"
+                   FontSize="21"
+                       HorizontalTextAlignment="Center"
+                   FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                   TextColor="#18222F"/>
+                <Button BackgroundColor="#FFC846"
+                    FontSize="18"
+                    Text="Finalize"
+                        CornerRadius="20"
+                        TextTransform="None"
+                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                    Command="{Binding FinalizeCommand}"
+                    TextColor="#18222F"/>
+
+            </StackLayout>
+        </Frame>
+
+
+    </Grid>
+    
+</views:PopupPage>

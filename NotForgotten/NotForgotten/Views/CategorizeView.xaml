@@ -4,7 +4,9 @@
              xmlns:controls="clr-namespace:NotForgotten.Controls"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:resources="clr-namespace:NotForgotten.Resources"
+             xmlns:behaviors="clr-namespace:NotForgotten.Behaviors"
              x:Class="NotForgotten.Views.CategorizeView">
+
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, *">
             <controls:CustomNavBar Grid.Row="0"
@@ -66,7 +68,12 @@
                                    CornerRadius="20">
                                 <controls:BorderlessEntry HorizontalTextAlignment="Center"
                                                           FontSize="16"
-                                                          Placeholder="DD"/>
+                                                          Keyboard="Numeric"
+                                                          Placeholder="DD">
+                                    <controls:BorderlessEntry.Behaviors>
+                                        <behaviors:NumericValidationBehavior />
+                                    </controls:BorderlessEntry.Behaviors>
+                                </controls:BorderlessEntry>
                             </Frame>
 
                             <Frame BackgroundColor="#FFFFFF"
@@ -76,7 +83,12 @@
                                    CornerRadius="20">
                                 <controls:BorderlessEntry HorizontalTextAlignment="Center"
                                                           FontSize="16"
-                                                          Placeholder="MM"/>
+                                                          Keyboard="Numeric"
+                                                          Placeholder="MM">
+                                    <controls:BorderlessEntry.Behaviors>
+                                        <behaviors:NumericValidationBehavior />
+                                    </controls:BorderlessEntry.Behaviors>
+                                </controls:BorderlessEntry>
                             </Frame>
 
                             <Frame BackgroundColor="#FFFFFF"
@@ -86,7 +98,12 @@
                                    CornerRadius="20">
                                 <controls:BorderlessEntry HorizontalTextAlignment="Center"
                                                           FontSize="16"
-                                                          Placeholder="YYYY"/>
+                                                          Keyboard="Numeric"
+                                                          Placeholder="YYYY">
+                                    <controls:BorderlessEntry.Behaviors>
+                                        <behaviors:NumericValidationBehavior />
+                                    </controls:BorderlessEntry.Behaviors>
+                                </controls:BorderlessEntry>
                             </Frame>
                         </Grid>
                     </StackLayout>

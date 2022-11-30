@@ -12,6 +12,7 @@
     <Grid RowDefinitions="0.9*, 0.1*">
         <CarouselView ItemsSource="{Binding TabItems}"
                           CurrentItem="{Binding CurrentTabItem}"
+                      TabIndex="{Binding CurrentTabIndex}"
                           VerticalScrollBarVisibility="Never"
                           HorizontalScrollBarVisibility="Never"
                           IsSwipeEnabled="False"
@@ -73,7 +74,7 @@
                                             TabFontSize="12"
                                            TabFontFamily="{x:Static resoucres:FontContstants.NeueHaasDisplayRoman}"
                                             Grid.Row="1"
-                                            TabLabels="{Binding TabLabelsCollection}"
+                                            TabLabels="{Binding TabLabelsCollection, Mode=TwoWay}"
                                             HorizontalOptions="FillAndExpand"/>
 
 

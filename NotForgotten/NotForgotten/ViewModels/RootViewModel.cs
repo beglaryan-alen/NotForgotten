@@ -15,6 +15,7 @@ namespace NotForgotten.ViewModels
                 "Shop",
                 "Settings",
             };
+            CurrentTabIndex = 1;
         }
 
         private ObservableCollection<string> _tabLabelsCollection;
@@ -103,6 +104,7 @@ namespace NotForgotten.ViewModels
                 ShopTabViewModel,
                 SettingsTabVIewModel,
             };
+
         }
 
         #endregion

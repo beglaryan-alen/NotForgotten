@@ -8,7 +8,7 @@
        BackgroundColor="#FFFFFF"
        HasShadow="False"
        CornerRadius="6"
-       xmlns:prograssbar="clr-namespace:Xamarin.Forms.Controls;assembly=CircularProgressBar"
+       xmlns:prograssbar="clr-namespace:Xamarin.Forms.Controls;assembly=CircularProgressBar" xmlns:pages="http://rotorgames.com"
        x:Class="NotForgotten.Cells.CardsViewCell">
 
     <Frame.Resources>
@@ -89,7 +89,6 @@
                 </prograssbar:CircularProgressBar>
                 
             </Grid>
-
             <StackLayout Orientation="Horizontal"
                          Spacing="0"
                          HorizontalOptions="End"

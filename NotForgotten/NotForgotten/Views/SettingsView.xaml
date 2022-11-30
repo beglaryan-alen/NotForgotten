@@ -178,7 +178,6 @@
                                 Text="Submit"
                                 CornerRadius="20"
                                 FontSize="18"
-                                Padding="20, 0"
                                 Command="{Binding SubmitCommand}"
                                 TextTransform="None"
                                 FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"/>

@@ -38,7 +38,6 @@
 
                         <Label Text="{Binding Title}"
                        FontSize="{Binding FontSize}"
-                               
                        FontFamily="{Binding FontFamily}"
                        TextColor="{Binding TextColor}"
                        FontAttributes="Bold"
