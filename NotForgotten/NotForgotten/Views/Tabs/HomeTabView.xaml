@@ -20,13 +20,13 @@
                        CornerRadius="10"
                        >
                     <Grid ColumnDefinitions="Auto, 0.7*">
-                        <prograssbar:CircularProgressBar Stroke="6"
+                        <prograssbar:CircularProgressBar Stroke="5"
                                                          Progress="40"
                                                          Color="#007D00"
-                                                         WidthRequest="60"
+                                                         WidthRequest="50"
                                                          HorizontalOptions="Center"
                                                          VerticalOptions="Center"
-                                                         HeightRequest="60"/>
+                                                         HeightRequest="50"/>
                         <StackLayout VerticalOptions="StartAndExpand"
                                      Padding="20, 0"
                                      Spacing="10"
