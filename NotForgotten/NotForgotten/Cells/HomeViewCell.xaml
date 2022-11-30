@@ -6,9 +6,7 @@
        xmlns:resources="clr-namespace:NotForgotten.Resources" 
       xmlns:prograssbar="clr-namespace:Xamarin.Forms.Controls;assembly=CircularProgressBar" xmlns:pages="http://rotorgames.com"
       HeightRequest="80"
-      Padding="10, 10"
        x:Class="NotForgotten.Cells.HomeViewCell">
-
     <Grid.Resources>
         <converters:PercentConverter x:Key="PercentConverter" />
         <xct:InvertedBoolConverter x:Key="InvertedBoolConverter" />
@@ -122,7 +120,6 @@
 
     <Image Source="Star"
            HorizontalOptions="Start"
-           Margin="-10"
            IsVisible="{Binding IsFavorite}"
            VerticalOptions="Start"/>
 

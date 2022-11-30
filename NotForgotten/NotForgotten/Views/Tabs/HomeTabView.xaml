@@ -44,21 +44,19 @@
                 </Frame>
 
                 <StackLayout BindableLayout.ItemsSource="{Binding Collection}"
-                             Spacing="10"
+                             Spacing="5"
                              Grid.Row="1">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                                 <SwipeView BackgroundColor="Transparent"
                                        Padding="0">
                                     <cells:HomeViewCell/>
-                                    <SwipeView.RightItems>
+                                    <SwipeView.RightItems >
                                         <SwipeItemView>
-                                            <Grid RowDefinitions="60"
-                                                  VerticalOptions="Center"
-                                                  Padding="10">
                                                 <Frame BackgroundColor="#FFEFC8"
                                                        HasShadow="False">
-                                                    <StackLayout VerticalOptions="Center">
+                                                    <StackLayout VerticalOptions="Center"
+                                                                 HorizontalOptions="Center">
                                                         <Image Source="swipe_rename"/>
                                                         <Label Text="Rename"
                                                            TextColor="#18222F"
@@ -67,8 +65,6 @@
                                                     </StackLayout>
 
                                                 </Frame>
-                                            </Grid>
-
                                         </SwipeItemView>
                                     </SwipeView.RightItems>
                                 </SwipeView>
