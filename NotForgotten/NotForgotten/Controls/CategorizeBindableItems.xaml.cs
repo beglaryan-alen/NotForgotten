@@ -36,12 +36,6 @@ namespace NotForgotten.Controls
 
         private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
         {
-            if (Labels != null && Labels.Count() > 13 &&
-                !(collectionView.ItemsLayout is GridItemsLayout))
-            {
-                collectionView.ItemsLayout = new GridItemsLayout(2, ItemsLayoutOrientation.Vertical);
-            }
-
             if (expander.IsExpanded)
             {
                 arrowImage.RotateTo(0);

@@ -36,18 +36,23 @@
                    HasShadow="False"
                        HeightRequest="230"
                        CornerRadius="20">
-                    <CollectionView ItemsSource="{Binding Labels, Source={x:Reference categorizeBindableItems}}"
-                                    x:Name="collectionView">
+                <ScrollView VerticalScrollBarVisibility="Never">
 
-                        <CollectionView.ItemTemplate>
+                    <StackLayout BindableLayout.ItemsSource="{Binding Labels, Source={x:Reference categorizeBindableItems}}"
+                                >
+
+                        <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <Label Text="{Binding}"
                                        FontSize="12"
                                        FontFamily="{x:Static resources:FontContstants.SourceSansProRegular}"
                                        TextColor="#5B5B5B"/>
                             </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+
+                </ScrollView>
                 </Frame>
         </xct:Expander.Content>
     </xct:Expander>
