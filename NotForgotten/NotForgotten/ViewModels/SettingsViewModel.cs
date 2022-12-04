@@ -11,6 +11,6 @@ namespace NotForgotten.ViewModels
 
         }
 
-        public ICommand SubmitCommand => new Command(() => App.Current.MainPage = new RootView());
+        public ICommand SubmitCommand => new Command(() => App.Current.MainPage = new RootView(1));
     }
 }

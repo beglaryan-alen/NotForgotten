@@ -68,14 +68,17 @@
 
         </CarouselView>
 
-        <controls:CarouselTabIndicatorView SelecteTabTextColor="#18222F"
-                                            SelectedIndex="{Binding CurrentTabIndex}"
-                                            UnSelecteTabTextColor="#A6A6A6"
-                                            TabFontSize="12"
-                                           TabFontFamily="{x:Static resoucres:FontContstants.NeueHaasDisplayRoman}"
-                                            Grid.Row="1"
-                                            TabLabels="{Binding TabLabelsCollection, Mode=TwoWay}"
-                                            HorizontalOptions="FillAndExpand"/>
+        <controls:CustomTabSelector SelecteTabTextColor="#18222F"
+                                    SelectedIndex="{Binding CurrentTabIndex}"
+                                    UnSelecteTabTextColor="#A6A6A6"
+                                    UnSelectedTabColor="Transparent"
+                                    SelectedTabColor="#FFC846"
+                                    TabFontSize="12"
+                                    TabFontFamily="{x:Static resoucres:FontContstants.NeueHaasDisplayRoman}"
+                                    Grid.Row="1"
+                                    TabLabels="{Binding TabLabelsCollection, Mode=TwoWay}"
+                                    TabIcons="{Binding TabIconsCollection, Mode=TwoWay}"
+                                    HorizontalOptions="FillAndExpand"/>
 
 
     </Grid>

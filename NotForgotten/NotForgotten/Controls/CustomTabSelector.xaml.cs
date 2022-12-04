@@ -8,12 +8,12 @@ using Xamarin.Forms.Xaml;
 
 namespace NotForgotten.Controls
 {
-    public partial class CarouselTabIndicatorView : Frame
+    public partial class CustomTabSelector : Frame
     {
         private List<TabElementBindableModel> _tabCollection;
         private int _selectedIndex;
 
-        public CarouselTabIndicatorView()
+        public CustomTabSelector()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace NotForgotten.Controls
         public static readonly BindableProperty SelectedIndexProperty = BindableProperty.Create(
             propertyName: nameof(SelectedIndex),
             returnType: typeof(int),
-            declaringType: typeof(CarouselTabIndicatorView),
+            declaringType: typeof(CustomTabSelector),
             defaultBindingMode: BindingMode.TwoWay);
 
         public int SelectedIndex
@@ -35,7 +35,7 @@ namespace NotForgotten.Controls
         public static readonly BindableProperty SelectedTabColorProperty = BindableProperty.Create(
            propertyName: nameof(SelectedTabColor),
            returnType: typeof(Color),
-           declaringType: typeof(CarouselTabIndicatorView));
+           declaringType: typeof(CustomTabSelector));
 
         public Color SelectedTabColor
         {
@@ -43,10 +43,21 @@ namespace NotForgotten.Controls
             set => SetValue(SelectedTabColorProperty, value);
         }
 
+        public static readonly BindableProperty UnSelectedTabColorProperty = BindableProperty.Create(
+           propertyName: nameof(UnSelectedTabColor),
+           returnType: typeof(Color),
+           declaringType: typeof(CustomTabSelector));
+
+        public Color UnSelectedTabColor
+        {
+            get => (Color)GetValue(UnSelectedTabColorProperty);
+            set => SetValue(UnSelectedTabColorProperty, value);
+        }
+
         public static readonly BindableProperty SelecteTabTextColorProperty = BindableProperty.Create(
            propertyName: nameof(SelecteTabTextColor),
            returnType: typeof(Color),
-           declaringType: typeof(CarouselTabIndicatorView));
+           declaringType: typeof(CustomTabSelector));
 
         public Color SelecteTabTextColor
         {
@@ -57,7 +68,7 @@ namespace NotForgotten.Controls
         public static readonly BindableProperty UnSelecteTabTextColorProperty = BindableProperty.Create(
            propertyName: nameof(UnSelecteTabTextColor),
            returnType: typeof(Color),
-           declaringType: typeof(CarouselTabIndicatorView));
+           declaringType: typeof(CustomTabSelector));
 
         public Color UnSelecteTabTextColor
         {
@@ -68,7 +79,7 @@ namespace NotForgotten.Controls
         public static readonly BindableProperty TabFontFamilyProperty = BindableProperty.Create(
            propertyName: nameof(TabFontFamily),
            returnType: typeof(string),
-           declaringType: typeof(CarouselTabIndicatorView));
+           declaringType: typeof(CustomTabSelector));
 
         public string TabFontFamily
         {
@@ -79,7 +90,7 @@ namespace NotForgotten.Controls
         public static readonly BindableProperty TabFontSizeProperty = BindableProperty.Create(
            propertyName: nameof(TabFontSize),
            returnType: typeof(double),
-           declaringType: typeof(CarouselTabIndicatorView));
+           declaringType: typeof(CustomTabSelector));
 
         public double TabFontSize
         {
@@ -90,13 +101,23 @@ namespace NotForgotten.Controls
         public static readonly BindableProperty TabLabelsProperty = BindableProperty.Create(
             propertyName: nameof(TabLabels),
             returnType: typeof(IEnumerable<string>),
-            declaringType: typeof(CarouselTabIndicatorView),
+            declaringType: typeof(CustomTabSelector),
             defaultBindingMode: BindingMode.TwoWay);
 
         public IEnumerable<string> TabLabels
         {
             get => (IEnumerable<string>)GetValue(TabLabelsProperty);
             set => SetValue(TabLabelsProperty, value);
+        }
+
+        public static readonly BindableProperty TabIconsProperty = BindableProperty.Create(
+            propertyName: nameof(TabIcons),
+            returnType: typeof(IEnumerable<string>),
+            declaringType: typeof(CustomTabSelector));
+        public IEnumerable<string> TabIcons
+        {
+            get => (IEnumerable<string>)GetValue(TabIconsProperty);
+            set => SetValue(TabIconsProperty, value);
         }
 
         #endregion
@@ -107,8 +128,13 @@ namespace NotForgotten.Controls
         {
             base.OnPropertyChanged(propertyName);
 
-            if (TabLabelsProperty.PropertyName == propertyName)
+            if (TabLabelsProperty.PropertyName == propertyName
+                || TabIconsProperty.PropertyName == propertyName)
             {
+                if (TabLabels == null
+                    || TabIcons == null)
+                    return;
+                
                 CreateTabs();
             }
         }
@@ -131,18 +157,13 @@ namespace NotForgotten.Controls
                         FontFamily = TabFontFamily,
                         FontSize = TabFontSize,
                         TextColor = i == 0 ? SelecteTabTextColor : UnSelecteTabTextColor,
+                        BackgroundColor = i == 0 ? SelectedTabColor : UnSelectedTabColor,
                         IsSelected = i == 0,
                         Title = TabLabels.ToList()[i],
+                        IconSource = TabIcons.ToList()[i],
                         TapCommand = new Command<TabElementBindableModel>(OnTapCommand),
                     };
-                    if (i == 0)
-                        element.IconSource = "cards_icon";
-                    else if (i == 1)
-                        element.IconSource = "home_icon";
-                    else if (i == 2) 
-                        element.IconSource = "shop_icon";
-                    else
-                        element.IconSource = "settings_icon";
+                    
                     collection.Add(element);
                 }
 
@@ -173,10 +194,12 @@ namespace NotForgotten.Controls
                 {
                     item.IsSelected = false;
                     item.TextColor = UnSelecteTabTextColor;
+                    item.BackgroundColor = UnSelectedTabColor;
                 }
 
                 _tabCollection[index].IsSelected = true;
                 _tabCollection[index].TextColor = SelecteTabTextColor;
+                _tabCollection[index].BackgroundColor = SelectedTabColor;
             }
         }
 

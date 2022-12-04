@@ -420,4 +420,67 @@
   <ItemGroup>
     <BundleResource Include="Resources\success%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\orientation_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\orientation_1%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\orientation_1%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\orientation_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\orientation_2%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\orientation_2%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\backup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\backup%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\backup%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="article.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="article%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="article%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\article.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\article%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\article%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\scene_replay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\scene_replay%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\scene_replay%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cloud_upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cloud_upload%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cloud_upload%403x.png" />
+  </ItemGroup>
 </Project>

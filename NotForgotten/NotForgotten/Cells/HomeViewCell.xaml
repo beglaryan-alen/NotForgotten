@@ -6,7 +6,8 @@
        xmlns:resources="clr-namespace:NotForgotten.Resources" 
       xmlns:prograssbar="clr-namespace:Xamarin.Forms.Controls;assembly=CircularProgressBar" xmlns:pages="http://rotorgames.com"
       HeightRequest="80"
-       x:Class="NotForgotten.Cells.HomeViewCell">
+       x:Class="NotForgotten.Cells.HomeViewCell"
+      x:Name="homeViewCell">
     <Grid.Resources>
         <converters:PercentConverter x:Key="PercentConverter" />
         <xct:InvertedBoolConverter x:Key="InvertedBoolConverter" />
@@ -115,11 +116,17 @@
 
             </Grid>
         </Grid>
+
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding TapCommand, Source={x:Reference homeViewCell}}"
+                                  CommandParameter="{Binding }"/>
+        </Frame.GestureRecognizers>
         
     </Frame>
 
     <Image Source="Star"
            HorizontalOptions="Start"
+           HeightRequest="20"
            IsVisible="{Binding IsFavorite}"
            VerticalOptions="Start"/>
 

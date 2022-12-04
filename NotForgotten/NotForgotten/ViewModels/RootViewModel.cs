@@ -6,7 +6,7 @@ namespace NotForgotten.ViewModels
 {
     public class RootViewModel : BaseViewModel
     {
-        public RootViewModel(INavigation navigation) : base(navigation)
+        public RootViewModel(INavigation navigation, int position) : base(navigation)
         {
             TabLabelsCollection = new ObservableCollection<string>()
             {
@@ -15,7 +15,14 @@ namespace NotForgotten.ViewModels
                 "Shop",
                 "Settings",
             };
-            CurrentTabIndex = 1;
+            TabIconsCollection = new ObservableCollection<string>()
+            {
+                "cards_icon",
+                "home_icon",
+                "shop_icon",
+                "settings_icon",
+            };
+            CurrentTabIndex = position;
         }
 
         private ObservableCollection<string> _tabLabelsCollection;
@@ -23,6 +30,13 @@ namespace NotForgotten.ViewModels
         {
             get => _tabLabelsCollection;
             set => SetProperty(ref _tabLabelsCollection, value);
+        }
+
+        private ObservableCollection<string> _tabIconsCollection;
+        public ObservableCollection<string> TabIconsCollection
+        {
+            get => _tabIconsCollection;
+            set => SetProperty(ref _tabIconsCollection, value);
         }
 
         private ObservableCollection<BaseTabViewModel> _tabItems;

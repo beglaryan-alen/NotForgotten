@@ -1,10 +1,12 @@
 ﻿using MvvmHelpers.Commands;
 using NotForgotten.Model.Cards;
 using NotForgotten.Model.Home;
+using NotForgotten.Views;
 using NotForgotten.Views.Popups;
 using System;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -16,14 +18,16 @@ namespace NotForgotten.ViewModels.Tabs
         {
         }
 
-        public ICommand IndexToLibrary => new AsyncCommand(async () => await _popupNavigation.PushAsync(new FinalizePopupView()));
-
         private ObservableCollection<HomeBindableModel> _collection;
         public ObservableCollection<HomeBindableModel> Collection
         {
             get => _collection;
             set => SetProperty(ref _collection, value);
         }
+
+        public ICommand IndexToLibrary => new AsyncCommand(async () => await _popupNavigation.PushAsync(new FinalizePopupView()));
+        public ICommand AddAnother => new AsyncCommand(async () => await _popupNavigation.PushAsync(new CardNamePopupView()));
+        public ICommand TapCommand => new AsyncCommand<HomeBindableModel>(OnTapCommand);
 
         protected override void Initialize()
         {
@@ -65,6 +69,15 @@ namespace NotForgotten.ViewModels.Tabs
                     IsDownloaded = true,
                 },
             };
+        }
+
+
+        private async Task OnTapCommand(HomeBindableModel model)
+        {
+            if (model != null)
+            {
+                await _navigation.PushModalAsync(new HomeUploadView(model));
+            }
         }
     }
 }

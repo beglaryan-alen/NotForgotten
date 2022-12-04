@@ -30,7 +30,7 @@ namespace NotForgotten.ViewModels
 
         private async Task OnLoginCommand()
         {
-            App.Current.MainPage = new RootView();
+            App.Current.MainPage = new RootView(1);
         }
     }
 }

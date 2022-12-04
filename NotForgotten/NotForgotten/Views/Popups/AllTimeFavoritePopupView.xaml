@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:views="http://rotorgames.com"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:resources="clr-namespace:NotForgotten.Resources"
+                 HasKeyboardOffset="False"
+                 x:Class="NotForgotten.Views.Popups.AllTimeFavoritePopupView">
+    <pages:PopupPage.Animation>
+
+        <animations:ScaleAnimation PositionIn="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8"
+                                   DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"/>
+    </pages:PopupPage.Animation>
+
+    <Grid ColumnDefinitions="0.05*, 0.9*, 0.05*"
+          VerticalOptions="Center">
+
+        <Frame Grid.Column="1"
+               BackgroundColor="#F4F4F4"
+               CornerRadius="10">
+            <Grid RowDefinitions="Auto, *, Auto"
+                  RowSpacing="20">
+                <Label Text="Is this an all time favorite?"
+                       FontSize="21"
+                       HorizontalOptions="Center"
+                       TextColor="#18222F"
+                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"/>
+
+                <StackLayout Grid.Row="1"
+                             Spacing="20"
+                             Padding="0, 10"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Orientation="Horizontal">
+                    <StackLayout>
+                        <Image Source="Star"
+                               HorizontalOptions="Center"/>
+                        <Label Text="YES"
+                               HorizontalOptions="Center"
+                               FontSize="16"
+                               TextColor="#18222F"
+                               FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Continue}"/>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+
+                    <Frame BackgroundColor="#FFEFC8"
+                           HasShadow="False"
+                           Padding="25, 20">
+                        <Label Text="NO"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               FontSize="16"
+                               TextColor="#18222F"
+                               FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Continue}"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </StackLayout>
+
+                <Button BackgroundColor="#FFC846"
+                        Grid.Row="2"
+                        Text="Cancel"
+                        FontSize="18"
+                        TextColor="#18222F"
+                        Command="{Binding GoBackPopupCommand}"
+                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                        TextTransform="None"
+                        CornerRadius="20"/>
+            </Grid>
+        </Frame>
+
+    </Grid>
+</views:PopupPage>

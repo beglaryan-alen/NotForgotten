@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:views="http://rotorgames.com"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:resources="clr-namespace:NotForgotten.Resources"
+                 HasKeyboardOffset="False"
+                 xmlns:controls="clr-namespace:NotForgotten.Controls"
+                 x:Class="NotForgotten.Views.Popups.CardNamePopupView">
+
+    <pages:PopupPage.Animation>
+
+        <animations:ScaleAnimation PositionIn="Center"
+                                   ScaleIn="1.2"
+                                   ScaleOut="0.8"
+                                   DurationIn="400"
+                                   DurationOut="300"
+                                   EasingIn="SinOut"
+                                   EasingOut="SinIn"/>
+    </pages:PopupPage.Animation>
+    
+    <Grid ColumnDefinitions="0.05*, 0.9*, 0.05*"
+          VerticalOptions="Center">
+
+        <Frame Grid.Column="1"
+               BackgroundColor="#F4F4F4"
+               CornerRadius="10">
+            <StackLayout Spacing="10">
+                <Label HorizontalOptions="Center"
+                       Text="Name Your Card"
+                       TextColor="#18222F"
+                       FontSize="21"
+                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"/>
+
+                <controls:CustomEntryControl Title="Enter Name"
+                                             TitleColor="#928D8D"
+                                             Padding="0, 20, 0, 10"
+                                             HasTitle="True"
+                                             TitleFontSize="16"
+                                             TitleFontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                             CustomBackgroundColor="#FFFFFF"
+                                             CornerRadius="20"/>
+
+                <Button BackgroundColor="#FFC846"
+                        CornerRadius="20"
+                        FontSize="18"
+                        Command="{Binding ProceedCommand}"
+                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                        TextTransform="None"
+                        Text="Proceed"/>
+
+                <Label Text="Cancel"
+                       FontSize="16"
+                       TextColor="#928D8D"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoBackPopupCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            
+            
+            
+        </Frame>
+        
+    </Grid>
+</views:PopupPage>

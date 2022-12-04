@@ -211,6 +211,7 @@
 
                     <Button Text="Submit for Archiving"
                             FontSize="18"
+                            Command="{Binding SubmitForArchive}"
                             CornerRadius="20"
                             TextTransform="None"
                             FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"

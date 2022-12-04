@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NotForgotten.ViewModels.Tabs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

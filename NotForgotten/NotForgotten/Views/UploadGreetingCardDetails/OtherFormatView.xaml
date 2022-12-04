@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:NotForgotten.Resources"
+             xmlns:cells="clr-namespace:NotForgotten.Cells"
+             x:Class="NotForgotten.Views.UploadGreetingCardDetails.OtherFormatView">
+    <StackLayout VerticalOptions="Start"
+                     Spacing="20">
+        <Label Text="There is no file uploaded"
+               TextColor="#616161"
+               FontSize="12"
+               IsVisible="false"
+               FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+               HorizontalOptions="Center">
+            <Label.Triggers >
+                <DataTrigger Binding="{Binding Collection.Count}"
+                             Value="0"
+                             TargetType="Label">
+                    <Setter Property="IsVisible"
+                            Value="True"/>
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
+
+        <Grid HeightRequest="120">
+            <Rectangle Fill="#FFEFC8"
+                   Stroke="#FFC846"
+                   RadiusY="10"
+                   RadiusX="10"
+                   StrokeThickness="2"
+                   StrokeDashArray="4,1"
+                   StrokeDashOffset="6"
+                   HorizontalOptions="FillAndExpand"/>
+
+            <StackLayout HorizontalOptions="Center"
+                         VerticalOptions="Center">
+                <Image Source="backup"/>
+
+                <Label Text="Tap here to"
+                       FontSize="12"
+                       HorizontalOptions="Center"
+                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       HorizontalTextAlignment="Center"
+                       TextColor="#575656"/>
+
+                <Label Text="upload your file"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       HorizontalTextAlignment="Center"
+                       TextColor="#000000"/>
+            </StackLayout>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding UploadCommand}"/>
+            </Grid.GestureRecognizers>
+        </Grid>
+        <StackLayout BindableLayout.ItemsSource="{Binding Collection}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <cells:UploadCardCell/>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </StackLayout>
+    </StackLayout>
+</ContentView>

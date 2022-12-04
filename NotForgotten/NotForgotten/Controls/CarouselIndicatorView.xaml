@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Frame xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="NotForgotten.Controls.CarouselIndicatorView"
+       HorizontalOptions="FillAndExpand"
+       VerticalOptions="Center"
+       Padding="0"
+       Margin="0"
+       CornerRadius="5"
+       HasShadow="False"
+       x:Name="Parent"
+       BackgroundColor="#EFEFEF"
+             >
+    <StackLayout x:Name="container"
+                 Padding="0, 5"
+                 HorizontalOptions="Fill"
+                 Orientation="Horizontal">  
+
+        <BindableLayout.ItemTemplate>
+
+            <DataTemplate>
+                    <Frame BackgroundColor="{Binding BackgroundColor}"
+                           Padding="10"
+                           HasShadow="False"
+                           CornerRadius="5"
+                           HorizontalOptions="FillAndExpand"
+                           BorderColor="Transparent">
+                        <StackLayout>
+                            <Label Text="{Binding Title}"
+                                   FontSize="{Binding FontSize}"
+                                   FontFamily="{Binding FontFamily}"
+                                   TextColor="{Binding TextColor}"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   Padding="15,0"/>
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="{Binding .}"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+
+                    </Frame>
+
+            </DataTemplate>
+
+        </BindableLayout.ItemTemplate>
+
+
+    </StackLayout>
+
+</Frame>

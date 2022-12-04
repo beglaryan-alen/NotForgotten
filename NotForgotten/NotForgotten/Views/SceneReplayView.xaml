@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:NotForgotten.Controls"
+             xmlns:resources="clr-namespace:NotForgotten.Resources"
+             x:Class="NotForgotten.Views.SceneReplayView">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *">
+            <controls:CustomNavBar LeftIcon="back_arrow"
+                                   IsLeftIconVisible="True"
+                                   LeftIconTapCommand="{Binding GoBackCommand}"/>
+
+            <Grid Grid.Row="1"
+                  Padding="20"
+                  RowDefinitions="Auto, *">
+                <StackLayout Spacing="30">
+                    <Frame BackgroundColor="#18222F"
+                           Padding="20, 10"
+                           CornerRadius="10">
+                        <Grid ColumnDefinitions="Auto, *">
+                            <Grid RowDefinitions="Auto, Auto"
+                                  RowSpacing="8">
+                                <Label Text="03:00"
+                                       Grid.Row="0"
+                                       TextColor="#FFFFFF"
+                                       VerticalOptions="Center"
+                                       FontSize="16"
+                                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
+
+                                <Label Text="Recorded Time"
+                                       Grid.Row="1"
+                                       VerticalOptions="Center"
+                                       TextColor="#FFFFFF"
+                                       FontSize="12"
+                                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1"
+                                  RowDefinitions="Auto, Auto">
+                                <Image Source="cloud_upload"
+                                       HorizontalOptions="End"/>
+
+                                <Label Text="Not uploaded"
+                                       Grid.Row="1"
+                                       HorizontalOptions="End"
+                                       TextColor="#FFC846"
+                                       FontSize="12"
+                                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+
+                    <Image Source="scene_replay"/>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1"
+                             VerticalOptions="Center">
+                    <Button BackgroundColor="#FFC846"
+                            CornerRadius="20"
+                            Text="Delete"
+                            TextTransform="None"
+                            FontSize="18"
+                            FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"/>
+
+                    <Button BackgroundColor="#FFC846"
+                            CornerRadius="20"
+                            Text="Next Step"
+                            Command="{Binding NextStep}"
+                            TextTransform="None"
+                            FontSize="18"
+                            FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

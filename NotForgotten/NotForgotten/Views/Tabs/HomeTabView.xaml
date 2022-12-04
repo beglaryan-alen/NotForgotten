@@ -4,7 +4,8 @@
              xmlns:resources="clr-namespace:NotForgotten.Resources"
              xmlns:controls="clr-namespace:NotForgotten.Controls" 
              xmlns:prograssbar="clr-namespace:Xamarin.Forms.Controls;assembly=CircularProgressBar" xmlns:cells="clr-namespace:NotForgotten.Cells"
-             x:Class="NotForgotten.Views.Tabs.HomeTabView">
+             x:Class="NotForgotten.Views.Tabs.HomeTabView"
+             x:Name="homeTabView">
     <ContentView.Content>
         <Grid RowDefinitions="Auto, *">
 
@@ -52,7 +53,8 @@
                         <DataTemplate>
                                 <SwipeView BackgroundColor="Transparent"
                                        Padding="0">
-                                    <cells:HomeViewCell/>
+                                <cells:HomeViewCell TapCommand="{Binding Source={x:Reference homeTabView},
+                                    Path=BindingContext.TapCommand}"/>
                                     <SwipeView.RightItems >
                                         <SwipeItemView>
                                                 <Frame BackgroundColor="#FFEFC8"
@@ -82,6 +84,7 @@
                             TextTransform="None"
                             FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                             FontSize="16"
+                            Command="{Binding AddAnother}"
                             Text="+ Add Another"/>
 
                     <Button BackgroundColor="#FFC846"

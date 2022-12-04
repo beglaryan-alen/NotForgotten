@@ -1,5 +1,7 @@
 ﻿using NotForgotten.Model.Categorize;
+using NotForgotten.Views;
 using System.Collections.Generic;
+using System.Windows.Input;
 using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Forms;
 
@@ -39,6 +41,7 @@ namespace NotForgotten.ViewModels
             set => SetProperty(ref _cardFormat, value);
         }
 
+        public ICommand SubmitForArchive => new Command(() => App.Current.MainPage = new RootView(1));
 
         protected override void Initialize()
         {

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:NotForgotten.Resources" xmlns:prograssbar="clr-namespace:Xamarin.Forms.Controls;assembly=CircularProgressBar" xmlns:converters="clr-namespace:NotForgotten.Converters" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="NotForgotten.Cells.UploadCardCell">
+
+    <StackLayout.Resources>
+        <converters:PercentConverter x:Key="PercentConverter" />
+        <xct:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+    </StackLayout.Resources>
+
+    <BoxView BackgroundColor="#A6A6A6"
+             HeightRequest="1"/>
+    <Grid ColumnDefinitions="Auto, *"
+          Padding="10">
+        <StackLayout HorizontalOptions="End"
+                     Grid.Column="1">
+
+            <StackLayout Orientation="Horizontal"
+                         Spacing="0"
+                         HorizontalOptions="End"
+                         >
+                <Label FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       IsVisible="{Binding IsDownloaded, Converter={StaticResource InvertedBoolConverter}}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Text="{Binding DownloadedSize, StringFormat='{0:0.0}/'}"
+                   TextColor="#000000"
+                   FontSize="12">
+                </Label>
+
+                <Label FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       Text="{Binding FileSize, StringFormat='{0:0}mb'}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                   TextColor="#000000"
+                   FontSize="12">
+                </Label>
+            </StackLayout>
+            
+            <Grid>
+                <Frame HeightRequest="18"
+                       Padding="0"
+                       VerticalOptions="Center"
+                       CornerRadius="20"
+                       HasShadow="False"
+                       HorizontalOptions="End"
+                       BackgroundColor="#FCDDEC"
+                       WidthRequest="20">
+                    <Image Source="bi_check"
+                           IsVisible="False"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           HeightRequest="15"
+                           WidthRequest="15">
+                        <Image.Triggers>
+                            <DataTrigger TargetType="Image"
+                                         Binding="{Binding IsDownloaded}"
+                                         Value="True">
+                                <Setter Property="IsVisible"
+                                        Value="True"/>
+                            </DataTrigger>
+                        </Image.Triggers>
+                    </Image>
+                    <Frame.Triggers>
+                        <DataTrigger TargetType="Frame"
+                                     Binding="{Binding IsDownloaded}"
+                                     Value="True">
+                            <Setter Property="BackgroundColor"
+                                    Value="#EFEFEF"/>
+                        </DataTrigger>
+                    </Frame.Triggers>
+                </Frame>
+                <prograssbar:CircularProgressBar WidthRequest="20" HeightRequest="20"
+                                                 Stroke="3"
+                                                 Color="#007DFF"
+                                                 HorizontalOptions="End"
+                                                 VerticalOptions="Center">
+                    <prograssbar:CircularProgressBar.Triggers>
+                        <DataTrigger TargetType="prograssbar:CircularProgressBar"
+                                 Binding="{Binding IsDownloaded}"
+                                 Value="True">
+                            <Setter Property="Color"
+                                Value="#007D00"/>
+                        </DataTrigger>
+                    </prograssbar:CircularProgressBar.Triggers>
+                    <prograssbar:CircularProgressBar.Progress>
+                        <MultiBinding Converter="{StaticResource PercentConverter}">
+                            <Binding Path="DownloadedSize" />
+                            <Binding Path="FileSize" />
+                        </MultiBinding>
+                    </prograssbar:CircularProgressBar.Progress>
+                </prograssbar:CircularProgressBar>
+
+            </Grid>
+
+
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal"
+                     Spacing="20">
+            <Image Source="article"/>
+
+            <StackLayout VerticalOptions="Center"
+                         Spacing="2">
+                <Label Text="{Binding Title}"
+                       FontSize="16"
+                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       TextColor="#000000"/>
+
+                <Label Text="Uploading"
+                       FontSize="12"
+                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       TextColor="#007DFF"/>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</StackLayout>

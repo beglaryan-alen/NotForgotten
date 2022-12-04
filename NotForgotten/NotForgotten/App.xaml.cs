@@ -1,4 +1,5 @@
-﻿using NotForgotten.Views;
+﻿using NotForgotten.Model.Home;
+using NotForgotten.Views;
 using NotForgotten.Views.Popups;
 using Rg.Plugins.Popup.Services;
 using System;
