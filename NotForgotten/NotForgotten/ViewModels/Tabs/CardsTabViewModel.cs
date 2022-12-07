@@ -2,6 +2,7 @@
 using NotForgotten.Model.Cards;
 using NotForgotten.Views;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -9,9 +10,13 @@ namespace NotForgotten.ViewModels.Tabs
 {
     public class CardsTabViewModel : BaseTabViewModel
     {
-
-        public CardsTabViewModel(INavigation navigation) : base(navigation)
+        private readonly bool _isVertical;
+        public CardsTabViewModel(
+            INavigation navigation,
+            bool isVertical) 
+            : base(navigation)
         {
+            _isVertical = isVertical;
         }
 
         private ObservableCollection<CardsBindableModel> _collection;
@@ -22,6 +27,8 @@ namespace NotForgotten.ViewModels.Tabs
         }
 
         public ICommand NextCommand => new AsyncCommand(async() => await _navigation.PushModalAsync(new CategorizeView()));
+        public ICommand TapCommand => new AsyncCommand<CardsBindableModel>(OnTapCommand);
+        public ICommand SettingsCommand => new AsyncCommand<CardsBindableModel>(OnSettingsCommand);
 
         protected override void Initialize()
         {
@@ -53,7 +60,36 @@ namespace NotForgotten.ViewModels.Tabs
                     IsDownloaded= false,
                     FileSize = 20,
                 },
+                new CardsBindableModel()
+                {
+                    Title = "Envelope",
+                    Desc = "No scene recorded",
+                    HasSettings = true,
+                },
             };
+        }
+
+        private async Task OnTapCommand(CardsBindableModel model)
+        {
+            if (model != null)
+            {
+                if (model.Title.ToLower() == "front of card")
+                {
+                    await _navigation.PushModalAsync(new CardsUploadGreetingCardView(0, _isVertical));
+                }
+                else if(model.Title.ToLower() == "inside left")
+                {
+                    await _navigation.PushModalAsync(new CardsUploadGreetingCardView(1, _isVertical));
+                }
+                else
+                {
+                    await _navigation.PushModalAsync(new CardsUploadGreetingCardView(2, _isVertical));
+                }
+            }
+        }
+
+        private async Task OnSettingsCommand(CardsBindableModel model)
+        {
         }
     }
 }

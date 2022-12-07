@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace NotForgotten.ViewModels.UploadGreetingCardDetails
+namespace NotForgotten.ViewModels.HomeUploadGreetingCardDetails
 {
     public class OtherFormatViewModel : BaseViewModel
     {

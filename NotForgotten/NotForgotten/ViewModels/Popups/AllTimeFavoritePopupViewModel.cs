@@ -18,7 +18,7 @@ namespace NotForgotten.ViewModels.Popups
         private async Task OnContinue()
         {
             GoBackPopupCommand.Execute(null);
-            await _navigation.PushModalAsync(new UploadGreetingCardView());
+            await _navigation.PushModalAsync(new HomeUploadGreetingCardView());
         }
     }
 }

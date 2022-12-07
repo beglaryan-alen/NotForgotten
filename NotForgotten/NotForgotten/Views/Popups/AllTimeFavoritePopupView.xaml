@@ -23,9 +23,10 @@
 
         <Frame Grid.Column="1"
                BackgroundColor="#F4F4F4"
+               Padding="20, 30, 25, 15"
                CornerRadius="10">
             <Grid RowDefinitions="Auto, *, Auto"
-                  RowSpacing="20">
+                  RowSpacing="40">
                 <Label Text="Is this an all time favorite?"
                        FontSize="21"
                        HorizontalOptions="Center"
@@ -33,7 +34,7 @@
                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"/>
 
                 <StackLayout Grid.Row="1"
-                             Spacing="20"
+                             Spacing="30"
                              Padding="0, 10"
                              VerticalOptions="Center"
                              HorizontalOptions="Center"
@@ -53,7 +54,7 @@
 
                     <Frame BackgroundColor="#FFEFC8"
                            HasShadow="False"
-                           Padding="25, 20">
+                           Padding="30, 20">
                         <Label Text="NO"
                                HorizontalOptions="Center"
                                VerticalOptions="Center"

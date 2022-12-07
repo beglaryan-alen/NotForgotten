@@ -5,12 +5,12 @@ using Xamarin.Forms.Xaml;
 namespace NotForgotten.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class UploadGreetingCardView : ContentPage
+	public partial class HomeUploadGreetingCardView : ContentPage
 	{
-		public UploadGreetingCardView ()
+		public HomeUploadGreetingCardView()
 		{
 			InitializeComponent ();
-			BindingContext = new UploadGreetingCardViewModel(Navigation);
+			BindingContext = new HomeUploadGreetingCardViewModel(Navigation);
 
         }
 	}

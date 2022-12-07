@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:controls="clr-namespace:NotForgotten.Controls"
+             xmlns:resources="clr-namespace:NotForgotten.Resources"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="NotForgotten.Views.CardsUploadGreetingCardView">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *">
+            <controls:CustomNavBar Title="Upload Greeting Card"
+                                   IsLeftIconVisible="True"
+                                   IsTitleVisible="True"
+                                   LeftIcon="back_arrow"
+                                   LeftIconTapCommand="{Binding GoBackCommand}"/>
+
+            <Grid Grid.Row="1"
+                  RowDefinitions="Auto, *, Auto"
+                  Margin="0, 40">
+
+                <controls:CarouselIndicatorView TabLabels="{Binding TabLabelsCollection}"
+                                                SelecteTabTextColor="#000000"
+                                                UnSelecteTabTextColor="#A6A6A6"
+                                                TabFontSize="16"
+                                                TabFontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                                SelectedTabColor="#FFFFFF"
+                                                UnSelectedTabColor="#EFEFEF"
+                                                SelectedIndex="{Binding CurrentTabIndex}"/>
+                
+                <xct:CameraView CameraOptions="Back"
+                                CaptureMode="Photo"
+                                Margin="20, 0"
+                                HeightRequest="300"
+                                Grid.Row="1">
+                    <xct:CameraView.Triggers>
+                        <DataTrigger TargetType="xct:CameraView"
+                                     Binding="{Binding IsVertical}"
+                                     Value="False">
+                            <Setter Property="VerticalOptions"
+                                    Value="Center"/>
+                        </DataTrigger>
+                    </xct:CameraView.Triggers>
+                </xct:CameraView>
+
+                <Button Grid.Row="2"
+                        Margin="20, 0"
+                        HorizontalOptions="EndAndExpand"
+                        WidthRequest="150"
+                        VerticalOptions="End"
+                        CornerRadius="20"
+                        BackgroundColor="#FFC846"
+                        Command="{Binding GoBackCommand}"
+                        Text="Upload"
+                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                        FontSize="16"
+                        TextTransform="None"/>
+            </Grid>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -6,10 +6,10 @@ namespace NotForgotten.Views
 {
     public partial class RootView : ContentPage
     {
-        public RootView(int position)
+        public RootView(int position, bool isVertical = false)
         {
             InitializeComponent();
-            BindingContext = new RootViewModel(Navigation, position);
+            BindingContext = new RootViewModel(Navigation, position, isVertical);
         }
     }
 }

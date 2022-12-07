@@ -18,6 +18,13 @@ namespace NotForgotten.Model.Cards
             set => SetProperty(ref _desc, value);
         }
 
+        private bool _hasSettings;
+        public bool HasSettings
+        {
+            get => _hasSettings;
+            set => SetProperty(ref _hasSettings, value);
+        }
+
         private bool _isDownloaded;
         public bool IsDownloaded
         {

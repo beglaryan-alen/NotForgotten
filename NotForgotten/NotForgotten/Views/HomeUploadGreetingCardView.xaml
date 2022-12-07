@@ -5,7 +5,7 @@
              xmlns:resources="clr-namespace:NotForgotten.Resources" 
              xmlns:selectors="clr-namespace:NotForgotten.TemplateSellectors"
              xmlns:views="clr-namespace:NotForgotten.Views.UploadGreetingCardDetails"
-             x:Class="NotForgotten.Views.UploadGreetingCardView">
+             x:Class="NotForgotten.Views.HomeUploadGreetingCardView">
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, *">
             <controls:CustomNavBar Title="Upload Greeting Card"
@@ -54,9 +54,9 @@
 
                         <CarouselView.ItemTemplate>
 
-                            <selectors:UploadGreetingCardTemplateSelector>
+                            <selectors:HomeUploadGreetingCardTemplateSelector>
 
-                                <selectors:UploadGreetingCardTemplateSelector.OrientationViewTemplate>
+                                <selectors:HomeUploadGreetingCardTemplateSelector.OrientationViewTemplate>
 
                                     <DataTemplate>
 
@@ -64,9 +64,9 @@
 
                                     </DataTemplate>
 
-                                </selectors:UploadGreetingCardTemplateSelector.OrientationViewTemplate>
+                                </selectors:HomeUploadGreetingCardTemplateSelector.OrientationViewTemplate>
 
-                                <selectors:UploadGreetingCardTemplateSelector.OtherFormatViewTemplate>
+                                <selectors:HomeUploadGreetingCardTemplateSelector.OtherFormatViewTemplate>
 
                                     <DataTemplate>
 
@@ -74,9 +74,9 @@
 
                                     </DataTemplate>
 
-                                </selectors:UploadGreetingCardTemplateSelector.OtherFormatViewTemplate>
+                                </selectors:HomeUploadGreetingCardTemplateSelector.OtherFormatViewTemplate>
                                 
-                            </selectors:UploadGreetingCardTemplateSelector>
+                            </selectors:HomeUploadGreetingCardTemplateSelector>
 
                         </CarouselView.ItemTemplate>
 

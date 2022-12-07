@@ -1,4 +1,5 @@
 ﻿using NotForgotten.ViewModels.Tabs;
+using System;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
@@ -6,7 +7,12 @@ namespace NotForgotten.ViewModels
 {
     public class RootViewModel : BaseViewModel
     {
-        public RootViewModel(INavigation navigation, int position) : base(navigation)
+        private readonly bool _isCardsScreenShotVertical;
+        public RootViewModel(
+            INavigation navigation, 
+            int position,
+            bool isCardsScreenShotVertical) 
+            : base(navigation)
         {
             TabLabelsCollection = new ObservableCollection<string>()
             {
@@ -23,7 +29,11 @@ namespace NotForgotten.ViewModels
                 "settings_icon",
             };
             CurrentTabIndex = position;
+            _isCardsScreenShotVertical = isCardsScreenShotVertical;
+            SetViewModels();
         }
+
+        
 
         private ObservableCollection<string> _tabLabelsCollection;
         public ObservableCollection<string> TabLabelsCollection
@@ -98,14 +108,12 @@ namespace NotForgotten.ViewModels
 
         #region -- Overrides --
 
-        protected override void Initialize()
+        private void SetViewModels()
         {
-            base.Initialize();
-
-            CardsTabViewModel = new CardsTabViewModel(_navigation);
+            CardsTabViewModel = new CardsTabViewModel(_navigation, _isCardsScreenShotVertical);
 
             HomeTabViewModel = new HomeTabViewModel(_navigation);
-            
+
             ShopTabViewModel = new ShopTabViewModel(_navigation);
 
             SettingsTabVIewModel = new SettingsTabViewModel(_navigation);
@@ -118,7 +126,6 @@ namespace NotForgotten.ViewModels
                 ShopTabViewModel,
                 SettingsTabVIewModel,
             };
-
         }
 
         #endregion

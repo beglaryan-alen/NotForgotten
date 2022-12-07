@@ -5,11 +5,17 @@
     <Grid ColumnDefinitions="Auto, Auto"
           VerticalOptions="Start"
           HorizontalOptions="Center">
-        <Image Source="orientation_1"/>
+        <Image Source="orientation_1">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding HorizontalCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
         <Image Source="orientation_2"
-               Grid.Column="1"/>
-        <Grid.GestureRecognizers>
-            <TapGestureRecognizer Command="{Binding TappedCommad}"/>
-        </Grid.GestureRecognizers>
+               Grid.Column="1">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding VerticalCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+        
     </Grid>
 </ContentView>

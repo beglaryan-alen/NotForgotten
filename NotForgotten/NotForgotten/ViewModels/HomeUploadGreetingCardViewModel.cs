@@ -1,14 +1,12 @@
-﻿using NotForgotten.ViewModels.Popups;
-using NotForgotten.ViewModels.Tabs;
-using NotForgotten.ViewModels.UploadGreetingCardDetails;
+﻿using NotForgotten.ViewModels.HomeUploadGreetingCardDetails;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace NotForgotten.ViewModels
 {
-    public class UploadGreetingCardViewModel : BaseViewModel
+    public class HomeUploadGreetingCardViewModel : BaseViewModel
     {
-        public UploadGreetingCardViewModel(INavigation navigation) : base(navigation)
+        public HomeUploadGreetingCardViewModel(INavigation navigation) : base(navigation)
         {
             TabLabelsCollection = new ObservableCollection<string>()
             {

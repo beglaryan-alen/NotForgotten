@@ -8,8 +8,10 @@
        BackgroundColor="#FFFFFF"
        HasShadow="False"
        CornerRadius="6"
-       xmlns:prograssbar="clr-namespace:Xamarin.Forms.Controls;assembly=CircularProgressBar" xmlns:pages="http://rotorgames.com"
-       x:Class="NotForgotten.Cells.CardsViewCell">
+       xmlns:prograssbar="clr-namespace:Xamarin.Forms.Controls;assembly=CircularProgressBar" 
+       xmlns:pages="http://rotorgames.com"
+       x:Class="NotForgotten.Cells.CardsViewCell"
+       x:Name="cardsViewCell">
 
     <Frame.Resources>
         <converters:PercentConverter x:Key="PercentConverter" />
@@ -33,6 +35,7 @@
 
         <StackLayout Grid.Column="1"
                      Spacing="3"
+                     IsVisible="{Binding HasSettings, Converter={StaticResource InvertedBoolConverter}}"
               VerticalOptions="Center">
             <Grid>
                 <Frame HeightRequest="18"
@@ -112,5 +115,17 @@
             </StackLayout>
             
         </StackLayout>
+
+        <Image Source="more"
+               Grid.Column="1"
+               IsVisible="{Binding HasSettings}"
+               VerticalOptions="Center"
+               HorizontalOptions="End"/>
+
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding TapCommand, Source={x:Reference cardsViewCell}}"
+                                  CommandParameter="{Binding }"/>
+        </Grid.GestureRecognizers>
+        
     </Grid>
 </Frame>

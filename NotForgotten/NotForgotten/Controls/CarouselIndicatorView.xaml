@@ -12,7 +12,7 @@
        BackgroundColor="#EFEFEF"
              >
     <StackLayout x:Name="container"
-                 Padding="0, 5"
+                 Padding="0, 2"
                  HorizontalOptions="Fill"
                  Orientation="Horizontal">  
 

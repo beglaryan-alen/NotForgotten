@@ -1,10 +1,9 @@
-﻿using NotForgotten.ViewModels.Tabs;
-using NotForgotten.ViewModels.UploadGreetingCardDetails;
+﻿using NotForgotten.ViewModels.HomeUploadGreetingCardDetails;
 using Xamarin.Forms;
 
 namespace NotForgotten.TemplateSellectors
 {
-    public class UploadGreetingCardTemplateSelector : DataTemplateSelector
+    public class HomeUploadGreetingCardTemplateSelector : DataTemplateSelector
     {
         public DataTemplate OrientationViewTemplate { get; set; }
         public DataTemplate OtherFormatViewTemplate { get; set; }

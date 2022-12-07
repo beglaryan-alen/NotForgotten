@@ -118,6 +118,11 @@ namespace NotForgotten.Controls
             {
                 CreateTabs();
             }
+            else if(SelectedIndexProperty.PropertyName == propertyName
+                && _tabCollection != null)
+            {
+                SelectTab(SelectedIndex);
+            }
         }
 
         #endregion
@@ -149,7 +154,7 @@ namespace NotForgotten.Controls
 
                 _tabCollection = collection;
 
-                //SelectTab(0);
+                SelectTab(SelectedIndex);
 
                 BindableLayout.SetItemsSource(container, _tabCollection);
                 InvalidateLayout();
