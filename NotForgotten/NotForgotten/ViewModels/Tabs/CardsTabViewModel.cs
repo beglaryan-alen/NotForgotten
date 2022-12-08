@@ -102,7 +102,7 @@ namespace NotForgotten.ViewModels.Tabs
         {
             if (model != null)
             {
-                await _popupNavigation.PushAsync(new CardsThreeDotPopupView(0));
+                await _popupNavigation.PushAsync(new CardsThreeDotPopupView(Collection.IndexOf(model)));
             }
         }
 
