@@ -29,7 +29,7 @@ namespace NotForgotten.ViewModels.Popups
 
         private async Task OnViewCommand()
         {
-            GoBackCommand.Execute(null);
+            GoBackPopupCommand.Execute(null);
             await _navigation.PushModalAsync(new UploadView(new Model.Home.HomeBindableModel
             {
                  BelongName = "Archie",
