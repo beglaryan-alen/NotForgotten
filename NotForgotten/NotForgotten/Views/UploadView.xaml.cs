@@ -12,12 +12,12 @@ using Xamarin.Forms.Xaml;
 namespace NotForgotten.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class HomeUploadView : ContentPage
+	public partial class UploadView : ContentPage
 	{
-		public HomeUploadView (HomeBindableModel model)
+		public UploadView (HomeBindableModel model)
 		{
 			InitializeComponent ();
-			BindingContext = new HomeUploadViewModel(Navigation, model);
+			BindingContext = new UploadViewModel(Navigation, model);
 		}
 	}
 }

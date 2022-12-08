@@ -3,10 +3,10 @@ using Xamarin.Forms;
 
 namespace NotForgotten.ViewModels
 {
-    class HomeUploadViewModel : BaseViewModel
+    class UploadViewModel : BaseViewModel
     {
 
-        public HomeUploadViewModel
+        public UploadViewModel
             (INavigation navigation,
             HomeBindableModel model) 
             : base(navigation)

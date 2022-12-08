@@ -47,16 +47,20 @@
                 </Frame>
 
                 <StackLayout BindableLayout.ItemsSource="{Binding Collection}"
-                             Spacing="5"
+                             Spacing="10"
                              Grid.Row="1">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                                 <SwipeView BackgroundColor="Transparent"
                                        Padding="0">
                                 <cells:HomeViewCell TapCommand="{Binding Source={x:Reference homeTabView},
-                                    Path=BindingContext.TapCommand}"/>
+                                    Path=BindingContext.TapCommand}"
+                                                    SettingsCommand="{Binding Source={x:Reference homeTabView},
+                                    Path=BindingContext.SettingsCommand}"/>
                                     <SwipeView.RightItems >
-                                        <SwipeItemView>
+                                        <SwipeItemView Command="{Binding Source={x:Reference homeTabView},
+                                    Path=BindingContext.SwipeCommand}"
+                                                       CommandParameter="{Binding }">
                                                 <Frame BackgroundColor="#FFEFC8"
                                                        HasShadow="False">
                                                     <StackLayout VerticalOptions="Center"

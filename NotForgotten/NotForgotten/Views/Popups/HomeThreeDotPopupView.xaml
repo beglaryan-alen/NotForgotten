@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:views="http://rotorgames.com"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:resources="clr-namespace:NotForgotten.Resources"
+                 xmlns:controls="clr-namespace:NotForgotten.Controls"
+                 HasKeyboardOffset="False"
+                 x:Class="NotForgotten.Views.Popups.HomeThreeDotPopupView">
+    <Grid RowDefinitions="0.2*, 0.6*, 0.2*"
+          ColumnDefinitions="*, *"
+          Padding="20, 20">
+        <StackLayout Grid.Row="1"
+                     x:Name="settings"
+                     Grid.Column="1">
+            <StackLayout BackgroundColor="Gray"
+                         Padding="5">
+                <Frame CornerRadius="10"
+                   BackgroundColor="#D9D9D9"
+                   Padding="10"
+                         >
+                    <StackLayout>
+                        <Label Text="View"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontSize="18"
+                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ViewCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <BoxView BackgroundColor="#EFEFEF"
+                         HeightRequest="1"/>
+                        <Label Text="Delete"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontSize="18"
+                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding DeleteCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+
+                <Button BackgroundColor="White"
+                    CornerRadius="20"
+                    Text="Cancel"
+                    TextTransform="None"
+                    Command="{Binding GoBackPopupCommand}"
+                    TextColor="Blue"/>
+            </StackLayout>
+            
+        </StackLayout>
+
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding GoBackPopupCommand}"/>
+        </Grid.GestureRecognizers>
+    </Grid>
+    
+    
+</views:PopupPage>

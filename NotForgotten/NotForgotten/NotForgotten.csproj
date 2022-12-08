@@ -77,7 +77,10 @@
     <EmbeddedResource Update="Views\CategorizeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\HomeUploadView.xaml">
+    <EmbeddedResource Update="Views\Popups\CardsThreeDotPopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\UploadView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginView.xaml">
@@ -102,6 +105,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Popups\RegisterPopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Popups\HomeThreeDotPopupView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ResetPasswordView.xaml">
@@ -149,6 +155,12 @@
     </Compile>
     <Compile Update="Views\HomeUploadGreetingCardView.xaml.cs">
       <DependentUpon>HomeUploadGreetingCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Popups\HomeThreeDotPopupView.xaml.cs">
+      <DependentUpon>HomeThreeDotPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\UploadView.xaml.cs">
+      <DependentUpon>UploadView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

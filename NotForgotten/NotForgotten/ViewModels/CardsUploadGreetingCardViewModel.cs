@@ -8,7 +8,8 @@ namespace NotForgotten.ViewModels
         public CardsUploadGreetingCardViewModel
             (INavigation navigation,
             int position,
-            bool isVertical) 
+            bool isVertical,
+            bool isScanEnvelope) 
             : base(navigation)
         {
             TabLabelsCollection = new ObservableCollection<string>()
@@ -19,6 +20,7 @@ namespace NotForgotten.ViewModels
             };
             CurrentTabIndex = position;
             IsVertical = isVertical;
+            IsScanEnvelope = isScanEnvelope;
         }
 
         private ObservableCollection<string> _tabLabelsCollection;
@@ -40,6 +42,13 @@ namespace NotForgotten.ViewModels
         {
             get => _isVertical;
             set => SetProperty(ref _isVertical, value);
+        }
+
+        private bool _isScanEnvelope;
+        public bool IsScanEnvelope
+        {
+            get => _isScanEnvelope;
+            set => SetProperty(ref _isScanEnvelope, value);
         }
     }
 }

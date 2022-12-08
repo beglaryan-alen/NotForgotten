@@ -20,5 +20,15 @@ namespace NotForgotten.Cells
             get => (ICommand)GetValue(TapCommandProperty);
             set => SetValue(TapCommandProperty, value);
         }
+
+        public static readonly BindableProperty SettingsCommandProperty = BindableProperty.Create(
+            propertyName: nameof(SettingsCommand),
+            returnType: typeof(ICommand),
+            declaringType: typeof(CardsViewCell));
+        public ICommand SettingsCommand
+        {
+            get => (ICommand)GetValue(SettingsCommandProperty);
+            set => SetValue(SettingsCommandProperty, value);
+        }
     }
 }

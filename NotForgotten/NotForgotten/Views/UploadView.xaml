@@ -4,7 +4,7 @@
              BackgroundColor="#c8c4c4"
              xmlns:controls="clr-namespace:NotForgotten.Controls"
              xmlns:resrouces="clr-namespace:NotForgotten.Resources"
-             x:Class="NotForgotten.Views.HomeUploadView">
+             x:Class="NotForgotten.Views.UploadView">
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, *">
             <controls:CustomNavBar LeftIcon="back_arrow"

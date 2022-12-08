@@ -54,6 +54,8 @@
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <cells:CardsViewCell TapCommand="{Binding Path=BindingContext.TapCommand, 
+                                    Source={x:Reference cardsTabView}}"
+                                                     SettingsCommand="{Binding Path=BindingContext.SettingsCommand,
                                     Source={x:Reference cardsTabView}}"/>
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>

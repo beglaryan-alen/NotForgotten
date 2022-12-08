@@ -41,9 +41,9 @@
                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
                        TextColor="#928D8D"/>
             </StackLayout>
-            <Grid RowDefinitions="*, *"
+            <Grid RowDefinitions="Auto, Auto, *"
                   Grid.Column="2">
-                <Grid>
+                <Grid IsVisible="{Binding HasSettings, Converter={StaticResource InvertedBoolConverter}}">
                     <Frame HeightRequest="18"
                        Padding="0"
                        VerticalOptions="Center"
@@ -108,11 +108,38 @@
                     
                 </Grid>
 
-                <ImageButton Grid.Row="1"
-                             x:Name="more"
+                <StackLayout Orientation="Horizontal"
+                             Grid.Row="1"
+                             IsVisible="{Binding HasSettings, Converter={StaticResource InvertedBoolConverter}}"
+                         Spacing="0"
+                         HorizontalOptions="End"
+                         >
+                    <Label FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       IsVisible="{Binding IsDownloaded, Converter={StaticResource InvertedBoolConverter}}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       Text="{Binding DownloadedSize, StringFormat='{0:0.0}/'}"
+                   TextColor="#000000"
+                   FontSize="12">
+                    </Label>
+
+                    <Label FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                       Text="{Binding FileSize, StringFormat='{0:0}mb'}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                   TextColor="#000000"
+                   FontSize="12">
+                    </Label>
+                </StackLayout>
+
+                <ImageButton Grid.Row="2"
                              BackgroundColor="Transparent"
                              Source="more"
-                             HorizontalOptions="End"/>
+                             HeightRequest="25"
+                             Command="{Binding SettingsCommand, Source={x:Reference homeViewCell}}"
+                             CommandParameter="{Binding }"
+                             HorizontalOptions="End"
+                             VerticalOptions="End"/>
 
             </Grid>
         </Grid>

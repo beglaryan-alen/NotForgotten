@@ -5,6 +5,7 @@
        xmlns:converters="clr-namespace:NotForgotten.Converters"
        xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
        Padding="15, 10,15,5"
+       HeightRequest="40"
        BackgroundColor="#FFFFFF"
        HasShadow="False"
        CornerRadius="6"
@@ -119,8 +120,14 @@
         <Image Source="more"
                Grid.Column="1"
                IsVisible="{Binding HasSettings}"
-               VerticalOptions="Center"
-               HorizontalOptions="End"/>
+               Margin="0, -10"
+               VerticalOptions="Start"
+               HorizontalOptions="End">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SettingsCommand,Source={x:Reference cardsViewCell}}"
+                                      CommandParameter="{Binding }"/>
+            </Image.GestureRecognizers>
+        </Image>
 
         <Grid.GestureRecognizers>
             <TapGestureRecognizer Command="{Binding TapCommand, Source={x:Reference cardsViewCell}}"

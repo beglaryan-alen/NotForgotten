@@ -28,6 +28,8 @@ namespace NotForgotten.ViewModels.Tabs
         public ICommand IndexToLibrary => new AsyncCommand(async () => await _popupNavigation.PushAsync(new FinalizePopupView()));
         public ICommand AddAnother => new AsyncCommand(async () => await _popupNavigation.PushAsync(new CardNamePopupView()));
         public ICommand TapCommand => new AsyncCommand<HomeBindableModel>(OnTapCommand);
+        public ICommand SwipeCommand => new AsyncCommand<HomeBindableModel>(OnSwipeCommand);
+        public ICommand SettingsCommand => new AsyncCommand<HomeBindableModel>(OnSettingsCommand);
 
         protected override void Initialize()
         {
@@ -59,13 +61,16 @@ namespace NotForgotten.ViewModels.Tabs
                     BelongName = "Archie",
                     Date = DateTime.ParseExact("27/05/2020", "dd/mm/yyyy", CultureInfo.InvariantCulture),
                     IsFavorite = true,
-                    IsDownloaded = true,
+                    DownloadedSize = 12.5,
+                    FileSize = 20,
+                    IsDownloaded = false,
                 },
                 new HomeBindableModel()
                 {
                     Title = "My First Product",
                     BelongName = "Individual Archive",
                     Date = DateTime.ParseExact("27/05/2020", "dd/mm/yyyy", CultureInfo.InvariantCulture),
+                    HasSettings = true,
                     IsDownloaded = true,
                 },
             };
@@ -76,7 +81,23 @@ namespace NotForgotten.ViewModels.Tabs
         {
             if (model != null)
             {
-                await _navigation.PushModalAsync(new HomeUploadView(model));
+                await _navigation.PushModalAsync(new UploadView(model));
+            }
+        }
+
+        private async Task OnSwipeCommand(HomeBindableModel model)
+        {
+            if (model != null)
+            {
+                await _popupNavigation.PushAsync(new CardNamePopupView());
+            }
+        }
+
+        private async Task OnSettingsCommand(HomeBindableModel model)
+        {
+            if (model != null)
+            {
+                await _popupNavigation.PushAsync(new HomeThreeDotPopupView(Collection.IndexOf(model)));
             }
         }
     }

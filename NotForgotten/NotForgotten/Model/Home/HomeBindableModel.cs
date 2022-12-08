@@ -40,6 +40,13 @@ namespace NotForgotten.Model.Home
             set => SetProperty(ref _isDownloaded, value);
         }
 
+        private bool _hasSettings;
+        public bool HasSettings
+        {
+            get => _hasSettings;
+            set => SetProperty(ref _hasSettings, value);
+        }
+
         private double _downloadedSize;
         public double DownloadedSize
         {

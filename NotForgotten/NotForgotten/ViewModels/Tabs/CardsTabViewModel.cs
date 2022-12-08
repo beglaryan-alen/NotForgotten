@@ -1,6 +1,8 @@
 ﻿using MvvmHelpers.Commands;
 using NotForgotten.Model.Cards;
+using NotForgotten.ViewModels.Popups;
 using NotForgotten.Views;
+using NotForgotten.Views.Popups;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -81,15 +83,28 @@ namespace NotForgotten.ViewModels.Tabs
                 {
                     await _navigation.PushModalAsync(new CardsUploadGreetingCardView(1, _isVertical));
                 }
-                else
+                else if(model.Title.ToLower() == "inside right")
                 {
                     await _navigation.PushModalAsync(new CardsUploadGreetingCardView(2, _isVertical));
+                }
+                else if (model.Title.ToLower() == "envelope")
+                {
+                    await _navigation.PushModalAsync(new CardsUploadGreetingCardView(2, _isVertical, true));
+                }
+                else
+                {
+                    throw new System.NotImplementedException();
                 }
             }
         }
 
         private async Task OnSettingsCommand(CardsBindableModel model)
         {
+            if (model != null)
+            {
+                await _popupNavigation.PushAsync(new CardsThreeDotPopupView(0));
+            }
         }
+
     }
 }
