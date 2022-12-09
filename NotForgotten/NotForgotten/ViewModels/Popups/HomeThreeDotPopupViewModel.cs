@@ -32,7 +32,7 @@ namespace NotForgotten.ViewModels.Popups
             await _navigation.PushModalAsync(new UploadView(new Model.Home.HomeBindableModel()
             {
                 BelongName= "From Archie",
-                Title = "Handdrawn Mothers Day",
+                 Title = "Handdrawn Mothers Day",
             }));
         }
 
