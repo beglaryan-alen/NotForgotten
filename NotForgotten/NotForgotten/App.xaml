@@ -9,7 +9,7 @@
             </Style>
             <Style TargetType="TabBar">
                 <Setter Property="Shell.TabBarDisabledColor"
-            Value="Red" />
+                        Value="Red" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

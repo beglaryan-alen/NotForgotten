@@ -50,7 +50,7 @@
                     
                     <StackLayout>
 
-                        <Label Text="Date received"
+                        <Label Text="Date Received"
                                TextColor="#18222F"
                                FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                                FontSize="19"/>

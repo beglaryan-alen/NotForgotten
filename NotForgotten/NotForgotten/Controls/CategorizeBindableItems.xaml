@@ -44,7 +44,7 @@
                         <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <Label Text="{Binding}"
-                                       FontSize="12"
+                                       FontSize="14"
                                        FontFamily="{x:Static resources:FontContstants.SourceSansProRegular}"
                                        TextColor="#5B5B5B"/>
                             </DataTemplate>

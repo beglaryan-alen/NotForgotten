@@ -33,46 +33,17 @@
                        TextColor="#18222F"
                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"/>
 
-                <StackLayout Grid.Row="1"
-                             Spacing="30"
-                             Padding="0, 10"
-                             VerticalOptions="Center"
-                             HorizontalOptions="Center"
-                             Orientation="Horizontal">
-                    <StackLayout>
-                        <Image Source="Star"
-                               HorizontalOptions="Center"/>
-                        <Label Text="YES"
-                               HorizontalOptions="Center"
-                               FontSize="16"
-                               TextColor="#18222F"
-                               FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Continue}"/>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-
-                    <Frame BackgroundColor="#FFEFC8"
-                           HasShadow="False"
-                           Padding="30, 20">
-                        <Label Text="NO"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"
-                               FontSize="16"
-                               TextColor="#18222F"
-                               FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Continue}"/>
-                        </Frame.GestureRecognizers>
-                    </Frame>
-                </StackLayout>
+                <Image Source="success"
+                       Grid.Row="1"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand"/>
 
                 <Button BackgroundColor="#FFC846"
                         Grid.Row="2"
-                        Text="Cancel"
+                        Text="Submit    "
                         FontSize="18"
                         TextColor="#18222F"
-                        Command="{Binding GoBackPopupCommand}"
+                        Command="{Binding Continue}"
                         FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                         TextTransform="None"
                         CornerRadius="20"/>

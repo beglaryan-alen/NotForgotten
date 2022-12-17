@@ -46,7 +46,7 @@
                             <FormattedString>
                                 <Span Text="You username and &#10;"/>
                                 <Span Text="instructions to reset your &#10;"/>
-                                <Span Text="password has been sent to &#10;"/>
+                                <Span Text="password have been sent to &#10;"/>
                                 <Span Text="adrienne@not-forgotten.com"/>
                             </FormattedString>
                         </Label.FormattedText>

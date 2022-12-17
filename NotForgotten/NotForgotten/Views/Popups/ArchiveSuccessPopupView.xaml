@@ -42,6 +42,7 @@
 
                 <Button BackgroundColor="#FFC846"
                     FontSize="18"
+                        CornerRadius="20"
                         TextTransform="None"
                         FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                     Text="Set Up  Profile"
