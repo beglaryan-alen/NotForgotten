@@ -1,4 +1,5 @@
 ﻿using NotForgotten.ViewModels.Tabs;
+using NotForgotten.Views;
 using System;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
@@ -8,12 +9,15 @@ namespace NotForgotten.ViewModels
     public class RootViewModel : BaseViewModel
     {
         private readonly bool _isCardsScreenShotVertical;
+        private readonly RootView _rootView;
         public RootViewModel(
             INavigation navigation, 
+            RootView rootView,
             int position,
             bool isCardsScreenShotVertical) 
             : base(navigation)
         {
+            _rootView = rootView;
             TabLabelsCollection = new ObservableCollection<string>()
             {
                 "Cards",
@@ -112,7 +116,7 @@ namespace NotForgotten.ViewModels
         {
             CardsTabViewModel = new CardsTabViewModel(_navigation, _isCardsScreenShotVertical);
 
-            HomeTabViewModel = new HomeTabViewModel(_navigation);
+            HomeTabViewModel = new HomeTabViewModel(_navigation, _rootView);
 
             ShopTabViewModel = new ShopTabViewModel(_navigation);
 

@@ -14,8 +14,11 @@ namespace NotForgotten.ViewModels.Tabs
 {
     public class HomeTabViewModel : BaseTabViewModel
     {
-        public HomeTabViewModel(INavigation navigation) : base(navigation)
+        private readonly RootView rootView;
+        public HomeTabViewModel(INavigation navigation,
+            RootView rootView) : base(navigation)
         {
+            this.rootView = rootView;
         }
 
         private ObservableCollection<HomeBindableModel> _collection;
@@ -81,7 +84,7 @@ namespace NotForgotten.ViewModels.Tabs
         {
             if (model != null)
             {
-                await _navigation.PushModalAsync(new UploadView(model));
+                await _navigation.PushModalAsync(new UploadView(model, rootView));
             }
         }
 

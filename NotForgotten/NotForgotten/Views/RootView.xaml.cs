@@ -9,7 +9,7 @@ namespace NotForgotten.Views
         public RootView(int position, bool isVertical = false)
         {
             InitializeComponent();
-            BindingContext = new RootViewModel(Navigation, position, isVertical);
+            BindingContext = new RootViewModel(Navigation, this, position, isVertical);
         }
     }
 }

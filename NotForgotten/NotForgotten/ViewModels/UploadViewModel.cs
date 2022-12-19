@@ -1,4 +1,5 @@
 ﻿using NotForgotten.Model.Home;
+using NotForgotten.Views;
 using Xamarin.Forms;
 
 namespace NotForgotten.ViewModels
@@ -8,8 +9,9 @@ namespace NotForgotten.ViewModels
 
         public UploadViewModel
             (INavigation navigation,
-            HomeBindableModel model) 
-            : base(navigation)
+            HomeBindableModel model,
+            RootView rootView) 
+            : base(navigation, rootView)
         {
             BelongName = model.BelongName;
             Title = model.Title;

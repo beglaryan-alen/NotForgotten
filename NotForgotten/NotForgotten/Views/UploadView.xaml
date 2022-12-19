@@ -7,53 +7,58 @@
              xmlns:resrouces="clr-namespace:NotForgotten.Resources"
              x:Class="NotForgotten.Views.UploadView">
     <ContentPage.Content>
-        <Grid RowDefinitions="Auto, *">
-            <controls:CustomNavBar LeftIcon="back_arrow"
+        <Grid RowDefinitions="0.9*, 0.1*">
+            <Grid RowDefinitions="Auto, *">
+                <controls:CustomNavBar LeftIcon="back_arrow"
                                    IsLeftIconVisible="True"
                                    LeftIconTapCommand="{Binding GoBackCommand}"
                                    LeftLabel="Back"
                                    IsLeftLabelVisible="True"/>
 
-            <Grid RowDefinitions="0.2*, 0.8*"
+                <Grid RowDefinitions="0.2*, 0.8*"
                   Padding="10"
                   Grid.Row="1">
-                <Frame BackgroundColor="#18222F"
+                    <Frame BackgroundColor="#18222F"
                        CornerRadius="10"
                        VerticalOptions="FillAndExpand"
                        HorizontalOptions="FillAndExpand"
                        Margin="10, 0">
-                    <StackLayout VerticalOptions="Start">
-                        <Label Text="{Binding BelongName}"
+                        <StackLayout VerticalOptions="Start">
+                            <Label Text="{Binding BelongName}"
                                TextColor="#A6A6A6"
                                FontFamily="{x:Static resrouces:FontContstants.NeueHaasDisplayRoman}"
                                FontSize="16"/>
 
-                        <Label Text="{Binding Title}"
+                            <Label Text="{Binding Title}"
                                TextColor="#FFFFFF"
                                FontFamily="{x:Static resrouces:FontContstants.NeueHaasDisplayMediu}"
                                FontSize="27"/>
-                    </StackLayout>
-                </Frame>
+                        </StackLayout>
+                    </Frame>
 
-                <StackLayout Grid.Row="1"
+                    <StackLayout Grid.Row="1"
                              Padding="0, 20">
-                    <BoxView BackgroundColor="#A6A6A6"
+                        <BoxView BackgroundColor="#A6A6A6"
                              Margin="10, 0"
                              HeightRequest="1"/>
 
-                    <Label Text="Uploads"
+                        <Label Text="Uploads"
                            TextColor="Black"
                            FontFamily="{x:Static resrouces:FontContstants.NeueHaasDisplayMediu}"
                            HorizontalOptions="Start"
                            Margin="10, 0"
                            FontSize="21"/>
 
-                    <Image Source="https://blog.instabug.com/wp-content/uploads/2018/10/Oct_Articles_01_Xamarin.png"
+                        <Image Source="https://blog.instabug.com/wp-content/uploads/2018/10/Oct_Articles_01_Xamarin.png"
                            Margin="0, 20"
                            HeightRequest="250"
                            Aspect="AspectFill"/>
-                </StackLayout>
+                    </StackLayout>
+                </Grid>
             </Grid>
+
+            <ContentPresenter Content="{Binding RootView}"/>
         </Grid>
+        
     </ContentPage.Content>
 </ContentPage>
