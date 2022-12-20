@@ -27,14 +27,17 @@ namespace NotForgotten.ViewModels.HomeUploadGreetingCardDetails
         }
 
         public ICommand UploadCommand => new AsyncCommand(OnUploadCommand);
+        public ICommand SaveCommand => new AsyncCommand(OnSaveCommand);
+
+
+        private Task OnSaveCommand()
+        {
+            return _navigation.PushModalAsync(new SceneReplayView());
+        }
+
 
         private async Task OnUploadCommand()
         {
-            if (Collection.Count > 0)
-            {
-                await _navigation.PushModalAsync(new SceneReplayView());
-                return;
-            }
             //TODO: Remake this shit
             var view = new ImagePickMethodPopupView();
             var viewModel = view.BindingContext as ImagePickMethodPopupViewModel;

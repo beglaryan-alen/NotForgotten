@@ -133,13 +133,16 @@
     <EmbeddedResource Update="Views\Tabs\ShopTabView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\UploadGreetingCardDetails\OrientationView.xaml">
+    <EmbeddedResource Update="Views\UploadGreetingCardDetails\SelectAndTagView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\UploadGreetingCardDetails\OtherFormatView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HomeUploadGreetingCardView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\WhoRememberView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -157,6 +160,9 @@
     </Compile>
     <Compile Update="Views\Popups\HomeThreeDotPopupView.xaml.cs">
       <DependentUpon>HomeThreeDotPopupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\UploadGreetingCardDetails\SelectAndTagView.xaml.cs">
+      <DependentUpon>SelectAndTagView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\UploadView.xaml.cs">
       <DependentUpon>UploadView.xaml</DependentUpon>

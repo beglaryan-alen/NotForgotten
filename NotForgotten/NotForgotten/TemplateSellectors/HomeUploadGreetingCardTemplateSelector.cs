@@ -10,7 +10,7 @@ namespace NotForgotten.TemplateSellectors
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
-            if (item is OrientationViewModel)
+            if (item is SelectAndTagViewModel)
                 return OrientationViewTemplate;
             else
                 return OtherFormatViewTemplate;

@@ -1,56 +1,115 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:NotForgotten.Controls"
-             xmlns:resources="clr-namespace:NotForgotten.Resources" 
-             xmlns:selectors="clr-namespace:NotForgotten.TemplateSellectors"
-             xmlns:views="clr-namespace:NotForgotten.Views.UploadGreetingCardDetails"
-             x:Class="NotForgotten.Views.HomeUploadGreetingCardView">
+<ContentPage
+    x:Class="NotForgotten.Views.HomeUploadGreetingCardView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:NotForgotten.Controls"
+    xmlns:resources="clr-namespace:NotForgotten.Resources"
+    xmlns:selectors="clr-namespace:NotForgotten.TemplateSellectors"
+    xmlns:views="clr-namespace:NotForgotten.Views.UploadGreetingCardDetails">
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, *">
-            <controls:CustomNavBar Title="Upload Greeting Card"
-                                   IsLeftIconVisible="True"
-                                   IsTitleVisible="True"
-                                   LeftIcon="back_arrow"
-                                   LeftIconTapCommand="{Binding GoBackCommand}"/>
+            <controls:CustomNavBar
+                Title="Upload Greeting Card"
+                IsLeftIconVisible="True"
+                IsTitleVisible="True"
+                LeftIcon="back_arrow"
+                LeftIconTapCommand="{Binding GoBackCommand}" />
 
-            <Grid RowDefinitions="Auto, *"
-                  Padding="10"
-                  Grid.Row="1">
-                <Frame BackgroundColor="#18222F"
-                       HeightRequest="80"
-                       CornerRadius="10">
-                    <StackLayout>
-                        <Label Text="From Archie"
-                               TextColor="#A6A6A6"
-                               FontSize="16"
-                               FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
+            <Grid
+                Grid.Row="1"
+                Padding="10"
+                RowDefinitions="Auto, *">
+                <StackLayout>
 
-                        <Label Text="Handdrawn Mothers Day"
-                               TextColor="#FFFFFF"
-                               FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
-                               FontSize="27"/>
-                    </StackLayout>
-                </Frame>
-                <StackLayout Grid.Row="1"
-                             Spacing="20">
+                    <Frame
+                        BackgroundColor="#18222F"
+                        CornerRadius="10"
+                        HeightRequest="80">
+                        <Grid>
 
-                    <controls:CarouselIndicatorView TabLabels="{Binding TabLabelsCollection}"
-                                                    SelecteTabTextColor="#000000"
-                                                    UnSelecteTabTextColor="#A6A6A6"
-                                                    TabFontSize="16"
-                                                    TabFontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
-                                                    SelectedTabColor="#FFFFFF"
-                                                    UnSelectedTabColor="#EFEFEF"
-                                                    SelectedIndex="{Binding CurrentTabIndex}"/>
-                    
-                    <CarouselView ItemsSource="{Binding TabItems}"
-                                  CurrentItem="{Binding CurrentTabItem}"
-                                  TabIndex="{Binding CurrentTabIndex}"
-                                  VerticalScrollBarVisibility="Never"
-                                  HorizontalScrollBarVisibility="Never"
-                                  IsSwipeEnabled="False"
-                                  Loop="False">
+                            <StackLayout>
+                                <StackLayout.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding CurrentTabIndex}"
+                                        TargetType="StackLayout"
+                                        Value="1">
+                                        <Setter Property="IsVisible" Value="False" />
+                                    </DataTrigger>
+                                </StackLayout.Triggers>
+                                <Label
+                                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                    FontSize="16"
+                                    Text="Select Bulk"
+                                    TextColor="#A6A6A6" />
+
+                                <Label
+                                    Margin="0,-5"
+                                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                    FontSize="16"
+                                    Text="or Individual"
+                                    TextColor="#A6A6A6" />
+
+                                <Label
+                                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                                    FontSize="27"
+                                    Text="Upload Type"
+                                    TextColor="#FFFFFF" />
+                            </StackLayout>
+
+                            <StackLayout Margin="0,0,30,0" HorizontalOptions="Start">
+                                <StackLayout.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding CurrentTabIndex}"
+                                        TargetType="StackLayout"
+                                        Value="0">
+                                        <Setter Property="IsVisible" Value="False" />
+                                    </DataTrigger>
+                                </StackLayout.Triggers>
+
+                                <Label
+                                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                                    FontSize="18"
+                                    Text="Digital Assets"
+                                    TextColor="#FFC846" />
+
+                                <Label
+                                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                    FontSize="14"
+                                    Text="This is the quickest way to upload multiple files. These files will cannot be tagged, mapped or categorized individually. "
+                                    TextColor="#FFFF" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+
+                    <BoxView BackgroundColor="#A6A6A6" HeightRequest="1" />
+
+                </StackLayout>
+
+                <Grid
+                    Grid.Row="1"
+                    Margin="0,30,0,0"
+                    RowDefinitions="Auto, *">
+
+                    <controls:CarouselIndicatorView
+                        SelecteTabTextColor="#000000"
+                        SelectedIndex="{Binding CurrentTabIndex}"
+                        SelectedTabColor="#FFFFFF"
+                        TabFontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                        TabFontSize="16"
+                        TabLabels="{Binding TabLabelsCollection}"
+                        UnSelecteTabTextColor="#A6A6A6"
+                        UnSelectedTabColor="#EFEFEF" />
+
+                    <CarouselView
+                        Grid.Row="1"
+                        CurrentItem="{Binding CurrentTabItem}"
+                        HorizontalScrollBarVisibility="Never"
+                        IsSwipeEnabled="False"
+                        ItemsSource="{Binding TabItems}"
+                        Loop="False"
+                        TabIndex="{Binding CurrentTabIndex}"
+                        VerticalScrollBarVisibility="Never">
 
                         <CarouselView.ItemTemplate>
 
@@ -60,7 +119,7 @@
 
                                     <DataTemplate>
 
-                                        <views:OrientationView BindingContext="{Binding OrientationViewModel}"/>
+                                        <views:SelectAndTagView BindingContext="{Binding OrientationViewModel}" />
 
                                     </DataTemplate>
 
@@ -70,21 +129,21 @@
 
                                     <DataTemplate>
 
-                                        <views:OtherFormatView BindingContext="{Binding OtherFormatViewModel}"/>
+                                        <views:OtherFormatView BindingContext="{Binding OtherFormatViewModel}" />
 
                                     </DataTemplate>
 
                                 </selectors:HomeUploadGreetingCardTemplateSelector.OtherFormatViewTemplate>
-                                
+
                             </selectors:HomeUploadGreetingCardTemplateSelector>
 
                         </CarouselView.ItemTemplate>
 
                     </CarouselView>
 
-                    
-                </StackLayout>
-                
+
+                </Grid>
+
             </Grid>
         </Grid>
     </ContentPage.Content>

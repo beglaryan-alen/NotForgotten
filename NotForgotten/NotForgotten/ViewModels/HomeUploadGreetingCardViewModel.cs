@@ -10,8 +10,8 @@ namespace NotForgotten.ViewModels
         {
             TabLabelsCollection = new ObservableCollection<string>()
             {
-                "Orientation",
-                "Other Format",
+                "Select & Tag",
+                "Bulk Upload No Tags",
             };
         }
 
@@ -51,8 +51,8 @@ namespace NotForgotten.ViewModels
             }
         }
 
-        private OrientationViewModel _orientationViewModel;
-        public OrientationViewModel OrientationViewModel
+        private SelectAndTagViewModel _orientationViewModel;
+        public SelectAndTagViewModel OrientationViewModel
         {
             get => _orientationViewModel;
             set => SetProperty(ref _orientationViewModel, value);
@@ -69,7 +69,8 @@ namespace NotForgotten.ViewModels
         {
             base.Initialize();
 
-            OrientationViewModel = new OrientationViewModel(_navigation);
+            OrientationViewModel = new SelectAndTagViewModel(_navigation);
+            OrientationViewModel.GoRight = new Command(() => CurrentTabIndex = 1);
 
             OtherFormatViewModel = new OtherFormatViewModel(_navigation);
 

@@ -1,66 +1,134 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:resources="clr-namespace:NotForgotten.Resources"
-             xmlns:cells="clr-namespace:NotForgotten.Cells"
-             x:Class="NotForgotten.Views.UploadGreetingCardDetails.OtherFormatView">
-    <StackLayout VerticalOptions="Start"
-                     Spacing="20">
-        <Label Text="There is no file uploaded"
-               TextColor="#616161"
-               FontSize="12"
-               IsVisible="false"
-               FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
-               HorizontalOptions="Center">
-            <Label.Triggers >
-                <DataTrigger Binding="{Binding Collection.Count}"
-                             Value="0"
-                             TargetType="Label">
-                    <Setter Property="IsVisible"
-                            Value="True"/>
-                </DataTrigger>
-            </Label.Triggers>
-        </Label>
+<ContentView
+    x:Class="NotForgotten.Views.UploadGreetingCardDetails.OtherFormatView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cells="clr-namespace:NotForgotten.Cells"
+    xmlns:resources="clr-namespace:NotForgotten.Resources">
+    <Grid RowDefinitions="*, Auto">
+        <StackLayout Spacing="20" VerticalOptions="Start">
 
-        <Grid HeightRequest="120">
-            <Rectangle Fill="#FFEFC8"
-                   Stroke="#FFC846"
-                   RadiusY="10"
-                   RadiusX="10"
-                   StrokeThickness="2"
-                   StrokeDashArray="4,1"
-                   StrokeDashOffset="6"
-                   HorizontalOptions="FillAndExpand"/>
+            <Label
+                FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                FontSize="12"
+                HorizontalOptions="Center"
+                IsVisible="false"
+                Text="There is no file uploaded"
+                TextColor="#616161">
 
-            <StackLayout HorizontalOptions="Center"
-                         VerticalOptions="Center">
-                <Image Source="backup"/>
+                <Label.Triggers>
 
-                <Label Text="Tap here to"
-                       FontSize="12"
-                       HorizontalOptions="Center"
-                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
-                       HorizontalTextAlignment="Center"
-                       TextColor="#575656"/>
+                    <DataTrigger
+                        Binding="{Binding Collection.Count}"
+                        TargetType="Label"
+                        Value="0">
 
-                <Label Text="upload your file"
-                       FontSize="16"
-                       HorizontalOptions="Center"
-                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
-                       HorizontalTextAlignment="Center"
-                       TextColor="#000000"/>
-            </StackLayout>
+                        <Setter Property="IsVisible" Value="True" />
 
-            <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding UploadCommand}"/>
-            </Grid.GestureRecognizers>
-        </Grid>
-        <StackLayout BindableLayout.ItemsSource="{Binding Collection}">
-            <BindableLayout.ItemTemplate>
-                <DataTemplate>
-                    <cells:UploadCardCell/>
-                </DataTemplate>
-            </BindableLayout.ItemTemplate>
+                    </DataTrigger>
+
+                </Label.Triggers>
+
+            </Label>
+
+
+            <Grid HeightRequest="120">
+
+                <Rectangle
+                    Fill="#FFEFC8"
+                    HorizontalOptions="FillAndExpand"
+                    RadiusX="10"
+                    RadiusY="10"
+                    Stroke="#FFC846"
+                    StrokeDashArray="4,1"
+                    StrokeDashOffset="6"
+                    StrokeThickness="2" />
+
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+                    <Image Source="backup" />
+
+                    <Label
+                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="Tap here to"
+                        TextColor="#575656" />
+
+                    <Label
+                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        Text="upload your file"
+                        TextColor="#000000" />
+
+                </StackLayout>
+
+                <Grid.GestureRecognizers>
+
+                    <TapGestureRecognizer Command="{Binding UploadCommand}" />
+
+                </Grid.GestureRecognizers>
+
+            </Grid>
+
+            <ScrollView VerticalOptions="FillAndExpand">
+
+                <StackLayout BindableLayout.ItemsSource="{Binding Collection}">
+
+
+                    <BindableLayout.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <cells:UploadCardCell />
+
+                        </DataTemplate>
+
+                    </BindableLayout.ItemTemplate>
+
+                </StackLayout>
+
+
+            </ScrollView>
+
         </StackLayout>
-    </StackLayout>
+
+        <StackLayout
+            Grid.Row="1"
+            Padding="0,10"
+            Spacing="10"
+            VerticalOptions="End">
+            <StackLayout.Triggers>
+
+                <DataTrigger
+                    Binding="{Binding Collection.Count}"
+                    TargetType="StackLayout"
+                    Value="0">
+
+                    <Setter Property="IsVisible" Value="False" />
+
+                </DataTrigger>
+
+            </StackLayout.Triggers>
+            <Button
+                BackgroundColor="#FFC846"
+                Command="{Binding SaveCommand}"
+                CornerRadius="20"
+                FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                FontSize="18"
+                Text="Save &amp; continue"
+                TextTransform="None" />
+
+            <Label
+                FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="Skip &amp; Continue later"
+                TextColor="#928D8D" />
+        </StackLayout>
+    </Grid>
+
 </ContentView>
