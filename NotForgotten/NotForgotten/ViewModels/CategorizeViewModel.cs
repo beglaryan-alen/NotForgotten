@@ -48,47 +48,30 @@ namespace NotForgotten.ViewModels
             base.Initialize();
             GiversRelationship = new ObservableRangeCollection<string>()
             {
-                        "Boyfriend",
-                        "Husband",
-                        "Wife",
-                        "Spouse",
-                        "Child",
-                        "Family",
-                        "Father",
-                        "Friend",
-                        "GrandParent",
-                        "Mother",
-                        "Colleague",
-                        "Other",
+                "Spouse",
+                "Kids",
+                "Family",
+                "Friend",
+                "Colleague",
+                "Classmates",
+                "Club / society",
+                "Other"
             };
 
             Occasion = new ObservableRangeCollection<string>()
             {
-                "1st Birthday",
-                        "10th Birthday",
-                        "13th Birthday",
-                        "21st Birthday",
-                        "30th Birthday",
-                        "40th Birthday",
-                        "50th Birthday",
-                        "60th Birthday",
-                        "Birthday",
-                        "Christmas",
-                        "Congratulations",
-                        "Easter",
-                        "Fathers Day",
-                        "Get Well",
-                        "Graduation",
-                        "High school Graduation",
-                        "Mother day",
-                        "New Baby",
-                        "No reason",
-                        "Sympathy",
-                        "Thank you",
-                        "Thanksgiving",
-                        "Thinking of you",
-                        "Valentines Day",
-                        "Wedding",
+                "1st Birthday", 
+                "10th Birthday",
+                "Birthday",
+                "Vacation",
+                "Christmas",
+                "Memorial",
+                "Graduation",
+                "Reunion",
+                "Christening",
+                "Bat Mitzvah",
+                "Ceremony",
+                "None",
             };
 
             LifeStage = new ObservableRangeCollection<string>()
@@ -97,18 +80,19 @@ namespace NotForgotten.ViewModels
                         "Child",
                         "Teen",
                         "Young Adult",
+                        "30's",
+                        "40's",
+                        "50's",
+                        "60's",
                         "Senior",
-                        "General"
             };
 
             CardFormat = new ObservableRangeCollection<string>()
             {
-                "Card",
-                "Postcard",
-                "Letter",
-                "Text",
                 "Video",
-                "Voicemail",
+                "Photo",
+                "Document",
+                "Audio",
             };
         }
     }

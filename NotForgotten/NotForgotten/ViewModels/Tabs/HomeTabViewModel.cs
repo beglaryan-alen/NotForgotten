@@ -42,8 +42,8 @@ namespace NotForgotten.ViewModels.Tabs
             {
                 new HomeBindableModel()
                 {
-                    Title = "Birthday card skiing",
-                    BelongName = "Sally Field",
+                    Title = "Grandpa and I at Disney",
+                    BelongName = "Video",
                     Date = DateTime.ParseExact("27/05/2020", "dd/mm/yyyy", CultureInfo.InvariantCulture),
                     IsDownloaded = true,
                     IsFavorite = true,
@@ -52,29 +52,30 @@ namespace NotForgotten.ViewModels.Tabs
                 },
                 new HomeBindableModel()
                 {
-                    Title = "Video Card from Mom",
-                    BelongName = "Mom",
+                    Title = "Poppa and Grandma’s Wedding",
+                    BelongName = "Video",
                     Date = DateTime.ParseExact("27/05/2020", "dd/mm/yyyy", CultureInfo.InvariantCulture),
                     DownloadedSize = 1.6,
                     FileSize = 2,
                 },
                 new HomeBindableModel()
                 {
-                    Title = "Handdrawn mothers day",
-                    BelongName = "Archie",
+                    Title = "Dad’s birth",
+                    BelongName = "Photo",
                     Date = DateTime.ParseExact("27/05/2020", "dd/mm/yyyy", CultureInfo.InvariantCulture),
-                    IsFavorite = true,
-                    DownloadedSize = 12.5,
-                    FileSize = 20,
-                    IsDownloaded = false,
+                    DownloadedSize = 2,
+                    IsDownloaded = true,
+                    IsFavorite = true,  
+                    FileSize = 2,
                 },
                 new HomeBindableModel()
                 {
                     Title = "My First Product",
                     BelongName = "Individual Archive",
                     Date = DateTime.ParseExact("27/05/2020", "dd/mm/yyyy", CultureInfo.InvariantCulture),
-                    HasSettings = true,
+                    DownloadedSize = 2,
                     IsDownloaded = true,
+                    FileSize = 2,
                 },
             };
         }
