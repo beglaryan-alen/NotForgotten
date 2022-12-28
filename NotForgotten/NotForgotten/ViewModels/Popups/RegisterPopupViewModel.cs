@@ -18,7 +18,10 @@ namespace NotForgotten.ViewModels.Popups
         private async Task OnRegisterCommand()
         {
             GoBackPopupCommand.Execute(null);
-            await _navigation.PushModalAsync(new WhoRememberView());
+            var rootView = new RootView(1);
+            App.Current.MainPage = rootView;
+            await Task.Delay(500);
+            await rootView.Navigation.PushModalAsync(new WhoRememberView(), true);
         }
     }
 }
