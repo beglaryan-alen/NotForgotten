@@ -61,7 +61,7 @@
                         FontSize="16"
                         HorizontalOptions="Center"
                         HorizontalTextAlignment="Center"
-                        Text="upload your file"
+                        Text="Upload files"
                         TextColor="#000000" />
 
                 </StackLayout>

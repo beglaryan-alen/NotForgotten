@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NotForgotten.Views.UploadDigitalAssetsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cells="clr-namespace:NotForgotten.Cells"
+    xmlns:controls="clr-namespace:NotForgotten.Controls"
+    xmlns:resources="clr-namespace:NotForgotten.Resources">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *">
+            <controls:CustomNavBar
+                IsLeftIconVisible="True"
+                LeftIcon="back_arrow"
+                LeftIconTapCommand="{Binding GoBackCommand}" />
+
+            <Grid
+                Grid.Row="1"
+                Padding="10"
+                RowDefinitions="*, Auto">
+                <StackLayout Spacing="20" VerticalOptions="Start">
+
+                    <Frame
+                        Padding="20,15"
+                        BackgroundColor="#18222F"
+                        CornerRadius="20">
+                        <StackLayout Padding="0,0,70,0">
+                            <Label
+                                FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                                FontSize="18"
+                                Text="Digital Assets"
+                                TextColor="#FFC846" />
+
+                            <Label
+                                FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                FontSize="14"
+                                Text="Upload additional documents, photos,"
+                                TextColor="#FFFFFF" />
+                            <Label
+                                FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                FontSize="14"
+                                Text="videos &amp; files to be included in your archive"
+                                TextColor="#FFFFFF" />
+                        </StackLayout>
+                    </Frame>
+
+                    <Grid HeightRequest="120">
+
+                        <Rectangle
+                            Fill="#FFEFC8"
+                            HorizontalOptions="FillAndExpand"
+                            RadiusX="10"
+                            RadiusY="10"
+                            Stroke="#FFC846"
+                            StrokeDashArray="4,1"
+                            StrokeDashOffset="6"
+                            StrokeThickness="2" />
+
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+                            <Image Source="backup" />
+
+                            <Label
+                                FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                FontSize="12"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="Tap here to"
+                                TextColor="#575656" />
+
+                            <Label
+                                FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                FontSize="16"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="Upload files"
+                                TextColor="#000000" />
+
+                        </StackLayout>
+
+                        <Grid.GestureRecognizers>
+
+                            <TapGestureRecognizer Command="{Binding UploadCommand}" />
+
+                        </Grid.GestureRecognizers>
+
+                    </Grid>
+
+                    <Label
+                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        IsVisible="false"
+                        Text="No Uploads Currently"
+                        TextColor="#616161">
+
+                        <Label.Triggers>
+
+                            <DataTrigger
+                                Binding="{Binding Collection.Count}"
+                                TargetType="Label"
+                                Value="0">
+
+                                <Setter Property="IsVisible" Value="True" />
+
+                            </DataTrigger>
+
+                        </Label.Triggers>
+
+                    </Label>
+
+
+                    <ScrollView VerticalOptions="FillAndExpand">
+
+                        <StackLayout BindableLayout.ItemsSource="{Binding Collection}">
+
+
+                            <BindableLayout.ItemTemplate>
+
+                                <DataTemplate>
+
+                                    <cells:UploadCardCell />
+
+                                </DataTemplate>
+
+                            </BindableLayout.ItemTemplate>
+
+                        </StackLayout>
+
+
+                    </ScrollView>
+
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Row="1"
+                    Padding="0,10"
+                    Spacing="10"
+                    VerticalOptions="End">
+                    <StackLayout.Triggers>
+
+                        <DataTrigger
+                            Binding="{Binding Collection.Count}"
+                            TargetType="StackLayout"
+                            Value="0">
+
+                            <Setter Property="IsVisible" Value="False" />
+
+                        </DataTrigger>
+
+                    </StackLayout.Triggers>
+                    <Button
+                        BackgroundColor="#FFC846"
+                        Command="{Binding SaveCommand}"
+                        CornerRadius="20"
+                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                        FontSize="18"
+                        Text="Save &amp; continue"
+                        TextTransform="None" />
+
+                    <Label
+                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        Text="Skip &amp; Continue later"
+                        TextColor="#928D8D" />
+                </StackLayout>
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

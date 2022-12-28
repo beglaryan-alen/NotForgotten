@@ -1,6 +1,7 @@
 ﻿using MvvmHelpers;
 using MvvmHelpers.Commands;
 using NotForgotten.Model.HomeUploadGreetingCard;
+using NotForgotten.Views;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -32,15 +33,15 @@ namespace NotForgotten.ViewModels.HomeUploadGreetingCardDetails
             {
                 if (model.Type.ToLower() == "Video".ToLower())
                 {
-                    await Xamarin.Essentials.MediaPicker.CaptureVideoAsync();
+                    await Xamarin.Essentials.MediaPicker.PickVideoAsync();
                 }
                 else if (model.Type.ToLower() == "Photo".ToLower())
                 {
-                    await Xamarin.Essentials.MediaPicker.CapturePhotoAsync();
+                    await Xamarin.Essentials.MediaPicker.PickPhotoAsync();
                 }
                 else if (model.Type.ToLower() == "Document or File".ToLower())
                 {
-                    GoRight.Execute(null);
+                    await _navigation.PushModalAsync(new UploadDigitalAssetsView());
                 }
                 else
                 {

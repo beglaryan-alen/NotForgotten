@@ -13,6 +13,15 @@ namespace NotForgotten.ViewModels.Popups
         {
         }
 
+        private bool _isFavorite;
+        public bool IsFavorite
+        {
+            get => _isFavorite;
+            set => SetProperty(ref _isFavorite, value);
+        }
+
+        public ICommand FavoriteCommand => new AsyncCommand(async() => IsFavorite = !IsFavorite);
+
         public ICommand Continue => new AsyncCommand(OnContinue);
 
         private async Task OnContinue()

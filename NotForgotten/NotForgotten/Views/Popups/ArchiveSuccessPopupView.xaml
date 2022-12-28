@@ -1,52 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
-                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                 xmlns:views="http://rotorgames.com"
-                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-                 xmlns:resources="clr-namespace:NotForgotten.Resources"
-                 HasKeyboardOffset="False"
-                 x:Class="NotForgotten.Views.Popups.ArchiveSuccessPopupView">
+<views:PopupPage
+    x:Class="NotForgotten.Views.Popups.ArchiveSuccessPopupView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:resources="clr-namespace:NotForgotten.Resources"
+    xmlns:views="http://rotorgames.com"
+    HasKeyboardOffset="False">
     <pages:PopupPage.Animation>
 
-        <animations:ScaleAnimation PositionIn="Center"
-                                   ScaleIn="1.2"
-                                   ScaleOut="0.8"
-                                   DurationIn="400"
-                                   DurationOut="300"
-                                   EasingIn="SinOut"
-                                   EasingOut="SinIn"/>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            PositionIn="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
     </pages:PopupPage.Animation>
-    <Grid ColumnDefinitions="0.1*, 0.8*, 0.1*"
-          VerticalOptions="Center">
+    <Grid ColumnDefinitions="0.1*, 0.8*, 0.1*" VerticalOptions="Center">
 
-        <Frame VerticalOptions="Center"
-           CornerRadius="10"
-               Grid.Column="1"
-           BackgroundColor="#F4F4F4"
-           HorizontalOptions="Center">
+        <Frame
+            Grid.Column="1"
+            BackgroundColor="#F4F4F4"
+            CornerRadius="10"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
             <StackLayout>
-                <Label Text="Success"
-                       HorizontalOptions="Center"
-                   FontSize="21"
-                   FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
-                   TextColor="#18222F"/>
+                <Label
+                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                    FontSize="21"
+                    HorizontalOptions="Center"
+                    Text="Success"
+                    TextColor="#18222F" />
 
-                <Image Source="success"/>
+                <Image Source="success" />
 
-                <Label Text="Your new archive was added successfully."
-                   FontSize="16"
-                       HorizontalTextAlignment="Center"
-                   TextColor="#928D8D"
-                   FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
+                <Label
+                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                    FontSize="16"
+                    HorizontalTextAlignment="Center"
+                    Text="Your new archive was added successfully."
+                    TextColor="#928D8D" />
 
-                <Button BackgroundColor="#FFC846"
+                <Button
+                    BackgroundColor="#FFC846"
+                    Command="{Binding GoBackPopupCommand}"
+                    CornerRadius="20"
+                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                     FontSize="18"
-                        CornerRadius="20"
-                        TextTransform="None"
-                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
-                    Text="Set Up  Profile"
-                    TextColor="#18222F"/>
+                    Text="OK"
+                    TextColor="#18222F"
+                    TextTransform="None" />
 
             </StackLayout>
         </Frame>

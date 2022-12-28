@@ -232,5 +232,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\cloud_icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\unsuccess.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

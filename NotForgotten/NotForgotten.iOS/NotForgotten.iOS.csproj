@@ -489,4 +489,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\cloud_icon%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\unsuccess.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\unsuccess%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\unsuccess%403x.png" />
+  </ItemGroup>
 </Project>

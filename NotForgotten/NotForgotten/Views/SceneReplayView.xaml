@@ -1,74 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:NotForgotten.Controls"
-             xmlns:resources="clr-namespace:NotForgotten.Resources"
-             x:Class="NotForgotten.Views.SceneReplayView">
+<ContentPage
+    x:Class="NotForgotten.Views.SceneReplayView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:NotForgotten.Controls"
+    xmlns:resources="clr-namespace:NotForgotten.Resources">
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, *">
-            <controls:CustomNavBar LeftIcon="back_arrow"
-                                   IsLeftIconVisible="True"
-                                   LeftIconTapCommand="{Binding GoBackCommand}"/>
+            <controls:CustomNavBar
+                IsLeftIconVisible="True"
+                LeftIcon="back_arrow"
+                LeftIconTapCommand="{Binding GoBackCommand}" />
 
-            <Grid Grid.Row="1"
-                  Padding="20"
-                  RowDefinitions="Auto, *">
+            <Grid
+                Grid.Row="1"
+                Padding="20"
+                RowDefinitions="Auto, *">
                 <StackLayout Spacing="30">
-                    <Frame BackgroundColor="#18222F"
-                           Padding="20, 10"
-                           CornerRadius="10">
+                    <Frame
+                        Padding="20,10"
+                        BackgroundColor="#18222F"
+                        CornerRadius="10">
                         <Grid ColumnDefinitions="Auto, *">
-                            <Grid RowDefinitions="Auto, Auto"
-                                  RowSpacing="8">
-                                <Label Text="03:00"
-                                       Grid.Row="0"
-                                       TextColor="#FFFFFF"
-                                       VerticalOptions="Center"
-                                       FontSize="16"
-                                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
+                            <Grid RowDefinitions="Auto, Auto" RowSpacing="8">
+                                <Label
+                                    Grid.Row="0"
+                                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                    FontSize="16"
+                                    Text="03:00"
+                                    TextColor="#FFFFFF"
+                                    VerticalOptions="Center" />
 
-                                <Label Text="Recorded Time"
-                                       Grid.Row="1"
-                                       VerticalOptions="Center"
-                                       TextColor="#FFFFFF"
-                                       FontSize="12"
-                                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
+                                <Label
+                                    Grid.Row="1"
+                                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                    FontSize="12"
+                                    Text="Recorded Time"
+                                    TextColor="#FFFFFF"
+                                    VerticalOptions="Center" />
                             </Grid>
 
-                            <Grid Grid.Column="1"
-                                  RowDefinitions="Auto, Auto">
-                                <Image Source="cloud_upload"
-                                       HorizontalOptions="End"/>
+                            <Grid Grid.Column="1" RowDefinitions="Auto, Auto">
+                                <Image HorizontalOptions="End" Source="cloud_upload" />
 
-                                <Label Text="Not uploaded"
-                                       Grid.Row="1"
-                                       HorizontalOptions="End"
-                                       TextColor="#FFC846"
-                                       FontSize="12"
-                                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
+                                <Label
+                                    Grid.Row="1"
+                                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                    FontSize="12"
+                                    HorizontalOptions="End"
+                                    Text="Not uploaded"
+                                    TextColor="#FFC846" />
                             </Grid>
                         </Grid>
                     </Frame>
 
-                    <Image Source="scene_replay"/>
+                    <Image Source="scene_replay" />
                 </StackLayout>
 
-                <StackLayout Grid.Row="1"
-                             VerticalOptions="Center">
-                    <Button BackgroundColor="#FFC846"
-                            CornerRadius="20"
-                            Text="Delete"
-                            TextTransform="None"
-                            FontSize="18"
-                            FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"/>
+                <StackLayout Grid.Row="1" VerticalOptions="Center">
+                    <Button
+                        BackgroundColor="#FFC846"
+                        Command="{Binding GoBackCommand}"
+                        CornerRadius="20"
+                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                        FontSize="18"
+                        Text="Delete"
+                        TextTransform="None" />
 
-                    <Button BackgroundColor="#FFC846"
-                            CornerRadius="20"
-                            Text="Next Step"
-                            Command="{Binding NextStep}"
-                            TextTransform="None"
-                            FontSize="18"
-                            FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"/>
+                    <Button
+                        BackgroundColor="#FFC846"
+                        Command="{Binding NextStep}"
+                        CornerRadius="20"
+                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                        FontSize="18"
+                        Text="Next Step"
+                        TextTransform="None" />
                 </StackLayout>
             </Grid>
         </Grid>

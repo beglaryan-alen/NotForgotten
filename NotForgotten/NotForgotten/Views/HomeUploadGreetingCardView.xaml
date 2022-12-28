@@ -10,7 +10,7 @@
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, *">
             <controls:CustomNavBar
-                Title="Upload Greeting Card"
+                Title="Upload Memento"
                 IsLeftIconVisible="True"
                 IsTitleVisible="True"
                 LeftIcon="back_arrow"

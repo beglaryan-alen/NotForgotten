@@ -1,52 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<views:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
-                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                 xmlns:views="http://rotorgames.com"
-                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
-                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-                 xmlns:resources="clr-namespace:NotForgotten.Resources"
-                 HasKeyboardOffset="False"
-                 x:Class="NotForgotten.Views.Popups.AllTimeFavoritePopupView">
+<views:PopupPage
+    x:Class="NotForgotten.Views.Popups.AllTimeFavoritePopupView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:resources="clr-namespace:NotForgotten.Resources"
+    xmlns:views="http://rotorgames.com"
+    HasKeyboardOffset="False">
     <pages:PopupPage.Animation>
 
-        <animations:ScaleAnimation PositionIn="Center"
-                                   ScaleIn="1.2"
-                                   ScaleOut="0.8"
-                                   DurationIn="400"
-                                   DurationOut="300"
-                                   EasingIn="SinOut"
-                                   EasingOut="SinIn"/>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            PositionIn="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8" />
     </pages:PopupPage.Animation>
 
-    <Grid ColumnDefinitions="0.05*, 0.9*, 0.05*"
-          VerticalOptions="Center">
+    <Grid ColumnDefinitions="0.05*, 0.9*, 0.05*" VerticalOptions="Center">
 
-        <Frame Grid.Column="1"
-               BackgroundColor="#F4F4F4"
-               Padding="20, 30, 25, 15"
-               CornerRadius="10">
-            <Grid RowDefinitions="Auto, *, Auto"
-                  RowSpacing="40">
-                <Label Text="Is this an all time favorite?"
-                       FontSize="21"
-                       HorizontalOptions="Center"
-                       TextColor="#18222F"
-                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"/>
+        <Frame
+            Grid.Column="1"
+            Padding="20,30,25,15"
+            BackgroundColor="#F4F4F4"
+            CornerRadius="10">
+            <Grid RowDefinitions="Auto, *, Auto" RowSpacing="40">
+                <Label
+                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                    FontSize="21"
+                    HorizontalOptions="Center"
+                    Text="Is this an all time favorite?"
+                    TextColor="#18222F" />
 
-                <Image Source="success"
-                       Grid.Row="1"
-                       HorizontalOptions="FillAndExpand"
-                       VerticalOptions="FillAndExpand"/>
+                <Image
+                    Grid.Row="1"
+                    HorizontalOptions="FillAndExpand"
+                    Source="success"
+                    VerticalOptions="FillAndExpand">
+                    <Image.Triggers>
+                        <DataTrigger
+                            Binding="{Binding IsFavorite}"
+                            TargetType="Image"
+                            Value="false">
+                            <Setter Property="Source" Value="unsuccess" />
+                        </DataTrigger>
+                    </Image.Triggers>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FavoriteCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
 
-                <Button BackgroundColor="#FFC846"
-                        Grid.Row="2"
-                        Text="Submit    "
-                        FontSize="18"
-                        TextColor="#18222F"
-                        Command="{Binding Continue}"
-                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
-                        TextTransform="None"
-                        CornerRadius="20"/>
+                <Button
+                    Grid.Row="2"
+                    BackgroundColor="#FFC846"
+                    Command="{Binding Continue}"
+                    CornerRadius="20"
+                    FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                    FontSize="18"
+                    Text="Submit    "
+                    TextColor="#18222F"
+                    TextTransform="None" />
             </Grid>
         </Frame>
 
