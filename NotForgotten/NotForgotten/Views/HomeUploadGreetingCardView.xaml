@@ -10,7 +10,7 @@
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, *">
             <controls:CustomNavBar
-                Title="Upload Memento"
+                Title="{Binding Title}"
                 IsLeftIconVisible="True"
                 IsTitleVisible="True"
                 LeftIcon="back_arrow"

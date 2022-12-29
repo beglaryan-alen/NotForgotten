@@ -1,5 +1,7 @@
 ﻿using NotForgotten.ViewModels.HomeUploadGreetingCardDetails;
+using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace NotForgotten.ViewModels
@@ -13,6 +15,13 @@ namespace NotForgotten.ViewModels
                 "Select & Tag",
                 "Bulk Upload No Tags",
             };
+        }
+
+        private string _title;
+        public string Title
+        {
+            get => _title;
+            set => SetProperty(ref _title, value);
         }
 
         private ObservableCollection<string> _tabLabelsCollection;
@@ -63,6 +72,21 @@ namespace NotForgotten.ViewModels
         {
             get => _otherFormatViewModel;
             set => SetProperty(ref _otherFormatViewModel, value);
+        }
+
+        protected override void OnPropertyChanged(PropertyChangedEventArgs args)
+        {
+            base.OnPropertyChanged(args);
+
+            if (args.PropertyName == nameof(CurrentTabItem))
+            {
+                if (CurrentTabIndex == 0)
+                    Title = "Upload  Memento";
+                else if (CurrentTabIndex == 1)
+                    Title = "Bulk Upload";
+                else
+                    throw new NotImplementedException();
+            }
         }
 
         protected override void Initialize()
