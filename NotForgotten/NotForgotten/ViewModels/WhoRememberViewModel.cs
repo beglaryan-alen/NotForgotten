@@ -6,7 +6,7 @@ namespace NotForgotten.ViewModels
 {
     public class WhoRememberViewModel : BaseViewModel
     {
-        public WhoRememberViewModel(INavigation navigation, RootView rootView = null) : base(navigation, rootView)
+        public WhoRememberViewModel(INavigation navigation) : base(navigation)
         {
         }
 

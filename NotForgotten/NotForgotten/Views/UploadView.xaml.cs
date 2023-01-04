@@ -14,10 +14,10 @@ namespace NotForgotten.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class UploadView : ContentPage
 	{
-		public UploadView (HomeBindableModel model, RootView rootView = null)
+		public UploadView (HomeBindableModel model)
 		{
 			InitializeComponent ();
-			BindingContext = new UploadViewModel(Navigation, model, rootView);
+			BindingContext = new UploadViewModel(Navigation, model);
 		}
 	}
 }

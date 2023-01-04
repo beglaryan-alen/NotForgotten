@@ -33,7 +33,7 @@ namespace NotForgotten.ViewModels.HomeUploadGreetingCardDetails
             {
                 if (model.Type.ToLower() == "Video".ToLower())
                 {
-                    await Xamarin.Essentials.MediaPicker.PickVideoAsync();
+                    await _navigation.PushModalAsync(new UploadDigitalVideoView());
                 }
                 else if (model.Type.ToLower() == "Photo".ToLower())
                 {

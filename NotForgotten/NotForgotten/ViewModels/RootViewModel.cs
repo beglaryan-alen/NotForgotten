@@ -116,7 +116,7 @@ namespace NotForgotten.ViewModels
         {
             CardsTabViewModel = new CardsTabViewModel(_navigation, _isCardsScreenShotVertical);
 
-            HomeTabViewModel = new HomeTabViewModel(_navigation, _rootView);
+            HomeTabViewModel = new HomeTabViewModel(_navigation);
 
             ShopTabViewModel = new ShopTabViewModel(_navigation);
 

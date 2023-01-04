@@ -9,9 +9,8 @@ namespace NotForgotten.ViewModels
 
         public UploadViewModel
             (INavigation navigation,
-            HomeBindableModel model,
-            RootView rootView) 
-            : base(navigation, rootView)
+            HomeBindableModel model) 
+            : base(navigation)
         {
             BelongName = model.BelongName;
             Title = model.Title;

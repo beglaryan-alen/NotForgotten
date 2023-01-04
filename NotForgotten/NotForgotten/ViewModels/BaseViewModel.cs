@@ -18,17 +18,14 @@ namespace NotForgotten.ViewModels
         protected readonly IPopupNavigation _popupNavigation;
         protected readonly INavigation _navigation;
         public BaseViewModel(
-            INavigation navigation,
-            RootView rootView = null)
+            INavigation navigation)
         {
             _popupNavigation = DependencyService.Get<IPopupNavigation>();
             _navigation = navigation;
-            RootView = rootView;
             Initialize();
         }
 
         public ICommand GoBackCommand => new AsyncCommand(async() => await _navigation.PopModalAsync());
-        public RootView RootView { get; set; }
 
         protected virtual void Initialize()
         {
