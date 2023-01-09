@@ -9,7 +9,7 @@
     <ContentView.Content>
         <Grid RowDefinitions="Auto, *">
 
-            <controls:CustomNavBar Title="Your Collection"
+            <controls:CustomNavBar Title="Your Mementos"
                                    IsTitleVisible="True"/>
 
             <Grid RowDefinitions="0.15*, 0.65*, 0.2*"

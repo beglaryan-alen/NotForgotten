@@ -335,7 +335,7 @@
                         CornerRadius="20"
                         FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                         FontSize="18"
-                        Text="Submit for Archiving"
+                        Text="Submit"
                         TextTransform="None" />
                 </StackLayout>
             </ScrollView>

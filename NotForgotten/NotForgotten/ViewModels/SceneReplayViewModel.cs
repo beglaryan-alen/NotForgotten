@@ -1,5 +1,4 @@
-﻿using MvvmHelpers.Commands;
-using NotForgotten.Views;
+﻿using NotForgotten.Views;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -11,6 +10,6 @@ namespace NotForgotten.ViewModels
         {
         }
 
-        public ICommand NextStep => new AsyncCommand(async() => await _navigation.PushModalAsync(new CategorizeView()));
+        public ICommand NextStep => new Command(() => App.Current.MainPage = new RootView(1));
     }
 }
