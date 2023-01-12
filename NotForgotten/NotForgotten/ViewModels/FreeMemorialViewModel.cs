@@ -52,6 +52,7 @@ namespace NotForgotten.ViewModels
 
         private async Task OnAccountCommand()
         {
+            App.Current.MainPage = new LoginView();
         }
 
         private async Task OnStartMemorialCommand()

@@ -26,7 +26,7 @@ namespace NotForgotten.ViewModels.Popups
             var res = await Xamarin.Essentials.MediaPicker.CapturePhotoAsync();
             if (res != null)
             {
-                GoBackCommand.Execute(null);
+                GoBackPopupCommand.Execute(null);
                 await _navigation.PushModalAsync(new UploadPhotoView());
 
             }

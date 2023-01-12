@@ -21,7 +21,7 @@ namespace NotForgotten
             InitializeComponent();
             SetupServices();
 
-            MainPage = new UploadPhotoView();
+            MainPage = new FreeMemorialView();
         }
 
         private void SetupServices()
