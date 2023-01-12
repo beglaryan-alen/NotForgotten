@@ -9,7 +9,9 @@
     <ContentView.Content>
         <Grid RowDefinitions="Auto, *">
 
-            <controls:CustomNavBar Title="Your Mementos"
+            <controls:CustomNavBar Title="Pet Memorial"
+                                   IsRightIconVisible="{Binding IsRightIconVisible}"
+                                   RightIcon=""
                                    IsTitleVisible="True"/>
 
             <Grid RowDefinitions="0.15*, 0.65*, 0.2*"

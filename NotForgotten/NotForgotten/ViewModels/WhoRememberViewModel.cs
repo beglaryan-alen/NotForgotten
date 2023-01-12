@@ -1,4 +1,6 @@
 ﻿using NotForgotten.Views;
+using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -10,6 +12,14 @@ namespace NotForgotten.ViewModels
         {
         }
 
-        public ICommand SubmitForArchive => new Command(() => App.Current.MainPage = new RootView(1));
+        public ICommand SubmitForArchive => new Command(async () => await OnSubmitCommand());
+
+        private async Task OnSubmitCommand()
+        {
+            var loginView = new LoginView();
+            App.Current.MainPage = loginView;
+            await Task.Delay(300);
+            (loginView.BindingContext as LoginViewModel).RegisterCommand.Execute(null);
+        }
     }
 }

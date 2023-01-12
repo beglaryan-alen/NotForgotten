@@ -10,7 +10,7 @@
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, *">
             <controls:CustomNavBar
-                Title="Who would you like to remember?"
+                Title="Your Pet"
                 IsLeftIconVisible="True"
                 IsTitleVisible="True"
                 LeftIcon="back_arrow"
@@ -26,7 +26,7 @@
                             <Label
                                 FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
                                 FontSize="16"
-                                Text="Tap the cloud icon to add a photo of your loved one. "
+                                Text="Tap the cloud icon to add a photo of your pet."
                                 VerticalOptions="Center" />
                         </StackLayout>
 
@@ -36,8 +36,8 @@
 
 
                     <StackLayout Padding="0,20">
-                        <controls:CustomEntryControl CornerRadius="20" Placeholder="Given Name(s)" />
-                        <controls:CustomEntryControl CornerRadius="20" Placeholder="Last Name" />
+                        <controls:CustomEntryControl CornerRadius="20" Placeholder="Formal Name" />
+                        <controls:CustomEntryControl CornerRadius="20" Placeholder="Short Name" />
                     </StackLayout>
 
                     <BoxView BackgroundColor="#9F9F9F" HeightRequest="1" />
@@ -114,7 +114,7 @@
                             Margin="10,0"
                             FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
                             FontSize="16"
-                            Text="Passed Date"
+                            Text="Death Date"
                             TextColor="#312F2F" />
 
                         <Grid ColumnDefinitions="Auto, *, *, 2*" ColumnSpacing="20">
@@ -178,59 +178,11 @@
 
                         <BoxView BackgroundColor="#9F9F9F" HeightRequest="1" />
 
-                        <xct:Expander x:Name="townExpander">
-                            <xct:Expander.Header>
-                                <Grid ColumnDefinitions="Auto, *">
-                                    <Label
-                                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
-                                        FontSize="16"
-                                        HorizontalOptions="Start"
-                                        Text="Home Town"
-                                        TextColor="#18222F"
-                                        VerticalOptions="Center"
-                                        VerticalTextAlignment="Center" />
-                                    <Image
-                                        x:Name="townArrowImage"
-                                        Grid.Column="1"
-                                        HorizontalOptions="End"
-                                        Source="arrow_down"
-                                        VerticalOptions="Center" />
-                                    <Grid.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" />
-                                    </Grid.GestureRecognizers>
-                                </Grid>
-                            </xct:Expander.Header>
-                            <xct:Expander.Content>
-                                <StackLayout Padding="0,20" Spacing="15">
-                                    <controls:CustomEntryControl
-                                        Title="City"
-                                        CornerRadius="20"
-                                        CustomBackgroundColor="#FFFFFF"
-                                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
-                                        HasTitle="True"
-                                        TitleFontSize="16" />
+                        <controls:CategorizeBindableItems Title="Breed" />
 
-                                    <controls:CustomEntryControl
-                                        Title="State/Province"
-                                        CornerRadius="20"
-                                        CustomBackgroundColor="#FFFFFF"
-                                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
-                                        HasTitle="True"
-                                        TitleFontSize="16" />
+                        <BoxView BackgroundColor="#9F9F9F" HeightRequest="1" />
 
-                                    <controls:CustomEntryControl
-                                        Title="Country"
-                                        CornerRadius="20"
-                                        CustomBackgroundColor="#FFFFFF"
-                                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
-                                        HasLeftIcon="True"
-                                        HasTitle="True"
-                                        LeftIconSource="us_flag"
-                                        Placeholder="--Select one--"
-                                        TitleFontSize="16" />
-                                </StackLayout>
-                            </xct:Expander.Content>
-                        </xct:Expander>
+                        <controls:CategorizeBindableItems Title="Gender" />
 
                         <BoxView BackgroundColor="#9F9F9F" HeightRequest="1" />
 
@@ -238,18 +190,18 @@
 
                         <BoxView BackgroundColor="#9F9F9F" HeightRequest="1" />
 
-                        <controls:CategorizeBindableItems Title="Interests" />
+                        <controls:CategorizeBindableItems Title="Favorite Things" />
 
                         <BoxView BackgroundColor="#9F9F9F" HeightRequest="1" />
 
-                        <controls:CategorizeBindableItems Title="Favorite Saying" />
+                        <controls:CategorizeBindableItems Title="Home Town" />
 
                         <BoxView BackgroundColor="#9F9F9F" HeightRequest="1" />
 
                         <controls:CategorizeBindableItems Title="Final Resting Place Name" />
 
                         <BoxView BackgroundColor="#9F9F9F" HeightRequest="1" />
-
+                        
                         <xct:Expander x:Name="expander" Padding="0,0,0,10">
                             <xct:Expander.Header>
                                 <Grid ColumnDefinitions="Auto, *">

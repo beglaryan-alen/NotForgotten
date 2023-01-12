@@ -26,16 +26,5 @@ namespace NotForgotten.Views
             }
         }
 
-        private void TapGestureRecognizer_Tapped_1(object sender, System.EventArgs e)
-        {
-            if (townExpander.IsExpanded)
-            {
-                townArrowImage.RotateTo(0);
-            }
-            else
-            {
-                townArrowImage.RotateTo(180);
-            }
-        }
     }
 }

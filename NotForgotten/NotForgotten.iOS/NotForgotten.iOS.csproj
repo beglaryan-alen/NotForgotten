@@ -131,6 +131,9 @@
     <PackageReference Include="SkiaSharp.Views.Forms">
       <Version>2.88.3</Version>
     </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
+      <Version>3.0.0.5</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.CommunityToolkit">
       <Version>1.3.2</Version>
     </PackageReference>
@@ -497,5 +500,17 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\unsuccess%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\user%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\upload.png" />
   </ItemGroup>
 </Project>

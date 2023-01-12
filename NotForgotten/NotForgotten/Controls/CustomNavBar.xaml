@@ -2,12 +2,13 @@
 <Grid xmlns="http://xamarin.com/schemas/2014/forms"
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
       x:Class="NotForgotten.Controls.CustomNavBar"
-      ColumnDefinitions="Auto, *"
+      ColumnDefinitions="Auto, *, Auto"
       ColumnSpacing="0"
       xmlns:resources="clr-namespace:NotForgotten.Resources"
       VerticalOptions="Fill"
+      xmlns:imageCircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
       HorizontalOptions="Fill"
-      Padding="20, 25, 0, 0"
+      Padding="20, 25, 20, 0"
       x:Name="customNavBar">
     <StackLayout Orientation="Horizontal"
                  Grid.Column="0">
@@ -24,7 +25,6 @@
            />
     </StackLayout>
     
-
     <BoxView Grid.Column="0"
              VerticalOptions="Fill"
              HorizontalOptions="Fill"
@@ -48,5 +48,18 @@
            IsVisible="{Binding IsTitleVisible, Source={x:Reference customNavBar}}"
            Text="{Binding Title, Source={x:Reference customNavBar}}"
            />
+
+    <Frame BackgroundColor="White"
+           Padding="7"
+           IsVisible="{Binding IsRightIconVisible, Source={x:Reference customNavBar}}"
+           CornerRadius="20"
+           Grid.Column="2">
+        <Image Source="{Binding RightIcon, Source={x:Reference customNavBar}}"
+               Aspect="AspectFit"
+               />
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding RightIconTapCommand, Source={x:Reference customNavBar}}"/>
+        </Frame.GestureRecognizers>
+    </Frame>
 
 </Grid>

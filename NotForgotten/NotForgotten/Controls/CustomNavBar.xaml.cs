@@ -84,6 +84,36 @@ namespace NotForgotten.Controls
             set => SetValue(LeftIconTapCommandProperty, value);
         }
 
+        public static readonly BindableProperty RightIconProperty = BindableProperty.Create(
+            propertyName: nameof(RightIcon),
+            returnType: typeof(string),
+            declaringType: typeof(CustomNavBar));
+        public string RightIcon
+        {
+            get => (string)GetValue(RightIconProperty);
+            set => SetValue(RightIconProperty, value);
+        }
+
+        public static readonly BindableProperty IsRightIconVisibleProperty = BindableProperty.Create(
+            propertyName: nameof(IsRightIconVisible),
+            returnType: typeof(bool),
+            declaringType: typeof(CustomNavBar));
+        public bool IsRightIconVisible
+        {
+            get => (bool)GetValue(IsRightIconVisibleProperty);
+            set => SetValue(IsRightIconVisibleProperty, value);
+        }
+
+        public static readonly BindableProperty RightIconTapCommandProperty = BindableProperty.Create(
+            propertyName: nameof(RightIconTapCommand),
+            returnType: typeof(ICommand),
+            declaringType: typeof(CustomNavBar));
+        public ICommand RightIconTapCommand
+        {
+            get => (ICommand)GetValue(RightIconTapCommandProperty);
+            set => SetValue(RightIconTapCommandProperty, value);
+        }
+
         #endregion
     }
 }

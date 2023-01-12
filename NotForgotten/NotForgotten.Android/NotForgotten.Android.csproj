@@ -72,6 +72,9 @@
     <PackageReference Include="SkiaSharp.Views.Forms">
       <Version>2.88.3</Version>
     </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
+      <Version>3.0.0.5</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.CommunityToolkit">
       <Version>1.3.2</Version>
     </PackageReference>
@@ -234,6 +237,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\unsuccess.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\upload.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

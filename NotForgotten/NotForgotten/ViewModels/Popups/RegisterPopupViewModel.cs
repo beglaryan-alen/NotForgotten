@@ -17,11 +17,19 @@ namespace NotForgotten.ViewModels.Popups
 
         private async Task OnRegisterCommand()
         {
-            GoBackPopupCommand.Execute(null);
-            var rootView = new RootView(1);
-            App.Current.MainPage = rootView;
-            await Task.Delay(500);
-            await rootView.Navigation.PushModalAsync(new WhoRememberView(), true);
+            //GoBackPopupCommand.Execute(null);
+            //var rootView = new RootView(1);
+            //App.Current.MainPage = rootView;
+            //await Task.Delay(500);
+            //await rootView.Navigation.PushModalAsync(new WhoRememberView(), true);
+
+            var res = await Xamarin.Essentials.MediaPicker.CapturePhotoAsync();
+            if (res != null)
+            {
+                GoBackCommand.Execute(null);
+                await _navigation.PushModalAsync(new UploadPhotoView());
+
+            }
         }
     }
 }

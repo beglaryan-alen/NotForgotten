@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:NotForgotten.Controls" xmlns:prograssbar="clr-namespace:Xamarin.Forms.Controls;assembly=CircularProgressBar" xmlns:cells="clr-namespace:NotForgotten.Cells"
+             x:Class="NotForgotten.Views.FreeMemorialView"
+             x:Name="freeMemorialView"
+             xmlns:resources="clr-namespace:NotForgotten.Resources">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *">
+
+            <controls:CustomNavBar Title="Pet Memorial"
+                                   IsRightIconVisible="True"
+                                   RightIconTapCommand="{Binding AcoountCommand}"
+                                   RightIcon="user"
+                                   IsTitleVisible="True"/>
+
+            <Grid RowDefinitions="0.15*, 0.65*, 0.2*"
+                  Padding="20, 10"
+                  Grid.Row="1">
+
+                <Frame BackgroundColor="#18222F"
+                       HasShadow="False"
+                       CornerRadius="10"
+                       >
+                    <Grid ColumnDefinitions="Auto, 0.7*">
+                        <prograssbar:CircularProgressBar Stroke="5"
+                                                         Progress="40"
+                                                         Color="#007D00"
+                                                         WidthRequest="50"
+                                                         HorizontalOptions="Center"
+                                                         VerticalOptions="Center"
+                                                         HeightRequest="50"/>
+                        <StackLayout VerticalOptions="StartAndExpand"
+                                     Padding="20, 0"
+                                     Spacing="10"
+                                     HorizontalOptions="StartAndExpand"
+                                     Grid.Column="1">
+                            <Label Text="Total Archive Capacity"
+                                   FontSize="16"
+                                   FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                   TextColor="#EFEFEF"/>
+
+                            <Label Text="First Card Free"
+                                   TextColor="#007DFF"
+                                   FontSize="12"
+                                   FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <StackLayout Grid.Row="1"
+                             Padding="0, 10"
+                             Spacing="20">
+
+                    <BoxView BackgroundColor="#A6A6A6"
+                             HeightRequest="1"/>
+
+                    <StackLayout BindableLayout.ItemsSource="{Binding Collection}"
+                             Spacing="10">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <cells:FreeTrialViewCell TapCommand="{Binding Source={x:Reference freeMemorialView},
+                                    Path=BindingContext.TapCommand}"/>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+
+                </StackLayout>
+
+                <Button BackgroundColor="#FFC846"
+                            CornerRadius="30"
+                        Grid.Row="2"
+                            TextTransform="None"
+                        VerticalOptions="Center"
+                            FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                            FontSize="16"
+                            Command="{Binding StartMemorialCommand}"
+                            Text="Start My Memorial"/>
+
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

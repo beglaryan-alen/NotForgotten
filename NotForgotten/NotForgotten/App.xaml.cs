@@ -1,6 +1,7 @@
 ﻿using NotForgotten.Model.Home;
 using NotForgotten.Views;
 using NotForgotten.Views.Popups;
+using NotForgotten.Views.Tabs;
 using Rg.Plugins.Popup.Services;
 using System;
 using Xamarin.Forms;
@@ -20,7 +21,7 @@ namespace NotForgotten
             InitializeComponent();
             SetupServices();
 
-            MainPage = new LoginView();
+            MainPage = new UploadPhotoView();
         }
 
         private void SetupServices()

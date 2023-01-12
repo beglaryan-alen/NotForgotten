@@ -33,6 +33,7 @@
     <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.1.0" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="2.88.3" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.2" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
@@ -44,6 +45,9 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Cells\CardsViewCell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Cells\FreeTrialViewCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Cells\HomeViewCell.xaml">
@@ -76,13 +80,22 @@
     <EmbeddedResource Update="Views\CategorizeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\FreeMemorialView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Popups\CardsThreeDotPopupView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Popups\IncreaseArchivePopupView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\UploadDigitalAssetsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\UploadDigitalVideoView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\UploadPhotoView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\UploadView.xaml">

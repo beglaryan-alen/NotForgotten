@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:NotForgotten.Controls"
+             xmlns:resources="clr-namespace:NotForgotten.Resources"
+             x:Class="NotForgotten.Views.UploadPhotoView">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *">
+            <controls:CustomNavBar LeftIcon="back_arrow"
+                                   IsLeftIconVisible="True"
+                                   LeftIconTapCommand="{Binding GoBackCommand}"
+                                   Title="Upload Photo"
+                                   IsTitleVisible="True"/>
+
+            <Grid RowDefinitions="*, Auto"
+                  Padding="10"
+                  Grid.Row="1">
+                <Image Source="upload"
+                       VerticalOptions="Center"/>
+
+                <Button BackgroundColor="#FFC846"
+                            Grid.Row="1"
+                            VerticalOptions="EndAndExpand"
+                            FontSize="18"
+                            Text="Upload"
+                            TextTransform="None"
+                        HorizontalOptions="End"
+                        WidthRequest="150"
+                            FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                            Command="{Binding Upload}"
+                            CornerRadius="30"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
