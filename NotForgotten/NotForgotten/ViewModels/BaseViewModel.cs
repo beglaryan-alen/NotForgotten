@@ -25,6 +25,13 @@ namespace NotForgotten.ViewModels
             Initialize();
         }
 
+        private string _title;
+        public string Title
+        {
+            get => _title;
+            set => SetProperty(ref _title , value);
+        }
+
         public ICommand GoBackCommand => new AsyncCommand(async() => await _navigation.PopModalAsync());
 
         protected virtual void Initialize()

@@ -20,10 +20,18 @@
             ScaleIn="1.2"
             ScaleOut="0.8" />
     </pages:PopupPage.Animation>
-    <Frame BackgroundColor="#F4F4F4"
-           CornerRadius="15">
-        <StackLayout>
-            <Label
+    <Grid ColumnDefinitions="0.05*, 0.9*, 0.05*"
+          VerticalOptions="Center">
+
+        <Frame BackgroundColor="#F4F4F4"
+               Grid.Column="1"
+               Padding="40"
+               HeightRequest="120"
+               VerticalOptions="Center"
+               CornerRadius="15">
+            <StackLayout VerticalOptions="Center"
+                         Spacing="20">
+                <Label
                     FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                     FontSize="21"
                     HorizontalOptions="Center"
@@ -32,13 +40,17 @@
                     TextColor="#323232"
                     VerticalOptions="Start" />
 
-            <Button BackgroundColor="#FFC846"
+                <Button BackgroundColor="#FFC846"
                             CornerRadius="30"
                             TextTransform="None"
                             FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                             FontSize="18"
                             Command="{Binding Shop}"
                             Text="Shop"/>
-        </StackLayout>
-    </Frame>
+            </StackLayout>
+        </Frame>
+
+
+    </Grid>
+
 </views:PopupPage>

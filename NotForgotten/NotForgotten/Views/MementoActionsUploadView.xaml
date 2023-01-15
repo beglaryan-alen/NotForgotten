@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:NotForgotten.Resources" xmlns:controls="clr-namespace:NotForgotten.Controls"
+             x:Name="mementoActionsUploadView"
+             x:Class="NotForgotten.Views.MementoActionsUploadView">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto, *">
+
+            <controls:CustomNavBar
+                Title="{Binding Title}"
+                IsLeftIconVisible="True"
+                IsTitleVisible="True"
+                LeftIcon="back_arrow"
+                LeftIconTapCommand="{Binding GoBackCommand}" />
+            
+            <Grid RowDefinitions="Auto, *"
+                  Padding="20"
+                  Grid.Row="1">
+                <Frame HeightRequest="80"
+                       CornerRadius="10"
+                       BackgroundColor="#18222F">
+                    <Label VerticalOptions="End"
+                           Text="Upload Type"
+                           FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                           FontSize="27"
+                           TextColor="#FFFFFF"/>
+                </Frame>
+                <StackLayout
+                Grid.Row="1"
+        BindableLayout.ItemsSource="{Binding Collection}"
+        Spacing="20"
+        VerticalOptions="Center">
+
+                    <BindableLayout.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <Frame
+                    BackgroundColor="#FFFFFF"
+                    CornerRadius="10"
+                    HasShadow="False"
+                    HeightRequest="40">
+                                <Grid ColumnDefinitions="Auto, *">
+                                    <Frame
+                            Padding="7"
+                            BackgroundColor="#F1F7FE"
+                            CornerRadius="3"
+                            HasShadow="False"
+                            HorizontalOptions="StartAndExpand">
+                                        <Image Source="{Binding Image}" />
+                                    </Frame>
+
+                                    <Label
+                            Grid.Column="1"
+                            Padding="10,0"
+                            FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                            FontSize="16"
+                            HorizontalOptions="Start"
+                            Text="{Binding Type}"
+                            TextColor="#18222F"
+                            VerticalOptions="Center" />
+                                </Grid>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference mementoActionsUploadView}, Path=BindingContext.TapCommand}" CommandParameter="{Binding}" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+
+                        </DataTemplate>
+
+                    </BindableLayout.ItemTemplate>
+
+                </StackLayout>
+
+            </Grid>
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

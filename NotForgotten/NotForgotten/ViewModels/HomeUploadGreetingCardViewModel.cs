@@ -17,13 +17,6 @@ namespace NotForgotten.ViewModels
             };
         }
 
-        private string _title;
-        public string Title
-        {
-            get => _title;
-            set => SetProperty(ref _title, value);
-        }
-
         private ObservableCollection<string> _tabLabelsCollection;
         public ObservableCollection<string> TabLabelsCollection
         {

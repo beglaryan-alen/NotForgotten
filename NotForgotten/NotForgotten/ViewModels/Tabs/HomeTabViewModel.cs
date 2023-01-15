@@ -27,7 +27,7 @@ namespace NotForgotten.ViewModels.Tabs
         }
 
         public ICommand IndexToLibrary => new AsyncCommand(async () => await _popupNavigation.PushAsync(new FinalizePopupView()));
-        public ICommand AddAnother => new AsyncCommand(async () => await _popupNavigation.PushAsync(new CardNamePopupView()));
+        public ICommand AddAnother => new AsyncCommand(async () => await _popupNavigation.PushAsync(new IncreaseArchivePopupView()));
         public ICommand TapCommand => new AsyncCommand<HomeBindableModel>(OnTapCommand);
         public ICommand SwipeCommand => new AsyncCommand<HomeBindableModel>(OnSwipeCommand);
         public ICommand SettingsCommand => new AsyncCommand<HomeBindableModel>(OnSettingsCommand);
@@ -40,28 +40,28 @@ namespace NotForgotten.ViewModels.Tabs
             {
                 new HomeBindableModel()
                 {
-                    Title = "Grandpa and I at Disney",
-                    BelongName = "Video",
+                    Title = "Fido as a puppy",
                     Date = DateTime.ParseExact("27/05/2020", "dd/mm/yyyy", CultureInfo.InvariantCulture),
                     IsDownloaded = true,
                     IsFavorite = true,
+                    BelongName="Video",
                     DownloadedSize = 2,
                     FileSize = 2,
                 },
                 new HomeBindableModel()
                 {
-                    Title = "Poppa and Grandma’s Wedding",
-                    BelongName = "Video",
+                    Title = "Fido playing with Billy",
                     Date = DateTime.ParseExact("27/05/2020", "dd/mm/yyyy", CultureInfo.InvariantCulture),
                     DownloadedSize = 1.6,
+                    BelongName="Video",
                     FileSize = 2,
                 },
                 new HomeBindableModel()
                 {
-                    Title = "Dad’s birth",
-                    BelongName = "Photo",
+                    Title = "Best photo ever of Fido",
                     Date = DateTime.ParseExact("27/05/2020", "dd/mm/yyyy", CultureInfo.InvariantCulture),
                     DownloadedSize = 2,
+                    BelongName="Photo",
                     IsDownloaded = true,
                     IsFavorite = true,  
                     FileSize = 2,

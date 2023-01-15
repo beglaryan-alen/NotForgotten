@@ -35,7 +35,7 @@
                         <Label
                             FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                             FontSize="19"
-                            Text="Description or Context of Event"
+                            Text="Any Context to the Card"
                             TextColor="#18222F" />
 
                         <Frame
@@ -54,7 +54,7 @@
                         <Label
                             FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                             FontSize="19"
-                            Text="Date of Event"
+                            Text="Date taken"
                             TextColor="#18222F" />
 
                         <Grid ColumnDefinitions="Auto, *, *, 2*" ColumnSpacing="20">
@@ -116,17 +116,7 @@
 
                     <BoxView BackgroundColor="#9F9F9F" HeightRequest="1" />
 
-                    <controls:CustomEntryControl
-                        Title="Who provided the memento"
-                        CornerRadius="30"
-                        CustomBackgroundColor="#FFFFFF"
-                        HasTitle="True"
-                        TitleColor="#18222F"
-                        TitleFontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
-                        TitleFontSize="19" />
-
                     <StackLayout Spacing="10">
-                        <BoxView BackgroundColor="#9F9F9F" HeightRequest="1" />
 
                         <controls:CategorizeBindableItems Title="Who is in the  memento" Labels="{Binding GiversRelationship}" />
 

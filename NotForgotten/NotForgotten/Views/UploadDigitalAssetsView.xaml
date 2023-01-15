@@ -5,9 +5,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:cells="clr-namespace:NotForgotten.Cells"
     xmlns:controls="clr-namespace:NotForgotten.Controls"
-    xmlns:resources="clr-namespace:NotForgotten.Resources">
+    xmlns:resources="clr-namespace:NotForgotten.Resources" xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, *">
+            <Grid.Resources>
+                <xct:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+            </Grid.Resources>
             <controls:CustomNavBar
                 IsLeftIconVisible="True"
                 LeftIcon="back_arrow"
@@ -22,25 +25,42 @@
                     <Frame
                         Padding="20,15"
                         BackgroundColor="#18222F"
+                        HeightRequest="80"
                         CornerRadius="20">
-                        <StackLayout Padding="0,0,70,0">
-                            <Label
+                        <Grid>
+                            <StackLayout Padding="0,0,70,0"
+                                     IsVisible="{Binding IsArchive, Converter={StaticResource InvertedBoolConverter}}">
+                                <Label
                                 FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                                 FontSize="18"
                                 Text="Digital Assets"
                                 TextColor="#FFC846" />
 
-                            <Label
+                                <Label
                                 FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
                                 FontSize="14"
                                 Text="Upload additional documents, photos,"
                                 TextColor="#FFFFFF" />
-                            <Label
+                                <Label
                                 FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
                                 FontSize="14"
                                 Text="videos &amp; files to be included in your archive"
                                 TextColor="#FFFFFF" />
-                        </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start"
+                                         IsVisible="{Binding IsArchive}"
+                                         HorizontalOptions="Start">
+                                <Label Text="Archive"
+                                       TextColor="#A6A6A6"
+                                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayRoman}"
+                                       FontSize="16"/>
+                                <Label Text="Fido Playing"
+                                       TextColor="#FFFFFF"
+                                       FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                                       FontSize="27"/>
+                            </StackLayout>
+                        </Grid>
                     </Frame>
 
                     <Grid HeightRequest="120">
@@ -150,6 +170,16 @@
                     </StackLayout.Triggers>
                     <Button
                         BackgroundColor="#FFC846"
+                        HorizontalOptions="End"
+                        WidthRequest="100"
+                        Command="{Binding SaveCommand}"
+                        CornerRadius="20"
+                        FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                        FontSize="18"
+                        Text="Upload"
+                        TextTransform="None" />
+                    <!--<Button
+                        BackgroundColor="#FFC846"
                         Command="{Binding SaveCommand}"
                         CornerRadius="20"
                         FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
@@ -162,7 +192,7 @@
                         FontSize="16"
                         HorizontalOptions="Center"
                         Text="Skip &amp; Continue later"
-                        TextColor="#928D8D" />
+                        TextColor="#928D8D" />-->
                 </StackLayout>
             </Grid>
 

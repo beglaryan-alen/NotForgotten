@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resources="clr-namespace:NotForgotten.Resources"
+             x:Class="NotForgotten.Views.PayView">
+    <ContentPage.Content>
+        <Grid Padding="20">
+            <Button BackgroundColor="#FFC846"
+                            CornerRadius="30"
+                            TextTransform="None"
+                    VerticalOptions="End"
+                            FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
+                            FontSize="18"
+                            Command="{Binding Pay}"
+                            Text="Pay"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

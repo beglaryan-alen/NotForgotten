@@ -18,7 +18,7 @@ namespace NotForgotten.ViewModels
         {
             var loginView = new LoginView();
             App.Current.MainPage = loginView;
-            await Task.Delay(300);
+            await Task.Delay(100);
             (loginView.BindingContext as LoginViewModel).RegisterCommand.Execute(null);
         }
     }

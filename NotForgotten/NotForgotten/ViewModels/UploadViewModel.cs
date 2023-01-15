@@ -22,12 +22,5 @@ namespace NotForgotten.ViewModels
             get => _belongName;
             set => SetProperty(ref _belongName, value);
         }
-
-        private string _title;
-        public string Title
-        {
-            get => _title;
-            set => SetProperty(ref _title, value);
-        }
     }
 }

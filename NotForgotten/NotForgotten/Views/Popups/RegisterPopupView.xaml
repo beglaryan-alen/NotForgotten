@@ -123,7 +123,7 @@
                         CornerRadius="30"
                         FontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                         FontSize="18"
-                        Text="Register"
+                        Text="Submit"
                         TextColor="#18222F"
                         TextTransform="None" />
 

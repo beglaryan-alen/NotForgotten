@@ -11,12 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace NotForgotten.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class UploadDigitalAssetsView : ContentPage
+    public partial class PayView : ContentPage
     {
-        public UploadDigitalAssetsView(bool isArchive = false)
+        public PayView()
         {
             InitializeComponent();
-            BindingContext = new UploadDigitalAssetsViewModel(Navigation, isArchive);
+            BindingContext = new PayViewModel(Navigation);
         }
     }
 }
