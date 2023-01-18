@@ -55,18 +55,18 @@ namespace NotForgotten.ViewModels
 
             Occasion = new ObservableRangeCollection<string>()
             {
-                "1st Birthday", 
+                "1st Birthday",
                 "10th Birthday",
                 "Birthday",
                 "Vacation",
                 "Christmas",
                 "Memorial",
-                "Graduation",
-                "Reunion",
-                "Christening",
-                "Bat Mitzvah",
-                "Ceremony",
-                "None",
+                "Playing",
+                "Sleeping",
+                "Tricks",
+                "Working",
+                "Swimming",
+                "None"
             };
 
             LifeStage = new ObservableRangeCollection<string>()
