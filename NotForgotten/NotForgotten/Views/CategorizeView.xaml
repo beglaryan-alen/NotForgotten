@@ -25,7 +25,7 @@
                         CornerRadius="30"
                         CustomBackgroundColor="#FFFFFF"
                         HasTitle="True"
-                        Placeholder="Names of others in the memento, separated by comma"
+                        Placeholder="Names of others in the photo"
                         TitleColor="#18222F"
                         TitleFontFamily="{x:Static resources:FontContstants.NeueHaasDisplayMediu}"
                         TitleFontSize="19" />
@@ -118,7 +118,7 @@
 
                     <StackLayout Spacing="10">
 
-                        <controls:CategorizeBindableItems Title="Who is in the  memento" Labels="{Binding GiversRelationship}" />
+                        <controls:CategorizeBindableItems Title="Who is in the  photo" Labels="{Binding GiversRelationship}" />
 
                         <BoxView BackgroundColor="#9F9F9F" HeightRequest="1" />
 
@@ -126,7 +126,7 @@
 
                         <BoxView BackgroundColor="#9F9F9F" HeightRequest="1" />
 
-                        <controls:CategorizeBindableItems Title="Life stage" Labels="{Binding LifeStage}" />
+                        <controls:CategorizeBindableItems Title="Pet life stage" Labels="{Binding LifeStage}" />
 
                         <BoxView BackgroundColor="#9F9F9F" HeightRequest="1" />
 
